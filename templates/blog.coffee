@@ -12,10 +12,6 @@ loadScript = (file, callback, async) ->
   s             = document.getElementsByTagName('script')[0]
   s.parentNode.insertBefore(script, s)
 
-# load fonts used in css
-window.WebFontConfig = google: (families: [ 'IM Fell English', 'IM Fell English SC' ])
-loadScript 'http://ajax.googleapis.com/ajax/libs/webfont/1/webfont.js'
-
 # fancy auto hyphenation
 loadScript 'http://hyphenator.googlecode.com/svn/tags/Version%203.0.0/Hyphenator.js', ->
   Hyphenator.config intermediatestate: 'visible'
@@ -60,18 +56,18 @@ loadScript 'http://ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js', ->
 
           # loads a page via ajax if not already loaded
           # and triggeres a callback, avoiding double-load issues
-          loadPage = (path, callback) ->
+          loadPage = (path) ->
             selector = "article[data-source='#{path}']"
             page = $("article[data-source='#{path}']")
             if page.lenght > 0
-              callback page
+              page
             else
               $.get path, (data) ->
                 page = $(data).find "article[data-source]"
                 page.hide()
                 wrapper.append page
                 Hyphenator?.run()
-                callback page
+                page
 
           # In what direction to move
           directionTo = (path) ->
@@ -81,23 +77,17 @@ loadScript 'http://ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js', ->
             if current < next then 1 else -1
 
           # Switches from the current page to the page under path
-          # with fancy animation
           switchTo = (path) ->
-            # show animation while loading page, not before/after
-            readyForPage = new Deferrable
-            direction = directionTo path
-            document.title = titles[path] + " - rkh.im"
-            currentPage.css position: 'relative'
+            document.title = titles[path]
+            # currentPage.css position: 'relative'
             $('.comments').html '&nbsp;'
-            currentPage.animate (left: direction * -100, opacity: 0), readyForPage.callback()
-            loadPage path, readyForPage.callback('page')
-            readyForPage.onSuccess (data) ->
-              currentPage.hide()
-              currentPage = data.page[0]
-              currentPage.show()
-              preparePage()
-              currentPage.css position: 'relative', left: direction * 100, opacity: 0
-              currentPage.animate left: 0, opacity: 1
+            currentPage.css opacity: 0
+            data = loadPage path
+            currentPage.hide()
+            currentPage = data.page[0]
+            currentPage.show()
+            preparePage()
+            currentPagePage.css opacity: 1
 
           # track history events
           window.onpopstate = (event) ->
@@ -125,7 +115,7 @@ loadScript 'http://ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js', ->
         window.disqus_identifier = document.location.pathname;
         if articles.indexOf(window.disqus_identifier) > 0
           comments.html '<div id="disqus_thread"></div>'
-          loadScript 'http://rkh.disqus.com/embed.js'
+          loadScript 'http://blogbithug.disqus.com/embed.js'
 
         # time ago for publishing date
         $("time.timeago").timeago()
@@ -140,6 +130,6 @@ loadScript 'http://ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js', ->
 # Google analytics
 window._gaq ||= [];
 window._gaq.push ['_setAccount', 'UA-17222383-1']
-window._gaq.push ['_setDomainName', '.rkh.im']
+window._gaq.push ['_setDomainName', '.bithug.org']
 window._gaq.push ['_trackPageview']
 loadScript 'http://www.google-analytics.com/ga.js'

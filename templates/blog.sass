@@ -4,69 +4,6 @@
 article, header, footer, section, nav, aside
   display: block
 
-@media print
-  body
-    font-family: "IM Fell English", Georgia, serif !important
-
-  aside, nav, .comments, .gist-meta, .noprint
-    display: none !important
-
-  .gist, .gist-file, .gist-data
-    border: none !important
-    font-size: 11pt
-
-  a:link, a:visited
-    text-decoration: none
-    color: #000
-    &:after
-      content: " (" attr(href) ")"
-      font-family: Monaco, "Courier New", "DejaVu Sans Mono", "Bitstream Vera Sans Mono", monospace
-      font-size: 10pt
-    &[href^="/"]:after
-      content: " (http://rkh.im" attr(href) ")"
-    &[href^="mailto:k.haase@finn.de"]:after
-      content: " (k.haase@finn.de)"
-    &.noprintlink:after
-      content: ""
-
-  time.timeago[title]
-    &:after
-      content: ", " attr(title)
-
-  article
-    line-height: 1.25
-    text-align: justify
-    font-size: 14pt
-    h1, h2
-      page-break-after: avoid !important
-    h2
-      font-family: "IM Fell English SC" !important
-    p
-      margin-bottom: 0
-      page-break-before: auto
-      page-break-after: auto
-    p + p
-      text-indent: 2em
-      margin-top: 0
-      .gist
-        margin-top: 1em
-        text-indent: 0
-    img
-      display: block
-      float: left
-      padding: 1em
-        top: 0
-        left: 0
-
-    .license
-      page-break-inside: avoid !important
-      page-break-before: avoid !important
-
-    article .date
-      display: inline-block
-      font-size: 12pt
-      min-width: 5em
-
 @media screen
   $small-margin:  20px
   $big-margin:    144px
@@ -83,7 +20,6 @@ article, header, footer, section, nav, aside
       color: #f3f3f3
       attachment: fixed
     font:
-      family: "IM Fell English", serif
       size: 16px
     padding: $small-margin $outer-margin
     min-width: $min-width + (2*$outer-margin)
@@ -107,7 +43,6 @@ article, header, footer, section, nav, aside
       border: none
 
   article[data-source]
-    //+linear-gradient(color-stops(#f3f3f3 0px, #fff $avg-margin))
     +box_shadow(rgba(0,0,0,0.4), 3px, 3px, 3px)
     background-color: #fff
     max-width: 500px
@@ -127,7 +62,7 @@ article, header, footer, section, nav, aside
       margin-left: -$big-margin
       width: $big-margin - $small-margin
       clear: right
-  
+
     aside
       top: 0
 
@@ -140,7 +75,6 @@ article, header, footer, section, nav, aside
       border:
         left: solid 1px $dark
         bottom: solid 1px $dark
-      //line-height: 20px
       font:
         family: Arial, sans-serif
         size: 14px
@@ -160,13 +94,12 @@ article, header, footer, section, nav, aside
     h2
       font:
         size: 24px
-        family: "IM Fell English SC", "IM Fell English", serif
       text-align: left
       line-height: 0.9
     h3, h4, h5, h6
       font-size: 16px
 
-    header  
+    header
       text-align: left
       font-size: 14px
 
@@ -176,20 +109,20 @@ article, header, footer, section, nav, aside
 
     section.content
       text-align: justify
-  
+
       code
         font-size: 12px
-  
+
       p
         margin-bottom: 0
-  
+
       p + p
         text-indent: $indent
         margin-top: 0
         .gist
           margin-top: 1em
           text-indent: 0
-      
+
       img
         +box_shadow(rgba(0,0,0,0.4), 2px, 1px, 2px)
         float: left
@@ -203,7 +136,7 @@ article, header, footer, section, nav, aside
 
       h1, h2
         clear: left
-  
+
       article
         .date
           display: inline-block
