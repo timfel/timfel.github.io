@@ -4,11 +4,11 @@
   %head
     / I *love* UTF-8
     %meta{:charset => "utf-8"}
-    %title #{"#{title} - " if title}rkh.im
+    %title #{"#{title} - " if title}Blog.url.gsub("http://", "")
     %script{:src => "/articles.js?#{tag = Base64.encode64(Blog.etag)}", :type => "text/javascript"}
     %script{:src => "/blog.js?#{tag}", :type => "text/javascript"}
     %link{:href => "/blog.css?#{tag}", :rel => "stylesheet", :type => "text/css"}
-    %link{:rel => "alternate", :type => "application/rss+xml", :title => "rkh.im", :href => 'http://feeds.feedburner.com/rkh'}
+    %link{:rel => "alternate", :type => "application/rss+xml", :title => Blog.url.gsub("http://", ""), :href => "http://feeds.feedburner.com/#{Blog.feedburner}"}
 
   %body.hyphenate
     / IE 9 supports CSS3/HTML5, or at least that's what I'm told.

@@ -11,16 +11,18 @@
     - link['first', '&lt;&lt;', articles.first]; link['prev',  '&lt;',     prev_page     ]
     - link['next',  '&gt;',     next_page     ]; link['last',  '&gt;&gt;', articles.last ]
 
-  %aside
-    / me likez
-    %p
-      %a{:href => "http://feeds.feedburner.com/rkh", :title => "Subscribe to my feed", :rel => "alternate", :type => "application/rss+xml"}
-        %img{:src => "/images/feed-icon.png", :alt => "Subscribe to my feed"}
+  - if Blog.feedburner
+    %aside
+      %p
+        %a{:href => "http://feeds.feedburner.com/#{Blog.feedburner}", :title => "Subscribe to my feed", :rel => "alternate", :type => "application/rss+xml"}
+          %img{:src => "/images/feed-icon.png", :alt => "Subscribe to my feed"}
 
   %header
     %h1{:"xmlns:dc" => "http://purl.org/dc/elements/1.1/", :property => "dc:title"}= title
     .author
-      by <a href="mailto:k.haase@finn.de" xmlns:cc="http://creativecommons.org/ns#" property="cc:attributionName">Konstantin Haase</a>,
+      by
+      %a{:href => "mailto:#{Blog.email}", :"xmlns:cc" => "http://creativecommons.org/ns#", :property => "cc:attributionName"} #{Blog.author}
+      ,
       %time.timeago{:pubdate => true, :datetime => date.xmlschema}= date.strftime "%Y/%m/%d, %H:%M %Z"
 
   %section.content

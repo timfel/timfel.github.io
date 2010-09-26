@@ -1,8 +1,13 @@
-%w[backports tilt rack forwardable thread yaml json rubypants base64].each { |lib| require lib }
+%w[backports tilt rack forwardable thread yaml json rubypants base64 digest/md5].each { |lib| require lib }
 
 module ::Blog
   extend self, Forwardable
   attr_accessor :articles, :mutex, :map, :last_modified, :etag, :serialized, :secret, :pages
+
+  class << self
+    attr_accessor :url, :author, :email, :feedburner
+  end
+
   def_delegators :map, :[], :[]=
   self.mutex = Mutex.new
 
@@ -82,6 +87,11 @@ module ::Blog
 
   def call(env) self[env['PATH_INFO']].call env['blog.request'] end
 end
+
+Blog.url        = "http://blog.bithug.org"
+Blog.author     = "Tim Felgentreff"
+Blog.email      = "timfelgentreff@gmail.com"
+Blog.feedburner = "rkh"
 
 Blog.load_articles
 use Blog::ClientCache
