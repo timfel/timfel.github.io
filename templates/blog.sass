@@ -15,10 +15,6 @@ article, header, footer, section, nav, aside
   $indent:        1.5em
 
   body
-    +linear-gradient(color-stops(#f3f3f3 40%, #ccc 80%, #aaa))
-    background:
-      color: #f3f3f3
-      attachment: fixed
     font:
       size: 16px
     padding: $small-margin $outer-margin
@@ -27,7 +23,6 @@ article, header, footer, section, nav, aside
     color: $darker
 
   h1, h2
-    +text-shadow(rgba(0,0,0,0.5), 1px, 1px, 3px)
     color: $darker
 
   a
@@ -42,51 +37,63 @@ article, header, footer, section, nav, aside
     img
       border: none
 
+  .header
+    border: 1px solid #CCC
+    outline: #ccc 1px solid
+    outline-offset: 2px
+    margin: 0px 2% 10px
+    padding: 15px 20px 0.25em
+    text-align: center
+    font: normal normal normal 200%/normal Georgia, serif
+    letter-spacing: 0.2em
+    color: $darker
+    width: 95%
+
   article[data-source]
-    +box_shadow(rgba(0,0,0,0.4), 3px, 3px, 3px)
-    background-color: #fff
-    max-width: 500px
-    min-width: $min-width
     min-height: 300px
-    margin: auto
+    min-width: 600px
+    margin-left: 2%
+    overflow: hidden
+    float: left
     line-height: 1.4
     padding: $small-margin
       right: $big-margin
       left: $avg-margin
 
     nav, aside
-      float: right
-      text-align: center
       position: relative
-      right: -$big-margin
-      margin-left: -$big-margin
-      width: $big-margin - $small-margin
-      clear: right
 
     aside
+      font-family: Helvetica, Arial, Freesans, Clean, sans-serif
+      float: right
+      clear: right
       top: 0
+      font-size: 13px
+      width: 26%
+      margin-left: -$big-margin
+      right: -$big-margin
+      padding-left: $small-margin
 
     nav
-      +linear-gradient(color-stops(#777, #333))
-      +border-bottom-left-radius(15px)
       +text-shadow(#000, 1px, 1px, 2px)
-      background-color: #555
-      top: -$small-margin
-      border:
-        left: solid 1px $dark
-        bottom: solid 1px $dark
       font:
         family: Arial, sans-serif
         size: 14px
       color: #777
+      opacity: 0.5
+      margin
+        left: auto
+        right: auto
       .link
         padding: 0 5px
-        opacity: 0.5
+        opacity: 1.0
       a
-        color: #999
+        color: #000
+        font-weight: bold
       a:hover
-        opacity: 0.9
+        opacity: 0.8
         text-decoration: none
+
 
     h1
       font-size: 36px
@@ -109,6 +116,7 @@ article, header, footer, section, nav, aside
 
     section.content
       text-align: justify
+      width: 67%
 
       code
         font-size: 12px

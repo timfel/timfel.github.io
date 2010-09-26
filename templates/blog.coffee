@@ -48,7 +48,6 @@ loadScript 'http://ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js', ->
         $(document).ready ->
           # page that is already loaded
           currentPage = $('article[data-source]')
-          currentPage.css position: 'relative'
           currentPath = -> currentPage[0].getAttribute('data-source')
 
           # global page wrapper
@@ -79,7 +78,6 @@ loadScript 'http://ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js', ->
           # Switches from the current page to the page under path
           switchTo = (path) ->
             document.title = titles[path]
-            # currentPage.css position: 'relative'
             $('.comments').html '&nbsp;'
             currentPage.css opacity: 0
             data = loadPage path
