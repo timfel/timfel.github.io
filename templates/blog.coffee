@@ -27,7 +27,7 @@ loadScript 'http://ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js', ->
 
       # load an external script that uses document.write for embedding
       # widgets. instead of writing content somewhere inline, a callback
-      # is called an a sting containing all strings handed to document.write
+      # is called an a string containing all strings handed to document.write
       # is passed to that callback.
       loadEmbedded  = (file, callback) ->
         deferred    = lastEmbed
