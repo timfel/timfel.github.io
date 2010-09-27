@@ -7,8 +7,9 @@
       - if page == self
         %span{:class => "link #{klass}"}= symbol
       - else
-        - short_title = "#{page.title[0..30]}#{'&hellip;' if page.title.length > 31}"
-        %a{:class => "link #{klass}", :href => page.url, :title => short_title}= symbol
+        - if page.title
+          - short_title = "#{page.title[0..30]}#{'&hellip;' if page.title.length > 31}"
+        %a{:class => "link #{klass}", :href => page.url, :title => short_title || "No title"}= symbol
     - link['first', '&lt;&lt;', articles.first]; link['prev',  '&lt;',     prev_page     ]
     - link['next',  '&gt;',     next_page     ]; link['last',  '&gt;&gt;', articles.last ]
 

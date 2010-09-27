@@ -4,9 +4,7 @@
   %head
     / I *love* UTF-8
     %meta{:charset => "utf-8"}
-    - unless title
-      %meta{:"http-equiv" => "Refresh", :href => "0;#{Blog.url}/#{articles.last.url}"}
-    %title #{"#{title} - " if title}Blog.url.gsub("http://", "")
+    %title #{"#{title} - " if title}#{Blog.url.gsub("http://", "")}
     %script{:src => "/articles.js?#{tag = Base64.encode64(Blog.etag)}", :type => "text/javascript"}
     %script{:src => "/blog.js?#{tag}", :type => "text/javascript"}
     %link{:href => "/blog.css?#{tag}", :rel => "stylesheet", :type => "text/css"}
