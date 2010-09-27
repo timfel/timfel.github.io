@@ -95,7 +95,7 @@ Blog.feedburner = "blogbithugorg"
 Blog.load_articles
 use Blog::ClientCache
 use Rack::Deflater
-use Rack::Static, :urls => ["/images"], :root => "public" if ENV['RACK_ENV'] == 'development'
+use Rack::Static, :urls => ["/images", "/videos"], :root => "public" if ENV['RACK_ENV'] == 'development'
 use Rack::Config do |env|
   env['PATH_INFO'] = Blog.articles.last.url if env['PATH_INFO'] == '/'
 end
