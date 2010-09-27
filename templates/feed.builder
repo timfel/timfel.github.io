@@ -1,7 +1,7 @@
 xml.instruct!
 xml.feed "xmlns" => "http://www.w3.org/2005/Atom" do
-  xml.title '#{Blog.url.gsub("http://", "")}'
-  xml.id '#{Blog.url}'
+  xml.title "#{Blog.url.gsub("http://", "")}"
+  xml.id "#{Blog.url}"
   xml.updated Blog.last_modified
   xml.author { xml.name Blog.author }
 

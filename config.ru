@@ -90,7 +90,7 @@ end
 Blog.url        = "http://blog.bithug.org"
 Blog.author     = "Tim Felgentreff"
 Blog.email      = "timfelgentreff@gmail.com"
-Blog.feedburner = "rkh"
+Blog.feedburner = "timfelgentreff"
 
 Blog.load_articles
 use Blog::ClientCache
