@@ -78,7 +78,6 @@ module ::Blog
     not_found = Page.new("templates/not_found.haml", nil, 404)
     @map = Hash.new { not_found }
     @articles = Dir.glob("articles/*").sort.map { |f| Article.new(f) }
-    @articles.unshift Page.new("templates/index.haml", "/")
     load './pages.rb'
     @etag, modified = `git log HEAD~1..HEAD --pretty=format:%h^%ci`.strip.split('^')
     @last_modified = modified ? Time.parse(modified).httpdate : Time.now.httpdate
@@ -97,4 +96,7 @@ Blog.load_articles
 use Blog::ClientCache
 use Rack::Deflater
 use Rack::Static, :urls => ["/images"], :root => "public" if ENV['RACK_ENV'] == 'development'
+use Rack::Config do |env|
+  env['PATH_INFO'] = Blog.articles.last.url if env['PATH_INFO'] == '/'
+end
 run Blog
