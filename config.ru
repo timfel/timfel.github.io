@@ -86,8 +86,7 @@ module ::Blog
 
   def call(env)
     if env['PATH_INFO'] == '/'
-      last_article = "#{env['rack.url_scheme']}://#{env['HTTP_HOST']}#{Blog.articles.last.url}"
-      [301, {'Location' => last_article}, ['Redirect to last article']]
+      [301, {'Location' => "#{Blog.url}#{Blog.articles.last.url}"}, ['Redirect to last article']]
     else
       self[env['PATH_INFO']].call env['blog.request']
     end
