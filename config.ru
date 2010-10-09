@@ -84,7 +84,14 @@ module ::Blog
     @etag ||= @last_modified
   end
 
-  def call(env) self[env['PATH_INFO']].call env['blog.request'] end
+  def call(env)
+    if env['PATH_INFO'] == '/'
+      last_article = "#{env['rack.url_scheme']}://#{env['HTTP_HOST']}#{Blog.articles.last.url}"
+      [301, {'Location' => last_article}, ['Redirect to last article']]
+    else
+      self[env['PATH_INFO']].call env['blog.request']
+    end
+  end
 end
 
 Blog.url        = "http://blog.bithug.org"
@@ -96,7 +103,4 @@ Blog.load_articles
 use Blog::ClientCache
 use Rack::Deflater
 use Rack::Static, :urls => ["/images", "/videos"], :root => "public" if ENV['RACK_ENV'] == 'development'
-use Rack::Config do |env|
-  env['PATH_INFO'] = Blog.articles.last.url if env['PATH_INFO'] == '/'
-end
 run Blog
