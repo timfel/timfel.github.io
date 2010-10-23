@@ -41,5 +41,5 @@ will automatically check the syntax and show you your errors:
 
 ![Syntax error in a Ruby file](/images/ruby-syntax-error.png)
 
-
+&nbsp;
 
