@@ -112,7 +112,13 @@ loadScript 'http://ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js', ->
         comments = if currentPage then currentPage.find('.comments') else $('.comments')
         window.disqus_identifier = document.location.pathname
         comments.html '<div id="disqus_thread"></div>'
-        loadScript 'http://blogbithug.disqus.com/embed.js'
+        dsq_loading_func = ->
+          SHORTNAME = 'blogbithug' # Your website's shortname on Disqus
+          dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+          dsq.src = "http://#{SHORTNAME}.disqus.com/embed.js";
+          (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+        dsq_loading_func()
+        # loadScript 'http://blogbithug.disqus.com/embed.js'
 
         # time ago for publishing date
         $("time.timeago").timeago()
