@@ -110,10 +110,9 @@ loadScript 'http://ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js', ->
 
         # disqus comments
         comments = if currentPage then currentPage.find('.comments') else $('.comments')
-        window.disqus_identifier = document.location.pathname;
-        if articles.indexOf(window.disqus_identifier) > 0
-          comments.html '<div id="disqus_thread"></div>'
-          loadScript 'http://blogbithug.disqus.com/embed.js'
+        window.disqus_identifier = document.location.pathname
+        comments.html '<div id="disqus_thread"></div>'
+        loadScript 'http://blogbithug.disqus.com/embed.js'
 
         # time ago for publishing date
         $("time.timeago").timeago()
