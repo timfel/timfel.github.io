@@ -112,47 +112,47 @@ article, header, footer, section, nav, aside
       text-align: left
       font-size: 14px
 
-    section.comments
-      margin-top: $small-margin
-      padding-top: $small-margin
-
-    section.content
-      display: table
-      text-align: justify
+    section
       width: 67%
+      &.comments
+        margin-top: $small-margin
+        padding-top: $small-margin
+      &.content
+        display: table
+        text-align: justify
 
-      code
-        font-size: 12px
+        code
+          font-size: 12px
 
-      p
-        margin-bottom: 0
+        p
+          margin-bottom: 0
 
-      p + p
-        text-indent: $indent
-        margin-top: 0
-        .gist
-          margin-top: 1em
-          text-indent: 0
+        p + p
+          text-indent: $indent
+          margin-top: 0
+          .gist
+            margin-top: 1em
+            text-indent: 0
 
-      img
-        +box_shadow(rgba(0,0,0,0.4), 2px, 1px, 2px)
-        float: left
-        display: block
-        margin:
-          top: 0
-          left: 0
-          right: 1em
-          bottom: 2px
-        border: solid 1px $darker
+        img
+          +box_shadow(rgba(0,0,0,0.4), 2px, 1px, 2px)
+          float: left
+          display: block
+          margin:
+            top: 0
+            left: 0
+            right: 1em
+            bottom: 2px
+          border: solid 1px $darker
 
-      h1, h2
-        clear: left
+        h1, h2
+          clear: left
 
-      article
-        .date
-          display: inline-block
-          font-size: 14px
-          min-width: 80px
+        article
+          .date
+            display: inline-block
+            font-size: 14px
+            min-width: 80px
 
   .gist, .gist-file
     font-size: 12px
