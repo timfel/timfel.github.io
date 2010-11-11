@@ -123,8 +123,7 @@ avoid methods that could make assumptions about any of the areas above.
 If you want your extensions to work faster on JRuby, avoid structs and
 struct-macros: use accessor methods instead. If you need read-only access the
 contents of a string as a char array, make sure those Ruby objects are GC'd
-soon enough, for example by using `rb_str_dup(RSTRING_PTR(x))` or the
-`rb_str_cstr(x)`.  
+soon enough, for example by using `rb_str_cstr(x)`.  
 Finally, if you want some code to be specific for JRuby, `#ifdef JRUBY` will help
 you decide what you are compiling for (this works with `RUBINIUS`, too).
 
