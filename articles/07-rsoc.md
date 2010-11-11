@@ -112,7 +112,7 @@ eventually garbage collected. We are copying _all_ active objects, because
 we cannot know if a reference in form of a variable to the content pointers
 remains in use.
 
-Something we cannot support at all, or only in a very limited way, are macros
+Something we currently do not support at all, or only in a very limited way, are macros
 and methods which rely on or deal with MRI's AST (e.g. the `NODE(x)` macro),
 its threading model (`thread_critical = true` won't work), file descriptors
 (changing an fd's access might not work reliably) and stack layout (functions
