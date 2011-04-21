@@ -33,7 +33,7 @@ module ::Blog
 
     def layout;           @layout  ||= Tilt.new('templates/layout.haml').render(self) { content } end
     def content;          @content ||= Tilt.new('templates/page.haml').render(self) { @source }   end
-    def response(content) [status, header.merge('Content-Length' => content.bytesize), content]   end
+    def response(content) [status, header.merge('Content-Length' => content.bytesize), [content]] end
     def load_meta(src)    YAML.load(src).each { |k,v| send("#{k}=", v) if respond_to? "#{k}=" }   end
     def index;            articles.index(self)                                                    end
     def next_page;        (index && index < articles.size - 1)  ? articles[index+1] : self        end
