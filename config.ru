@@ -1,4 +1,4 @@
-%w[backports tilt rack forwardable thread yaml json rubypants base64 digest/md5].each { |lib| require lib }
+%w[backports tilt rack forwardable thread yaml json rubypants base64 digest/md5 time].each { |lib| require lib }
 
 module ::Blog
   extend self, Forwardable

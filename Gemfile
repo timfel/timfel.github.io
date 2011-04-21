@@ -1,0 +1,12 @@
+source :rubygems
+gem "unicorn"
+gem "haml"
+gem "rdiscount"
+gem "coffee-script"
+gem "compass"
+gem "builder"
+gem "backports"
+gem "tilt"
+gem "rack"
+gem "json"
+gem "rubypants"
