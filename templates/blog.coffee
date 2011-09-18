@@ -128,7 +128,7 @@ loadScript 'http://ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js', ->
 
 # Google analytics
 window._gaq ||= [];
-window._gaq.push ['_setAccount', 'UA-17222383-1']
-window._gaq.push ['_setDomainName', '.bithug.org']
+window._gaq.push ['_setAccount', 'UA-25791824-1']
+# window._gaq.push ['_setDomainName', '.bithug.org']
 window._gaq.push ['_trackPageview']
 loadScript 'http://www.google-analytics.com/ga.js'
