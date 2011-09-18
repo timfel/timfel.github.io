@@ -75,6 +75,9 @@ article, header, footer, section, nav, aside
       margin-left: -$big-margin
       right: -$big-margin
       padding-left: $small-margin
+      opacity: 0.1
+      &:hover
+	opacity: 1 !important
 
     nav
       +text-shadow(#000, 1px, 1px, 2px)
@@ -113,7 +116,7 @@ article, header, footer, section, nav, aside
       font-size: 14px
 
     section
-      width: 67%
+      width: 80%
       &.comments
         margin-top: $small-margin
         padding-top: $small-margin
