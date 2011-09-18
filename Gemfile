@@ -1,9 +1,9 @@
 source :rubygems
 gem "unicorn"
-gem "haml"
+gem "haml", '~> 3.0.25'
 gem "rdiscount"
 gem "coffee-script"
-gem "compass"
+gem "compass", '~> 0.10.6'
 gem "builder"
 gem "backports"
 gem "tilt"
