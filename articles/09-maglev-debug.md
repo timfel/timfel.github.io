@@ -1,3 +1,4 @@
+date: 2011-09-08
 title: Debugging on steroids - what Ruby should learn from Smalltalk
 
 ## A prototype of Seaside-like debugging in Ruby

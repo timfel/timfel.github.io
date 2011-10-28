@@ -1,3 +1,4 @@
+date: 2010-09-26
 title: A Redcar debugger interface
 
 ## Bringing some debugging to Redcar
