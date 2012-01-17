@@ -16,3 +16,5 @@ end
 Blog::Page.new("templates/blog.sass", "/blog.css", 200, false, Compass.sass_engine_options).header["Content-Type"] = "text/css"
 Blog::Page.new("templates/feed.builder", "/feed.xml", 200, false).header["Content-Type"] = "text/xml"
 Blog::Page.new("User-agent: *\nAllow: /\n", "/robots.txt", 200, false).header["Content-Type"] = "text/plain"
+
+Blog::Page.new("templates/research.haml", "/research", 200)

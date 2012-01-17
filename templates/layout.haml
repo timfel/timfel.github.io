@@ -40,16 +40,25 @@
           %div About me
           %img{:src => "http://www.gravatar.com/avatar/#{Digest::MD5.hexdigest(Blog.email.strip.downcase)}?s=80"}
           :markdown
-            This blog was started to track my progress on my RubySoc 2010 project, Ruby C extension support for JRuby.
-            It is now used for other things, too. Expect mostly Ruby topics.
+            This blog was started to track my progress on my RubySoc 2010
+            project, Ruby C extension support for JRuby.  It is now used for
+            other things, too. Expect mostly Ruby topics.
 
-            I'm studying for a master's degree at [Hasso Plattner Institute](http://www.hpi.uni-potsdam.de/),
-            [University Of Potsdam](http://www.uni-potsdam.de/). Also, I work as a software engineer at
-            [finnlabs](http://www.finn.de/).
+            I'm studying for a master's degree at [Hasso Plattner
+            Institute](http://www.hpi.uni-potsdam.de/), [University Of
+            Potsdam](http://www.uni-potsdam.de/), I'm mainly at the
+            [Software Architecture
+            Group](http://www.hpi.uni-potsdam.de/hirschfeld/). Once a week I
+            also work as a software engineer at
+            [Finnlabs](http://www.finn.de/).
 
-            If you want to know what technical topics I'm working on, follow me on [Twitter](http://twitter.com/timfelgentreff).
-            Most of the code I'm talking about is on [GitHub](http://github.com/timfel), which is the central hub for my
-            contributions to varous FOSS projects.
+            If you want to know what technical topics I'm working on,
+            follow me on [Twitter](http://twitter.com/timfelgentreff).
+            Most of the code I'm talking about is on
+            [GitHub](http://github.com/timfel), which is the central
+            hub for my contributions to varous FOSS projects. I am
+            also increasingly working on [research](/research) related
+            stuff.
           %h3 Posts
           - articles.reverse_each do |article|
             %article

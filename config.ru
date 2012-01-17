@@ -104,5 +104,5 @@ Blog.feedburner = "blogbithugorg"
 Blog.load_articles
 use Blog::ClientCache
 use Rack::Deflater
-use Rack::Static, :urls => ["/images", "/videos"], :root => "public" if ENV['RACK_ENV'] == 'development'
+use Rack::Static, :urls => ["/images", "/videos", "/uni"], :root => "public" if ENV['RACK_ENV'] == 'development'
 run Blog
