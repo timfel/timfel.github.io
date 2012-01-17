@@ -1,64 +1,22 @@
-%article{'data-source' => url.to_s}
-  .header
-    Coding and stuff
-    .subtitle Because, because, because of the wonderful things he does
+%header
+  %h1{:"xmlns:dc" => "http://purl.org/dc/elements/1.1/", :property => "dc:title"}= title
+  .author
+    by
+    %a{:href => "mailto:#{Blog.email}", :"xmlns:cc" => "http://creativecommons.org/ns#", :property => "cc:attributionName"} #{Blog.author}
+    ,
+    %time.timeago{:pubdate => true, :datetime => date.xmlschema}= date.strftime "%Y/%m/%d, %H:%M %Z"
 
-  %nav
-    / No hint in what direction to move... pure magic. Unless you're in Opera/IE, sucker!
-    - link = proc do |klass, symbol, page|
-      - if page == self
-        %span{:class => "link #{klass}"}= symbol
-      - else
-        - if page.title
-          - short_title = "#{page.title[0..30]}#{'&hellip;' if page.title.length > 31}"
-        %a{:class => "link #{klass}", :href => page.url, :title => short_title || "No title"}= symbol
-    - link['first', '&lt;&lt;', articles.first]; link['prev',  '&lt;',     prev_page     ]
-    - link['next',  '&gt;',     next_page     ]; link['last',  '&gt;&gt;', articles.last ]
+%section.content
+  = yield
 
-  %aside
-    - if Blog.feedburner
-      %p
-        %a{:href => "http://feeds.feedburner.com/#{Blog.feedburner}", :title => "Subscribe to my feed", :rel => "alternate", :type => "application/rss+xml"}
-          %img{:src => "/images/feed-icon.png", :alt => "Subscribe to my feed"}
-    %div About me
-    %img{:src => "http://www.gravatar.com/avatar/#{Digest::MD5.hexdigest(Blog.email.strip.downcase)}?s=80"}
-    :markdown
-      This blog was started to track my progress on my RubySoc 2010 project, Ruby C extension support for JRuby.
-      It is now used for other things, too. Expect mostly Ruby topics.
+%br
+%section.license
+  <a rel="cc:attributionURL" href="http://github.com/rkh/rkh.im">This work</a> is licensed under a
+  <a rel="license" href="http://creativecommons.org/licenses/by-sa/3.0/de/deed.en">Creative Commons
+  Attribution-ShareAlike 3.0 Germany License</a>. Any source code included is, unless stated otherwise,
+  licensed under a <a rel="licenses" href="http://creativecommons.org/licenses/MIT/">MIT License</a>.
+  - if slug
+    %span.noprint This does not apply for comments (below).
 
-      I'm studying for a master's degree at [Hasso Plattner Institute](http://www.hpi.uni-potsdam.de/),
-      [University Of Potsdam](http://www.uni-potsdam.de/). Also, I work as a software engineer at
-      [finnlabs](http://www.finn.de/).
-
-      If you want to know what technical topics I'm working on, follow me on [Twitter](http://twitter.com/timfelgentreff).
-      Most of the code I'm talking about is on [GitHub](http://github.com/timfel), which is the central hub for my
-      contributions to varous FOSS projects.
-    %h3 Posts
-    - articles.reverse_each do |article|
-      %article
-        .date= article.date.strftime("%Y/%m/%d")
-        %a{:href => article.url}= article.title
-
-  %header
-    %h1{:"xmlns:dc" => "http://purl.org/dc/elements/1.1/", :property => "dc:title"}= title
-    .author
-      by
-      %a{:href => "mailto:#{Blog.email}", :"xmlns:cc" => "http://creativecommons.org/ns#", :property => "cc:attributionName"} #{Blog.author}
-      ,
-      %time.timeago{:pubdate => true, :datetime => date.xmlschema}= date.strftime "%Y/%m/%d, %H:%M %Z"
-
-  %section.content
-    = yield
-
-  %br
-  %section.license
-    <a rel="cc:attributionURL" href="http://github.com/rkh/rkh.im">This work</a> is licensed under a
-    <a rel="license" href="http://creativecommons.org/licenses/by-sa/3.0/de/deed.en">Creative Commons
-    Attribution-ShareAlike 3.0 Germany License</a>. Any source code included is, unless stated otherwise,
-    licensed under a <a rel="licenses" href="http://creativecommons.org/licenses/MIT/">MIT License</a>.
-    - if slug
-      %span.noprint This does not apply for comments (below).
-
-  %section.comments
-    / I both love and hate disqus
-
+%section.comments
+  / I both love and hate disqus
