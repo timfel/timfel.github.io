@@ -1,4 +1,5 @@
 source :rubygems
+gem "sinatra"
 gem "unicorn"
 gem "haml", '~> 3.0.25'
 gem "rdiscount"

@@ -33,7 +33,7 @@ module ::Blog
 
     def layout;           @layout  ||= Tilt.new('templates/layout.haml').render(self) { content } end
     def content;          @content ||= Tilt.new('templates/page.haml').render(self) { @source }   end
-    def response(content) [status, header.merge('Content-Length' => content.bytesize), [content]] end
+    def response(content) [status, header.merge('Content-Length' => content.bytesize.to_s), [content]] end
     def load_meta(src)    YAML.load(src).each { |k,v| send("#{k}=", v) if respond_to? "#{k}=" }   end
     def index;            articles.index(self)                                                    end
     def next_page;        (index && index < articles.size - 1)  ? articles[index+1] : self        end
@@ -74,7 +74,7 @@ module ::Blog
   def load_articles(env = {})
     return mutex.synchronize { load_articles } if env["rack.multithread"]
     system 'git pull' unless env.empty?
-    @secret = File.read('.secret').strip
+    @secret = "update"
     not_found = Page.new("templates/not_found.haml", nil, 404)
     @map = Hash.new { not_found }
     @articles = Dir.glob("articles/*").sort.map { |f| Article.new(f) }
@@ -87,12 +87,16 @@ module ::Blog
   def call(env)
     if env['PATH_INFO'] == '/'
       text = 'Redirect to last article'
-      [301, { 'Location' => "#{Blog.url}#{Blog.articles.last.url}",
+      [303, { 'Location' => "#{Blog.url}#{Blog.articles.last.url}",
         'Content-Type' => "text/html",
-        'Content-Length' => text.size }, [text]]
+        'Content-Length' => text.size.to_s }, [text]]
     else
       self[env['PATH_INFO']].call env['blog.request']
     end
+  end
+
+  def new(app)
+    self
   end
 end
 
@@ -102,7 +106,3 @@ Blog.email      = "timfelgentreff@gmail.com"
 Blog.feedburner = "blogbithugorg"
 
 Blog.load_articles
-use Blog::ClientCache
-use Rack::Deflater
-use Rack::Static, :urls => ["/images", "/videos", "/uni"], :root => "public" if ENV['RACK_ENV'] == 'development'
-run Blog
