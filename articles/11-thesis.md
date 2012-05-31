@@ -5,5 +5,5 @@ title: Master Thesis Progress
 
 <iframe src="http://dl.dropbox.com/u/26242153/thesis/index.html"
 	width="100%"
-	height="800px"
+	height="1600px"
 	style="border: none; overflow: hidden" />
