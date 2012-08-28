@@ -1,7 +1,7 @@
 date: 2012-08-27
-title: Qoppa: a language to learn about Fexpr's
+title: Qoppa - a language to learn about Fexpr's
 
-## Qoppa: a language to learn about Fexpr's
+## Qoppa - a language to learn about Fexpr's
 
 Recently, I gave a talk at [Fun Club
 Berlin](http://www.meetup.com/thefunclub/) about Fexpr's. I had only
