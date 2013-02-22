@@ -13,10 +13,12 @@ GEM
       multi_json (~> 1.0)
     haml (3.0.25)
     json (1.7.7)
+    maruku (0.6.1)
+      syntax (>= 1.0.0)
     multi_json (1.6.1)
     rack (1.5.2)
-    rdiscount (2.0.7)
     rubypants (0.2.0)
+    syntax (1.0.0)
     tilt (1.3.3)
 
 PLATFORMS
@@ -29,7 +31,7 @@ DEPENDENCIES
   compass (~> 0.10.6)
   haml (~> 3.0.25)
   json
+  maruku
   rack
-  rdiscount
   rubypants
   tilt
