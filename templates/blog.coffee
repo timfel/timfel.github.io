@@ -93,7 +93,7 @@ loadScript 'http://ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js', ->
             switchTo document.location.pathname if path and path != '' and document.location.pathname != path
 
           # hook into all links
-          $('a[href^="/"]').live 'click', (event) ->
+          $('a[href^="/"]').on 'click', (event) ->
             path = this.getAttribute("href")
             history.pushState true, titles[path], path
             switchTo path
@@ -121,7 +121,7 @@ loadScript 'http://ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js', ->
 
       $(document).ready ->
         # evil disqus loading issue fix
-        $('#dsq-loading-problem a:first-child').live 'click', (event) ->
+        $('#dsq-loading-problem a:first-child').on 'click', (event) ->
           event.preventDefault()
           window.location.reload()
         preparePage()
