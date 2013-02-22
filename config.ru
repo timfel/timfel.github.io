@@ -106,3 +106,8 @@ Blog.email      = "timfelgentreff@gmail.com"
 Blog.feedburner = "blogbithugorg"
 
 Blog.load_articles
+
+use Blog::ClientCache
+use Rack::Deflater
+use Rack::Static, :urls => ["/images", "/videos", "/uni"], :root => "public"
+run Blog
