@@ -1,5 +1,5 @@
 # Additional pages defined in here
-Blog::Page.new(`coffee -p templates/blog.coffee`, "/blog.js", 200, false).header["Content-Type"] = "text/javascript"
+# Blog::Page.new(`coffee -p templates/blog.coffee`, "/blog.js", 200, false).header["Content-Type"] = "text/javascript"
 
 Blog::Page.new(<<-JAVASCRIPT, "/articles.js", 200, false).header["Content-Type"] = "text/javascript"
 var articles;

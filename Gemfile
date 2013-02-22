@@ -1,7 +1,10 @@
 source :rubygems
 gem "haml", '~> 3.0.25'
+
 gem "maruku"
-gem "coffee-script"
+group :development do
+  gem "coffee-script"
+end
 gem "compass", '~> 0.10.6'
 gem "builder"
 gem "backports"
