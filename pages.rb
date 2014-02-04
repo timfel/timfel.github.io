@@ -18,3 +18,4 @@ Blog::Page.new("templates/feed.builder", "/feed.xml", 200, false).header["Conten
 Blog::Page.new("User-agent: *\nAllow: /\n", "/robots.txt", 200, false).header["Content-Type"] = "text/plain"
 
 Blog::Page.new("templates/research.haml", "/research", 200)
+Blog::Page.new("templates/presentations.haml", "/presentations", 200)
