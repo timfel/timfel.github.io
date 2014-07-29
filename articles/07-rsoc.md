@@ -130,9 +130,7 @@ you decide what you are compiling for (this works with `RUBINIUS`, too).
 Generally, C extensions on JRuby will never be fast. Never as fast as on MRI,
 and never as fast as plain Ruby code on JRuby. As extensions go:
   
-<div align="center"><strong>
 C Extension < FFI < Java callout < Java Extension
-</strong></div>
   
 I have seen actual speedups only in extensions that do a lot of work in a
 single call. [Ryan Tomayko](http://github.com/rtomayko/rdiscount)'s RDiscount
