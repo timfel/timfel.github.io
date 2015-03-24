@@ -36,7 +36,7 @@
           - if Blog.feedburner
             %p
               %a{:href => "http://feeds.feedburner.com/#{Blog.feedburner}", :title => "Subscribe to my feed", :rel => "alternate", :type => "application/rss+xml"}
-                %img{:src => "/images/feed-icon.png", :alt => "Subscribe to my feed"}
+                %img{:src => "/public/images/feed-icon.png", :alt => "Subscribe to my feed"}
           %div About me
           %img{:src => "http://www.gravatar.com/avatar/#{Digest::MD5.hexdigest(Blog.email.strip.downcase)}?s=80"}
           :markdown
