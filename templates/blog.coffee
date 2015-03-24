@@ -13,15 +13,15 @@ loadScript = (file, callback, async) ->
   s.parentNode.insertBefore(script, s)
 
 # fancy auto hyphenation
-loadScript 'http://hyphenator.googlecode.com/svn/tags/Version%203.0.0/Hyphenator.js', ->
+loadScript '/Hyphenator.js', ->
   Hyphenator.config intermediatestate: 'visible'
   Hyphenator.run()
 
 # nest everything in callback that depends on jquery
-loadScript 'http://ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js', ->
+loadScript '/jquery.min.js', ->
   currentPage = false
 
-  loadScript 'http://timeago.yarp.com/jquery.timeago.js', ->
+  loadScript '/jquery.timeago.js', ->
     loadScript '/deferrable.js', ->
       lastEmbed = new Deferrable
 
