@@ -15,6 +15,6 @@ after_success:
   - mv ../static/* .
   - git config --global user.email "travis-ci@travis.org"
   - git config --global user.name "Travis CI"
-  - git add .
+  - git add --all .
   - git commit -am "Travis CI autocommit from travis build ${TRAVIS_BUILD_NUMBER}"
-  - git push -fq master:master
+  - git push -fq origin master:master
