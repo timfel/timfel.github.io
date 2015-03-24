@@ -19,6 +19,7 @@ Blog::Page.new("templates/blog.sass", "/blog.css", 200, false, Compass.sass_engi
 Blog::Page.new("templates/feed.builder", "/feed.xml", 200, false).header["Content-Type"] = "text/xml"
 Blog::Page.new("User-agent: *\nAllow: /\n", "/robots.txt", 200, false).header["Content-Type"] = "text/plain"
 
+Tilt.register Tilt::ERBTemplate, 'js'
 Blog::Page.new("templates/Hyphenator.js", "/Hyphenator.js", 200, false).header["Content-Type"] = "text/javascript"
 Blog::Page.new("templates/jquery.min.js", "/jquery.min.js", 200, false).header["Content-Type"] = "text/javascript"
 Blog::Page.new("templates/jquery.timeago.js", "/jquery.timeago.js", 200, false).header["Content-Type"] = "text/javascript"
