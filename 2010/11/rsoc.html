@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang='en'>
+  <!-- Hello dear source reader, feel free to wander around. -->
+  <head>
+    <!-- I *love* UTF-8 -->
+    <meta charset='utf-8' />
+    <title>Ruby Summer of Code Wrap-Up - blog.bithug.org</title>
+    <script src='/articles.js?YjBmOTgzYg==' type='text/javascript'></script>
+    <script src='/blog.js?YjBmOTgzYg==' type='text/javascript'></script>
+    <link href='/blog.css?YjBmOTgzYg==' rel='stylesheet' type='text/css' />
+    <link href='http://feeds.feedburner.com/blogbithugorg' rel='alternate' title='blog.bithug.org' type='application/rss+xml' />
+  </head>
+  <body class='hyphenate'>
+    <!-- IE 9 supports CSS3/HTML5, or at least that's what I'm told. -->
+    <!--[if lt IE 9]>
+      <script src='http://ajax.googleapis.com/ajax/libs/chrome-frame/1/CFInstall.min.js' type='text/javascript'></script>
+      <div id='prompt'></div>
+      <script type='text/javascript'>
+        //<![CDATA[
+          window.attachEvent("onload", function() { CFInstall.check({ mode: "inline", node: "prompt" })});
+        //]]>
+      </script>
+    <![endif]-->
+    <div class='blog'>
+      <article data-source='/2010/11/rsoc.html'>
+        <div class='header'>
+          Coding and stuff
+          <div class='subtitle'>Because, because, because of the wonderful things he does</div>
+        </div>
+        <nav>
+          <a class='link first' href='/2010/06/jax.html' title='Git talk @ JaX 2010'>&lt;&lt;</a>
+          <a class='link prev' href='/2010/10/redcar-syntax-checks.html' title='Syntax Checking For Redcar'>&lt;</a>
+          <a class='link next' href='/2010/11/powersaving-on-macbook.html' title='Linux PM on Macbook Pro'>&gt;</a>
+          <a class='link last' href='/2012/08/qoppa.html' title='Qoppa - a language to learn abo&hellip;'>&gt;&gt;</a>
+        </nav>
+        <aside>
+          <p>
+            <a href='http://feeds.feedburner.com/blogbithugorg' rel='alternate' title='Subscribe to my feed' type='application/rss+xml'>
+              <img alt='Subscribe to my feed' src='/images/feed-icon.png' />
+            </a>
+          </p>
+          <div>About me</div>
+          <img src='http://www.gravatar.com/avatar/36fee2e65c9c0ed678fe3b7d862ed271?s=80' />
+          <p>This blog was started to track my progress on my RubySoc 2010 project, Ruby C extension support for JRuby. It is now used for other things, too. Expect mostly Ruby topics.</p>
+          
+          <p>I&#8217;m studying for a master&#8217;s degree at <a href='http://www.hpi.uni-potsdam.de/'>Hasso Plattner Institute</a>, <a href='http://www.uni-potsdam.de/'>University Of Potsdam</a>, I&#8217;m mainly at the <a href='http://www.hpi.uni-potsdam.de/hirschfeld/'>Software Architecture Group</a>. Once a week I also work as a software engineer at <a href='http://www.finn.de/'>Finnlabs</a>.</p>
+          
+          <p>If you want to know what technical topics I&#8217;m working on, follow me on <a href='http://twitter.com/timfelgentreff'>Twitter</a>. Most of the code I&#8217;m talking about is on <a href='http://github.com/timfel'>GitHub</a>, which is the central hub for my contributions to varous FOSS projects. I am also increasingly working on <a href='/research.html'>research</a> related stuff. I sometimes give <a href='/presentations.html'>presentations</a>.</p>
+          <h3>Posts</h3>
+          <article>
+            <div class='date'>2012/08/27</div>
+            <a href='/2012/08/qoppa.html'>Qoppa - a language to learn about Fexpr's</a>
+          </article>
+          <article>
+            <div class='date'>2012/05/31</div>
+            <a href='/2012/05/thesis.html'>Master Thesis Progress</a>
+          </article>
+          <article>
+            <div class='date'>2012/02/22</div>
+            <a href='/2012/02/cloud-foundry-squeak.html'>CloudFoundry for Smalltalk applications</a>
+          </article>
+          <article>
+            <div class='date'>2011/09/08</div>
+            <a href='/2011/09/maglev-debug.html'>Debugging on steroids - what Ruby should learn from Smalltalk</a>
+          </article>
+          <article>
+            <div class='date'>2010/11/28</div>
+            <a href='/2010/11/powersaving-on-macbook.html'>Linux PM on Macbook Pro</a>
+          </article>
+          <article>
+            <div class='date'>2010/11/10</div>
+            <a href='/2010/11/rsoc.html'>Ruby Summer of Code Wrap-Up</a>
+          </article>
+          <article>
+            <div class='date'>2010/10/23</div>
+            <a href='/2010/10/redcar-syntax-checks.html'>Syntax Checking For Redcar</a>
+          </article>
+          <article>
+            <div class='date'>2010/09/26</div>
+            <a href='/2010/09/redcar-debug.html'>A Redcar debugger interface</a>
+          </article>
+          <article>
+            <div class='date'>2010/08/14</div>
+            <a href='/2010/08/benchmarking-rdiscount.html'>Benchmarking RDiscount</a>
+          </article>
+          <article>
+            <div class='date'>2010/07/13</div>
+            <a href='/2010/07/thin-on-jruby.html'>Thin on JRuby</a>
+          </article>
+          <article>
+            <div class='date'>2010/07/09</div>
+            <a href='/2010/07/capi-the-thin-gem-and-not-much-to-show.html'>JRuby commit flag</a>
+          </article>
+          <article>
+            <div class='date'>2010/06/18</div>
+            <a href='/2010/06/first-week-of-rubysoc.html'>First week of RubySOC</a>
+          </article>
+          <article>
+            <div class='date'>2010/06/07</div>
+            <a href='/2010/06/jax.html'>Git talk @ JaX 2010</a>
+          </article>
+        </aside>
+        <header>
+          <h1 property='dc:title' xmlns:dc='http://purl.org/dc/elements/1.1/'>Ruby Summer of Code Wrap-Up</h1>
+          <div class='author'>
+            by
+            <a href='mailto:timfelgentreff@gmail.com' property='cc:attributionName' xmlns:cc='http://creativecommons.org/ns#'>Tim Felgentreff</a>
+            ,
+            <time class='timeago' datetime='2010-11-10T00:00:00+01:00' pubdate='pubdate'>2010/11/10, 00:00 CET</time>
+          </div>
+        </header>
+        <section class='content'>
+          <p>In the first quarter of this year I applied for a Ruby Summer of Code project, proposing to work on support for Ruby C extensions on JRuby. JRuby has for some time been faster than 1.8 an in in most cases as fast as 1.9 for running Ruby code. But C extensions have been unusable on JRuby, although <a href='http://www.twitter.com/wmeissner'>Wayne Meissner</a> has written a proof-of-concept for loading C code into the JRuby runtime.</p>
+          
+          <h2 id='why_c_extensions'>Why C Extensions?</h2>
+          
+          <p>MRI 1.8 has been widely critizised (often outside the Ruby community), for being slow. However, the interpreter is written in a way that allows to tap into its structures very easily and Ruby has for some time offered a way to link extensions in C using mkmf.rb, which is part of the standard library.<br />Processing intensive tasks or interfaces to tried&#8217;n&#8217;tested C libraries could thus be written without the overhead imposed by an unnecessary abstraction.</p>
+          
+          <p>When alternative Implementations like Rubinius and JRuby came along, people tried to position a new Ruby FFI as the successor to C extensions, because an FFI API could be supported much easier on different VMs.<br />I personally feel that FFI will never fully replace C extensions, because it tries to abstract from a low-level concept without being able to hide many of the low-level details. Quite often it is just much easier to simply write and compile a C extension, than to write C code and try to adapt its structures in an FFI wrapper library. Ruby is simply not very comfortable, if you have to think about things like pointer sizes in your wrapper code.</p>
+          
+          <p>Widespread adoption of FFI is still not happening, and maybe further away now that Rubinius&#8217; support for native C extensions is pretty much complete for most use cases.<br />Thus, the situation for people wanting to:</p>
+          
+          <ul>
+          <li>Deploy Ruby on Windows easily</li>
+          
+          <li>Use Java libraries</li>
+          
+          <li>Deploy in a war-file * …</li>
+          </ul>
+          
+          <p>is, that they have to stay away from C extensions no matter what.</p>
+          
+          <p>For some extensions, like Nokogiri, EM or OpenSSL, this has lead to pure-Java ports, while other libraries have been <em>fast enough</em> as pure Ruby code on JRuby. However, multiple versions of extensions are a pain to maintain, especially when they rely on other libraries, like RMagick does on ImageMagick or Nokogiri on libxml. In such cases, people have tried re-writing those libraries in Java, which not only makes maintenance even harder, but compatibility becomes an issue, too. Nokogiri-jruby had for some time a lot of problems which came from the Java XML implementation simply not being up to par with libxml.</p>
+          
+          <h2 id='so_how_does_this_work_on_jruby'>So, How Does This Work On JRuby?</h2>
+          
+          <p>My Summer of Code pretty much consisted of integrating Wayne&#8217;s groundwork with JRuby and its LoadService, which I will briefly explain here, and then trying to get the C-API Rubyspecs passing and trying to work every Gem that somebody seemed to care about.</p>
+          
+          <h3 id='requiring_files_on_jruby'>Requiring Files On JRuby</h3>
+          
+          <p>Rubys require logic is fairly complex, as proven by a ~450 LOC size of <em>basic</em> require specs. JRuby&#8217;s is even more complex, as require must also work for .class and .jar files, and not only consider the filesystem, but also the JVM classpath and thus jar file contents.</p>
+          
+          <p>I learned how to hack the JRuby loading by debugging and stepping through the LoadService class in JRuby using Eclipse. A good entry point to break in there is the <code>smartLoad</code> method, which receives a the require String as it is passed down from Ruby. Then, JRuby goes uses a number of <code>Searcher</code> classes to try to find a load candidate. There is a script searcher, a classloader searcher, and now an extension searcher, too. Each one of those tries different paths and different file extensions to find a match, and there are quite a few things done &#8220;under the hood&#8221;.<br />For example, regardless of the platform, you can always require &#8216;something.so&#8217; to load an extension. The <code>ExtensionSearcher</code> on JRuby will then try to find a jar file or a file with the platform specific shared object file-extension.</p>
+          
+          <p>When a match is found, it is loaded by a method appropriate for its type: Ruby scripts are loaded by evaluating into the current runtime, C extensions are loaded into the process memory and its <code>Init_*</code> methods are called. To still be able to deploy JRuby applications in a single Jar, extensions are extracted to the default <code>java.io.tmpdir</code> (which you can pass as JVM parameter) and loaded from there. This is because Java&#8217;s <code>System.loadLibrary</code> relies on the underlying operating system to actually load the shared object into the process, and that will only work if the library is in the actual filesystem.</p>
+          
+          <p>There are a few restrictions when using extensions on JRuby. For example, multiple Runtimes will not work, as we can only dynamically link a library to the JVM once. Since we cannot know wether a given extension is thread-safe or if it has global state, we can&#8217;t simply re-use the already loaded library and expose it to another Runtime. Currently, we will throw an error if one attempts to load a C extension twice - which means Rakefiles won&#8217;t work if they load a C extension and then try spawning a sub-process. JRuby&#8217;s <code>system()</code>, magic will detect the launch of another Ruby command and just create a new Runtime in the same JVM. If you want to support JRuby in this case, you can do the following: if RUBY_PLATFORM =~ /java/ require &#8216;jruby&#8217; JRuby.runtime.instance_config.run_ruby_in_process = false<br /> end</p>
+          
+          <h3 id='running_c_code_in_jruby__pieces_of_advice'>Running C Code In JRuby - Pieces Of Advice</h3>
+          
+          <p>In order for extensions to work, we had to implement as much of the Ruby C API as is possible to support on JRuby. In most cases, where the C methods are simply implementations of STL functionality in C (things like <code>rb_ary_push</code>, <code>rb_str_cat</code>, <code>rb_str_new</code>, …) we can just upcall to Java and have JRuby run the Ruby code for this. You can imagine that this is quite slow, but it is safe, and easily supported. Eventually, we can speed those calls up by caching call targets and methods, too.</p>
+          
+          <p>More difficult are most macros. Things like <code>RSTRING_PTR</code> or <code>RARRAY</code> expose internal structs of MRI, which we cannot support directly. On JRuby, once you use such a macro, the objects you are accessing are added to a synchronization list and upon <strong>each</strong> switch Java -&gt; C -&gt; Java the contents of the object are copied downwards and upwards; until the object is eventually garbage collected. We are copying <em>all</em> active objects, because we cannot know if a reference in form of a variable to the content pointers remains in use.</p>
+          
+          <p>Something we currently do not support at all, or only in a very limited way, are macros and methods which rely on or deal with MRI&#8217;s AST (e.g. the <code>NODE(x)</code> macro), its threading model (<code>thread_critical = true</code> won&#8217;t work), file descriptors (changing an fd&#8217;s access might not work reliably) and stack layout (functions like <code>rb_each</code> and <code>rb_iterate</code> don&#8217;t work for arbitrary data structures).</p>
+          
+          <p>So people, if you&#8217;re building C extensions, and want them to work on JRuby, avoid methods that could make assumptions about any of the areas above. If you want your extensions to work faster on JRuby, avoid structs and struct-macros: use accessor methods instead. If you need read-only access the contents of a string as a char array, make sure those Ruby objects are GC&#8217;d soon enough, for example by using <code>rb_str_cstr(x)</code>.<br />Finally, if you want some code to be specific for JRuby, <code>#ifdef JRUBY</code> will help you decide what you are compiling for (this works with <code>RUBINIUS</code>, too).</p>
+          
+          <p>Generally, C extensions on JRuby will never be fast. Never as fast as on MRI, and never as fast as plain Ruby code on JRuby. As extensions go:</p>
+          
+          <p>C Extension &lt; FFI &lt; Java callout &lt; Java Extension</p>
+          
+          <p>I have seen actual speedups only in extensions that do a lot of work in a single call. <a href='http://github.com/rtomayko/rdiscount'>Ryan Tomayko</a>&#8217;s RDiscount gem is a good example. There&#8217;s only a single call down, the hard work is done in C, and the String will probably be garbage collected pretty soon in Ruby land (see also my <a href='/2010/08/benchmarking-rdiscount'>micro-benchmark</a>; just don&#8217;t interpret too much into it).</p>
+        </section>
+        <br />
+        <section class='license'>
+          <a rel="cc:attributionURL" href="http://github.com/rkh/rkh.im">This work</a> is licensed under a
+          <a rel="license" href="http://creativecommons.org/licenses/by-sa/3.0/de/deed.en">Creative Commons
+          Attribution-ShareAlike 3.0 Germany License</a>. Any source code included is, unless stated otherwise,
+          licensed under a <a rel="licenses" href="http://creativecommons.org/licenses/MIT/">MIT License</a>.
+          <span class='noprint'>This does not apply for comments (below).</span>
+        </section>
+        <section class='comments'>
+          <!-- I both love and hate disqus -->
+        </section>
+      </article>
+    </div>
+  </body>
+</html>
