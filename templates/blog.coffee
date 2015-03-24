@@ -22,7 +22,7 @@ loadScript 'http://ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js', ->
   currentPage = false
 
   loadScript 'http://timeago.yarp.com/jquery.timeago.js', ->
-    loadScript 'http://github.com/rkh/deferrable/raw/master/lib/deferrable.js', ->
+    loadScript '/deferrable.js', ->
       lastEmbed = new Deferrable
 
       # load an external script that uses document.write for embedding
