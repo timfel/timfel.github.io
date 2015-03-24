@@ -9,6 +9,7 @@ script:
   - rake
 after_success:
   - mv static ../
+  - git branch -D master || 0
   - git checkout --orphan master
   - rm -rf *
   - mv ../static/* .
