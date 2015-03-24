@@ -1,0 +1,18 @@
+language: ruby
+sudo: false
+branches:
+  only:
+    - master
+install:
+  - bundle install
+script:
+  - rake
+after_success:
+  - mv static ../
+  - git checkout --orphan gh-pages
+  - rm -rf *
+  - mv ../static/* .
+  - git config --global user.email "travis-ci@travis.org"
+  - git config --global user.name "Travis CI"    
+  - git commit -am "Travis CI autocommit from travis build ${TRAVIS_BUILD_NUMBER}"
+  - git push -fq origin gh-pages:gh-pages
