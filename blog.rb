@@ -40,7 +40,8 @@ module ::Blog
     def index;            articles.index(self)                                                    end
     def next_page;        (index && index < articles.size - 1)  ? articles[index+1] : self        end
     def prev_page;        (index && index > 0)                  ? articles[index-1] : self        end
-    def call(request)     response(use_layout ? layout : source)                                  end
+    def call(request)     response(compile)                                                       end
+    def compile;          use_layout ? layout : source                                            end
 
     def date=(value)
       value = Time.parse value.to_s unless value.nil? or Time === value

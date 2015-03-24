@@ -9,7 +9,7 @@ task :default do
     FileUtils.mkdir_p File.join(".", "static", File.dirname(page.url))
     filename = File.join('static', page.url)
     File.open(filename, 'w') do |f|
-      f << page.layout
+      f << page.compile
     end
   end
 end

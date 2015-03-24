@@ -20,8 +20,4 @@ Blog::Page.new("User-agent: *\nAllow: /\n", "/robots.txt", 200, false).header["C
 Blog::Page.new("templates/research.haml", "/research.html", 200)
 Blog::Page.new("templates/presentations.haml", "/presentations.html", 200)
 
-# no layout
-index = Blog::Page.new("templates/index.haml", "/index.html", 200)
-def index.layout
-  source
-end
+index = Blog::Page.new("templates/index.haml", "/index.html", 200, false)
