@@ -17,5 +17,11 @@ Blog::Page.new("templates/blog.sass", "/blog.css", 200, false, Compass.sass_engi
 Blog::Page.new("templates/feed.builder", "/feed.xml", 200, false).header["Content-Type"] = "text/xml"
 Blog::Page.new("User-agent: *\nAllow: /\n", "/robots.txt", 200, false).header["Content-Type"] = "text/plain"
 
-Blog::Page.new("templates/research.haml", "/research", 200)
-Blog::Page.new("templates/presentations.haml", "/presentations", 200)
+Blog::Page.new("templates/research.haml", "/research.html", 200)
+Blog::Page.new("templates/presentations.haml", "/presentations.html", 200)
+
+# no layout
+index = Blog::Page.new("templates/index.haml", "/index.html", 200)
+def index.layout
+  source
+end
