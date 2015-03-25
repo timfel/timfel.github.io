@@ -104,7 +104,7 @@ module ::Blog
   end
 end
 
-Blog.url        = "http://blog.bithug.org"
+Blog.url        = "http://timfel.github.io"
 Blog.author     = "Tim Felgentreff"
 Blog.email      = "timfelgentreff@gmail.com"
 Blog.feedburner = "blogbithugorg"

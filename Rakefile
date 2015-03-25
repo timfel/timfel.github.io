@@ -4,7 +4,8 @@ desc 'Generate static pages'
 task :default do
   load './blog.rb'
   FileUtils.mkdir_p 'static'
-  FileUtils.cp_r 'public', 'static'
+  FileUtils.cp_r 'public', 'static/'
+  FileUtils.cp_r 'lib', 'static/'
   Blog::Page::Instances.each do |page|
     FileUtils.mkdir_p File.join(".", "static", File.dirname(page.url))
     filename = File.join('static', page.url)
