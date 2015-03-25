@@ -58,7 +58,7 @@ loadScript '/lib/jquery.min.js', ->
           loadPage = (path) ->
             selector = "article[data-source='#{path}']"
             page = $("article[data-source='#{path}']")
-            if page.lenght > 0
+            if page.length > 0
               page
             else
               $.get path, (data) ->
