@@ -55,18 +55,18 @@ loadScript '/lib/jquery.min.js', ->
 
           # loads a page via ajax if not already loaded
           # and triggeres a callback, avoiding double-load issues
-          loadPage = (path) ->
+          loadPage = (path, cb) ->
             selector = "article[data-source='#{path}']"
             page = $("article[data-source='#{path}']")
             if page.length > 0
-              page
+              cb(page)
             else
               $.get path, (data) ->
                 page = $(data).find "article[data-source]"
                 page.hide()
                 wrapper.append page
                 Hyphenator?.run()
-                page
+                cb(page)
 
           # In what direction to move
           directionTo = (path) ->
@@ -80,12 +80,12 @@ loadScript '/lib/jquery.min.js', ->
             document.title = titles[path]
             $('.comments').html '&nbsp;'
             currentPage.css opacity: 0
-            data = loadPage path
-            currentPage.hide()
-            currentPage = data.page[0]
-            currentPage.show()
-            preparePage()
-            currentPagePage.css opacity: 1
+            loadPage path, (data) -> 
+                currentPage.hide()
+                currentPage = data.slice 0, 1
+                currentPage.show()
+                preparePage()
+                currentPage.css opacity: 1
 
           # track history events
           window.onpopstate = (event) ->
