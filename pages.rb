@@ -13,7 +13,6 @@ Compass.configuration do |config|
   config.sass_dir = 'templates'
 end
 
-Blog::Page.new("templates/deferrable.coffee", "/deferrable.js", 200, false).header["Content-Type"] = "text/javascript"
 Blog::Page.new("templates/blog.coffee", "/blog.js", 200, false).header["Content-Type"] = "text/javascript"
 Blog::Page.new("templates/blog.sass", "/blog.css", 200, false, Compass.sass_engine_options).header["Content-Type"] = "text/css"
 Blog::Page.new("templates/feed.builder", "/feed.xml", 200, false).header["Content-Type"] = "text/xml"
