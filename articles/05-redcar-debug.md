@@ -41,4 +41,4 @@ Sorry. Your browser does not support the video tag.
 Get a [decent](http://getfirefox.com) [browser](http://www.google.com/chrome)
 </video>
 _Update_
-The video wasn't working for some people, so here's a plain [link](/videos/redcar-debug-demo.mp4)
+The video wasn't working for some people, so here's a plain [link](/public/videos/redcar-debug-demo.mp4)

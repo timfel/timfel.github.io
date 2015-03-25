@@ -39,7 +39,7 @@ an example of how to do it.
 When all went well, you can just open a document, write some code and, upon saving, it
 will automatically check the syntax and show you your errors:
 
-![Syntax error in a Ruby file](/images/ruby-syntax-error.png)
+![Syntax error in a Ruby file](/public/images/ruby-syntax-error.png)
 
 &nbsp;
 
