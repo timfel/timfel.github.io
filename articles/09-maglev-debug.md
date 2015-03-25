@@ -95,12 +95,8 @@ The thread is still suspended and in a persistent state. But if we go
 back to our application now and tell it to resume the request, it will
 prepare the thread for execution and run it - and we can see our app
 load. The error is fixed!
-  
 
-<iframe width="425" height="349"
-	src="http://www.youtube.com/embed/LvipqMIHkO8?hl=en&fs=1"
-	frameborder="0" allowfullscreen>
-</iframe>
+<iframe src="http://www.youtube.com/embed/LvipqMIHkO8?hl=en" width="425" height="349" frameborder="0" allowfullscreen="1" />
 
 ### Why this is cool
 
