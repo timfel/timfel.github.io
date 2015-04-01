@@ -8,7 +8,7 @@ end
 gem "compass"
 gem "builder"
 gem "backports"
-gem "tilt"
+gem "tilt", '>= 1.3.4', '~> 1.3'
 gem "rack"
 gem "json"
 gem "rubypants"
