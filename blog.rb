@@ -12,7 +12,6 @@ module ::Blog
   self.mutex = Mutex.new
 
   class Page
-    include Tilt::CompileSite
     extend Forwardable
     Instances = []
     attr_accessor :source, :url, :title, :status, :header, :file, :date, :header, :title, :slug, :use_layout
