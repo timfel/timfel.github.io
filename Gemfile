@@ -1,11 +1,11 @@
 source :rubygems
-gem "haml", '~> 3.0.25'
+gem "haml"
 
 gem "maruku"
 group :development do
   gem "coffee-script"
 end
-gem "compass", '~> 0.10.6'
+gem "compass"
 gem "builder"
 gem "backports"
 gem "tilt"
