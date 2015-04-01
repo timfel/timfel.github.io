@@ -55,49 +55,49 @@ loadScript '/lib/jquery.min.js', ->
 
           # loads a page via ajax if not already loaded
           # and triggeres a callback, avoiding double-load issues
-          loadPage = (path, cb) ->
-            selector = "article[data-source='#{path}']"
-            page = $("article[data-source='#{path}']")
-            if page.length > 0
-              cb(page)
-            else
-              $.get path, (data) ->
-                page = $(data).find "article[data-source]"
-                page.hide()
-                wrapper.append page
-                Hyphenator?.run()
-                cb(page)
+          # loadPage = (path, cb) ->
+          #   selector = "article[data-source='#{path}']"
+          #   page = $("article[data-source='#{path}']")
+          #   if page.length > 0
+          #     cb(page)
+          #   else
+          #     $.get path, (data) ->
+          #       page = $(data).find "article[data-source]"
+          #       page.hide()
+          #       wrapper.append page
+          #       Hyphenator?.run()
+          #       cb(page)
 
           # In what direction to move
-          directionTo = (path) ->
-            current = articles.indexOf currentPath()
-            next    = articles.indexOf path
-            return 0 if current == next or current == -1 or next == -1
-            if current < next then 1 else -1
+          # directionTo = (path) ->
+          #   current = articles.indexOf currentPath()
+          #   next    = articles.indexOf path
+          #   return 0 if current == next or current == -1 or next == -1
+          #   if current < next then 1 else -1
 
           # Switches from the current page to the page under path
-          switchTo = (path) ->
-            document.title = titles[path]
-            $('.comments').html '&nbsp;'
-            currentPage.css opacity: 0
-            loadPage path, (data) -> 
-                currentPage.hide()
-                currentPage = data.slice 0, 1
-                currentPage.show()
-                preparePage()
-                currentPage.css opacity: 1
+          # switchTo = (path) ->
+          #   document.title = titles[path]
+          #   $('.comments').html '&nbsp;'
+          #   currentPage.css opacity: 0
+          #   loadPage path, (data) -> 
+          #       currentPage.hide()
+          #       currentPage = data.slice 0, 1
+          #       currentPage.show()
+          #       preparePage()
+          #       currentPage.css opacity: 1
 
           # track history events
-          window.onpopstate = (event) ->
-            path = currentPath()
-            switchTo document.location.pathname if path and path != '' and document.location.pathname != path
+          # window.onpopstate = (event) ->
+          #   path = currentPath()
+          #   switchTo document.location.pathname if path and path != '' and document.location.pathname != path
 
           # hook into all links
-          $('a[href^="/"]').on 'click', (event) ->
-            path = this.getAttribute("href")
-            history.pushState true, titles[path], path
-            switchTo path
-            event.preventDefault()
+          # $('a[href^="/"]').on 'click', (event) ->
+          #   path = this.getAttribute("href")
+          #   history.pushState true, titles[path], path
+          #   switchTo path
+          #   event.preventDefault()
 
       preparePage = ->
         ## twitter buttons
