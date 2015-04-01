@@ -36,7 +36,7 @@ It currently includes modules for GDB, JDB, RDebug and Hijack support, and it sh
 other commandline-driven debuggers to it. And because you can describe a GUI for something best with pictures
 I have some moving pictures for you, too:
 
-<video src="/videos/redcar-debug-demo.mp4" controls="controls" width="600px">
+<video src="/public/videos/redcar-debug-demo.mp4" controls="controls" width="600px">
 Sorry. Your browser does not support the video tag.
 Get a [decent](http://getfirefox.com) [browser](http://www.google.com/chrome)
 </video>
