@@ -96,7 +96,7 @@ back to our application now and tell it to resume the request, it will
 prepare the thread for execution and run it - and we can see our app
 load. The error is fixed!
 
-<iframe src="http://www.youtube.com/embed/LvipqMIHkO8?hl=en" width="425" height="349" frameborder="0" allowfullscreen="1" />
+[Demo on YouTube](http://www.youtube.com/embed/LvipqMIHkO8?hl=en)
 
 ### Why this is cool
 

@@ -108,6 +108,10 @@ loadScript '/lib/jquery.min.js', ->
             wrapper.html gist
             wrapper.next().css 'text-indent': 0
 
+        $('p > a[href^="http://www.youtube.com/embed/"]:only-child').each (index, element) ->
+          wrapper = $(element).parent()
+          wrapper.html "<iframe src=\"#{element.href}\" class=\"ytVideo\" frameborder=\"0\" allowfullscreen=\"1\" />"
+
         # disqus comments
         comments = if currentPage then currentPage.find('.comments') else $('.comments')
         window.disqus_identifier = document.location.pathname
