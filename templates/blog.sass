@@ -59,6 +59,7 @@ article, header, footer, section, nav, aside
         display: none
 
   header
+    max-width: 99vw
     text-align: left
     font-size: 14px
 
@@ -132,12 +133,16 @@ article, header, footer, section, nav, aside
     h3, h4, h5, h6
       font-size: 16px
 
+    h1, h2, h3, h4, h5, h6
+      max-width: 99vw
+
     section
       &.comments
         margin-top: $small-margin
         padding-top: $small-margin
       @media screen and (max-width: 980px)
         width: auto
+        max-width: 99vw
       &.content
         display: table
         text-align: justify
@@ -155,7 +160,8 @@ article, header, footer, section, nav, aside
             margin-top: 1em
             text-indent: 0
 
-        img
+        img, video
+          max-width: 100%
           +box_shadow(rgba(0,0,0,0.4), 2px, 1px, 2px)
           float: left
           display: block
