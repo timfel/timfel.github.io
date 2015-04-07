@@ -2,6 +2,9 @@
 %html{:lang => 'en'}
   / Hello dear source reader, feel free to wander around.
   %head
+    :javascript
+      var host = "www.timfelgentreff.de";
+      if ((host == window.location.host) && (window.location.protocol != "https:")) window.location.protocol = "https";
     / I *love* UTF-8
     %meta{:charset => "utf-8"}
     %meta{:name => "viewport", :content => "width=device-width,initial-scale=1.0"}
@@ -11,6 +14,7 @@
     %link{:href => 'http://fonts.googleapis.com/css?family=Fanwood+Text', :rel => 'stylesheet', :type => 'text/css'}
     %link{:href => 'http://fonts.googleapis.com/css?family=Source+Sans+Pro', :rel => 'stylesheet', :type => 'text/css'}
     %link{:href => "/blog.css?#{tag}", :rel => "stylesheet", :type => "text/css"}
+    %link{:rel => "canonical", :href => "https://www.timfelgentreff.de"}
     %link{:rel => "alternate", :type => "application/rss+xml", :title => Blog.url.gsub("http://", ""), :href => "http://feeds.feedburner.com/#{Blog.feedburner}"}
 
   %body.hyphenate
