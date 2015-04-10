@@ -13,7 +13,7 @@ MRI, supports the `-c` switch to just do Syntax checking. So I dug into
 that a little and came up with a short script to run the JRuby parser
 on a piece of code from within a JRuby process:
 
-[ruby\_syntax\_checker.rb](http://gist.github.com/639637)
+[ruby\_syntax\_checker.rb](//gist.github.com/639637)
 
 From this I have now created two Redcar plugins: 
 [redcar\_syntax\_check](http://github.com/timfel/redcar_syntax_check) which

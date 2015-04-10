@@ -29,11 +29,11 @@ interfered with the local rvm install the cloud foundry script set up,
 so I changed the .bashrc of this user to not load RVM and only use
 this minimal `PATH`
 
-[bashrc](http://gist.github.com/1886224)
+[bashrc](//gist.github.com/1886224)
 
 After starting, I tested the setup with this simple Sinatra app:
 
-[env.rb](http://gist.github.com/1886224)
+[env.rb](//gist.github.com/1886224)
 
 To do this, I needed to create a user on the server, using the vmc
 script.
@@ -86,7 +86,7 @@ his/her app honors that argument.
 
 Now I created a (very simple) RatPack application:
 
-[app.st](http://gist.github.com/1886415)
+[app.st](//gist.github.com/1886415)
 
 Usually, with RatPack, you will use the Morphic control panel to start
 applications, assign them a port and so on. On CloudFoundry, the cloud
@@ -95,7 +95,7 @@ multiple instances in parallel. To make sure our application is always
 running on the right port, I added these methods to the *class side*
 of the `TestApp` class:
 
-[classside.st](http://gist.github.com/1886415)
+[classside.st](//gist.github.com/1886415)
 
 This will make sure the application is properly shutdown and restarted
 whenever an image is stopped and re-run.
@@ -106,7 +106,7 @@ a small [project](http://ss3.gemstone.com/ss/CloudFoundry.html) to
 create `pushable` directories and scripts from your
 applications. Install it and run:
 
-[script.st](http://gist.github.com/1886415)
+[script.st](//gist.github.com/1886415)
 
 It asks whether you want to install any _MetacelloConfigurations_
 and/or _MCZs_. I chose `ConfigurationOfRatPack` in version 1.0 with
@@ -115,7 +115,7 @@ folder named `vmc` in your default Smalltalk directory with two MCZs
 copied from your `package-cache`, as well as a `squeak.st` script to
 run during the staging process:
 
-[squeak.st](http://gist.github.com/1886415)
+[squeak.st](//gist.github.com/1886415)
 
 As you can see, this script will install the configuration and the
 mcz, as well as the RFB server, so you can connect to your image via
@@ -136,7 +136,7 @@ during staging, the client then timed out and reported a failure. You
 can check the transcript logfile or with VNC to make sure everything
 works as expected. Once you got it working, use 
 
-[deploy.st](http://gist.github.com/1886415)
+[deploy.st](//gist.github.com/1886415)
 
 to generate a deployment without VNC access to lock down your image.
 
