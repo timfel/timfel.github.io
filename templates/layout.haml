@@ -4,18 +4,18 @@
   %head
     / I really think you should use https
     :javascript
-      var host = "www.timfelgentreff.de";
+      var host = "#{Blog.url.gsub("https://", "")}";
       if ((host == window.location.host) && (window.location.protocol != "https:")) window.location.protocol = "https";
     / I *love* UTF-8
     %meta{:charset => "utf-8"}
     %meta{:name => "viewport", :content => "width=device-width,initial-scale=1.0"}
-    %title #{"#{title} - " if title}#{Blog.url.gsub("http://", "")}
+    %title #{"#{title} - " if title}#{Blog.url.gsub("https://", "")}
     %script{:src => "/articles.js?#{tag = Base64.encode64(Blog.etag)}", :type => "text/javascript"}
     %script{:src => "/blog.js?#{tag}", :type => "text/javascript"}
     %link{:href => '//fonts.googleapis.com/css?family=Fanwood+Text', :rel => 'stylesheet', :type => 'text/css'}
     %link{:href => '//fonts.googleapis.com/css?family=Source+Sans+Pro', :rel => 'stylesheet', :type => 'text/css'}
     %link{:href => "/blog.css?#{tag}", :rel => "stylesheet", :type => "text/css"}
-    %link{:rel => "canonical", :href => "https://www.timfelgentreff.de"}
+    %link{:rel => "canonical", :href => "#{Blog.url}"}
     %link{:rel => "alternate", :type => "application/rss+xml", :title => Blog.url.gsub("http://", ""), :href => "http://feeds.feedburner.com/#{Blog.feedburner}"}
 
   %body.hyphenate
