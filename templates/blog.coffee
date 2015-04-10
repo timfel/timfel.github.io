@@ -102,13 +102,13 @@ loadScript '/lib/jquery.min.js', ->
       preparePage = ->
         ## twitter buttons
         #loadScript 'http://platform.twitter.com/widgets.js'
-        $('p > a[href^="http://gist.github.com/"]:only-child').each (index, element) ->
+        $('p > a[href^="//gist.github.com/"]:only-child').each (index, element) ->
           loadEmbedded "#{element.href}.js?file=#{element.innerHTML}", (gist) ->
             wrapper = $(element).parent()
             wrapper.html gist
             wrapper.next().css 'text-indent': 0
 
-        $('p > a[href^="http://www.youtube.com/embed/"]:only-child').each (index, element) ->
+        $('p > a[href^="//www.youtube.com/embed/"]:only-child').each (index, element) ->
           wrapper = $(element).parent()
           wrapper.html "<iframe src=\"#{element.href}\" class=\"ytVideo\" frameborder=\"0\" allowfullscreen=\"1\" />"
 
@@ -118,7 +118,7 @@ loadScript '/lib/jquery.min.js', ->
         window.disqus_url = "#{document.location}"
         window.disqus_developer = 1 # Disqus doesn't seem to load on some of my articles without
         comments.html '<div id="disqus_thread"></div>'
-        loadScript 'http://blogbithug.disqus.com/embed.js'
+        loadScript '//blogbithug.disqus.com/embed.js'
 
         # time ago for publishing date
         $("time.timeago").timeago()
@@ -135,4 +135,4 @@ window._gaq ||= [];
 window._gaq.push ['_setAccount', 'UA-25791824-1']
 # window._gaq.push ['_setDomainName', '.bithug.org']
 window._gaq.push ['_trackPageview']
-loadScript 'http://www.google-analytics.com/ga.js'
+loadScript '//www.google-analytics.com/ga.js'
