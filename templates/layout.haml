@@ -2,15 +2,21 @@
 %html{:lang => 'en'}
   / Hello dear source reader, feel free to wander around.
   %head
+    / I really think you should use https
+    :javascript
+      var host = "#{Blog.url.gsub('https://', '')}";
+      if ((host == window.location.host) && (window.location.protocol != "https:")) window.location.protocol = "https";
     / I *love* UTF-8
     %meta{:charset => "utf-8"}
     %meta{:name => "viewport", :content => "width=device-width,initial-scale=1.0"}
-    %title #{"#{title} - " if title}#{Blog.url.gsub("http://", "")}
+    %title #{"#{title} - " if title}#{Blog.url.gsub("https://", "")}
     %script{:src => "/articles.js?#{tag = Base64.encode64(Blog.etag)}", :type => "text/javascript"}
     %script{:src => "/blog.js?#{tag}", :type => "text/javascript"}
-    %link{:href => 'http://fonts.googleapis.com/css?family=Fanwood+Text', :rel => 'stylesheet', :type => 'text/css'}
-    %link{:href => 'http://fonts.googleapis.com/css?family=Source+Sans+Pro', :rel => 'stylesheet', :type => 'text/css'}
+    %link{:href => '//fonts.googleapis.com/css?family=Fanwood+Text', :rel => 'stylesheet', :type => 'text/css'}
+    %link{:href => '//fonts.googleapis.com/css?family=Source+Sans+Pro', :rel => 'stylesheet', :type => 'text/css'}
     %link{:href => "/blog.css?#{tag}", :rel => "stylesheet", :type => "text/css"}
+    %link{:rel => "canonical", :href => "#{Blog.url}"}
+    %link{:rel => "icon", :type => "image/jpeg", :href => "//www.gravatar.com/avatar/#{Digest::MD5.hexdigest(Blog.email.strip.downcase)}?s=24"}
     %link{:rel => "alternate", :type => "application/rss+xml", :title => Blog.url.gsub("http://", ""), :href => "http://feeds.feedburner.com/#{Blog.feedburner}"}
 
   %body.hyphenate
@@ -39,10 +45,10 @@
       %aside
         - if Blog.feedburner
           %p
-            %a{:href => "http://feeds.feedburner.com/#{Blog.feedburner}", :title => "Subscribe to my feed", :rel => "alternate", :type => "application/rss+xml"}
+            %a{:href => "//feeds.feedburner.com/#{Blog.feedburner}", :title => "Subscribe to my feed", :rel => "alternate", :type => "application/rss+xml"}
               %img{:src => "/public/images/feed-icon.png", :alt => "Subscribe to my feed"}
         %div About me
-        %img{:src => "http://www.gravatar.com/avatar/#{Digest::MD5.hexdigest(Blog.email.strip.downcase)}?s=80"}
+        %img{:src => "//www.gravatar.com/avatar/#{Digest::MD5.hexdigest(Blog.email.strip.downcase)}?s=80"}
         :markdown
           This blog was started to track my progress on my RubySoc 2010
           project, Ruby C extension support for JRuby.  It is now used for
