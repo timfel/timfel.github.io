@@ -4,7 +4,7 @@
   %head
     / I really think you should use https
     :javascript
-      var host = "#{Blog.url.gsub("https://", "")}";
+      var host = "#{Blog.url.gsub('https://', '')}";
       if ((host == window.location.host) && (window.location.protocol != "https:")) window.location.protocol = "https";
     / I *love* UTF-8
     %meta{:charset => "utf-8"}
