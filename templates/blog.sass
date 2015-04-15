@@ -155,7 +155,10 @@ article, header, footer, section, nav, aside
           max-width: 75vw
 
         p
-          max-width: 90vw
+          @media screen and (max-width: 980px)
+            max-width: 90vw
+          @media screen and (min-width: 980px)
+            max-width: 97%
           margin-bottom: 0
 
         p + p
