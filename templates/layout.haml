@@ -16,7 +16,7 @@
     %link{:href => '//fonts.googleapis.com/css?family=Source+Sans+Pro', :rel => 'stylesheet', :type => 'text/css'}
     %link{:href => "/blog.css?#{tag}", :rel => "stylesheet", :type => "text/css"}
     %link{:rel => "canonical", :href => "#{Blog.url}"}
-    %link{:rel => "icon", :type => "image/jpeg", :href => "//www.gravatar.com/avatar/#{Digest::MD5.hexdigest(Blog.email.strip.downcase)}?s=24"}
+    %link{:rel => "icon", :type => "image/jpeg", :href => "//upload.wikimedia.org/wikipedia/commons/a/a8/Cesium.svg"}
     %link{:rel => "alternate", :type => "application/rss+xml", :title => Blog.url.gsub("http://", ""), :href => "http://feeds.feedburner.com/#{Blog.feedburner}"}
 
   %body.hyphenate
@@ -47,7 +47,6 @@
           %p
             %a{:href => "//feeds.feedburner.com/#{Blog.feedburner}", :title => "Subscribe to my feed", :rel => "alternate", :type => "application/rss+xml"}
               %img{:src => "/public/images/feed-icon.png", :alt => "Subscribe to my feed"}
-        %div About me
         %img{:src => "//www.gravatar.com/avatar/#{Digest::MD5.hexdigest(Blog.email.strip.downcase)}?s=180"}
         :markdown
           This blog was started to track my progress on my RubySoc 2010
