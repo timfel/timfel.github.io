@@ -70,6 +70,7 @@ article, header, footer, section, nav, aside
     font-family: 'Source Sans Pro', Helvetica, Arial, Freesans, Clean, sans-serif
     top: 0
     font-size: 13px
+    text-align: center
     @media screen and (min-width: 980px)
       float: right
       clear: right
@@ -139,13 +140,14 @@ article, header, footer, section, nav, aside
 
     section
       &.comments
+        clear: both
         margin-top: $small-margin
         padding-top: $small-margin
       @media screen and (max-width: 980px)
         width: auto
         max-width: 99vw
       &.content
-        display: table
+        display: block
         text-align: justify
 
         code
@@ -208,6 +210,7 @@ article, header, footer, section, nav, aside
       font-size: 9px !important
 
 .license
+  clear: both
   margin-top: 2em
   font-family: 'Source Sans Pro', Helvetica, Arial, Freesans, Clean, sans-serif
   font-size: 8pt
