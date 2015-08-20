@@ -4,13 +4,12 @@ addons:
   apt_packages:
     - pandoc
     - wkhtmltopdf
+    - libimage-exiftool-perl
 branches:
   only:
     - trunk
 install:
   - bundle install
-  - curl http://www.sno.phy.queensu.ca/~phil/exiftool/Image-ExifTool-10.00.tar.gz | tar -xzf -
-  - export PATH=$PATH:$(pwd)/Image-ExifTool-*/
 script:
   - rake
 after_success:
