@@ -50,6 +50,7 @@ namespace :cv do
                 --to html5 \
                 --variable=date:'#{date}' \
                 --css style.css \
+                --bibliography cv.bib \
                 --output #{static}/cv.html cv.md")
     end
   end
