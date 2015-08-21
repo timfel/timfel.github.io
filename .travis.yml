@@ -13,8 +13,8 @@ before_install:
   - "export DISPLAY=:99.0"
   - "sh -e /etc/init.d/xvfb start"
 install:
-  - apt-get download pandoc-citeproc
-  - apt-get download libghc-pandoc-citeproc-data
+  - apt-get download pandoc-citeproc || wget http://us.archive.ubuntu.com/ubuntu/pool/universe/h/haskell-pandoc-citeproc/pandoc-citeproc_0.4.0.1-1build1_amd64.deb
+  - apt-get download libghc-pandoc-citeproc-data || wget http://us.archive.ubuntu.com/ubuntu/pool/universe/h/haskell-pandoc-citeproc/libghc-pandoc-citeproc-prof_0.4.0.1-1build1_amd64.deb
   - dpkg -i --force-non-root --root=$HOME libghc*.deb
   - dpkg -i --force-non-root --root=$HOME pandoc-citeproc*.deb
   - bundle install
