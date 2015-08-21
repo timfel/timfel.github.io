@@ -124,6 +124,8 @@ loadScript '/lib/jquery.min.js', ->
         $("time.timeago").timeago()
 
       $(document).ready ->
+        $("aside").bind 'touchstart', (event) ->
+          $(this).toggleClass 'hover_effect'
         # evil disqus loading issue fix
         $('#dsq-loading-problem a:first-child').on 'click', (event) ->
           event.preventDefault()
