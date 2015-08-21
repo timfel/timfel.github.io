@@ -114,7 +114,7 @@ Oct 2012-present
      compilers.
 
 
-Oct 2014-Nov 2014
+Oct 2014-Dez 2014
 :    **Visiting Researcher**, *Nanjing University*, Nanjing, China \
 
      At Nanjing University I collaborated with researchers on

@@ -47,7 +47,8 @@
           %p
             %a{:href => "//feeds.feedburner.com/#{Blog.feedburner}", :title => "Subscribe to my feed", :rel => "alternate", :type => "application/rss+xml"}
               %img{:src => "/public/images/feed-icon.png", :alt => "Subscribe to my feed"}
-        %img{:src => "//www.gravatar.com/avatar/#{Digest::MD5.hexdigest(Blog.email.strip.downcase)}?s=180"}
+        %a{:href => "/cv.html", :title => "CV"}
+          %img{:src => "//www.gravatar.com/avatar/#{Digest::MD5.hexdigest(Blog.email.strip.downcase)}?s=180"}
         :markdown
           This blog was started to track my progress on my RubySoc 2010
           project, Ruby C extension support for JRuby.  It is now used for
