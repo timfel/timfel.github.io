@@ -42,9 +42,18 @@ nocite: |
 ---
   
 Profile
--------
+=======
 
-
+I am a Ph.D. student at the Hasso Plattner Institute in Potsdam. My
+interests are in language and virtual machine design. I focus on
+developing language features meant to improve expressibility and VM
+technologies to make sure those language features offer good
+performance. I am involved in the PyPy/RPython project and various
+dynamic language VMs built on top of it, and I am the creator of the
+Babelsberg project, which has spawned a family of lanuages that
+integrate constraint solving with object-oriented programming. I
+prototype much of my research in the self-supporting development
+environments Squeak/Smalltalk and the Lively Kernel.
 
 Education
 ---------
@@ -58,16 +67,38 @@ Education
      meta-circularity; development tools; virtual machine development;
      as well as distributed and parallel programming.
 
-     Master's Thesis
-       ~ [Comparison, Replay, and Refinement of Communication Traces
-          for Debugging Distributed Failures](public/uni/12FelgentreffThesis.pdf)
+    Master's Thesis
+      ~ [Comparison, Replay, and Refinement of Communication Traces for Debugging Distributed Failures](public/uni/12FelgentreffThesis.pdf)
 
 2007-2010
 :    **B.Sc.**, *Hasso Plattner Institute, University of Potsdam*, Potsdam, Germany \
      in 1.4 (A)
 
-     Bachelor's Thesis
-       ~ [Post-mortem Analysis of Debug Traces](public/uni/10AspectToolsOrchideo.pdf)
+    Bachelor's Thesis
+      ~ [Post-mortem Analysis of Debug Traces](public/uni/10AspectToolsOrchideo.pdf)
+
+
+Skills
+------
+
+&nbsp;
+:    
+
+    Languages
+	  ~ German - native proficiency
+	  ~ English - full professional proficiency
+	  ~ French - limited working proficiency
+	  ~ Mandarin - elementary proficiency
+	  ~ &nbsp;
+
+    Coding
+	  ~ [Babelsberg](https://github.com/babelsberg)
+	  ~ [JRuby](https://github.com/jruby)
+	  ~ [Topaz](https://github.com/topazproject)
+	  ~ [MagLev](https://github.com/maglev)
+	  ~ [PyPy](https://bitbucket.org/pypy)
+	  ~ [RSqueakVM](https://github.com/HPI-SWA-Lab/RSqueak)
+	  ~ [Lively Kernel](https://github.com/LivelyKernel)
 
 Experience
 ----------
@@ -79,7 +110,8 @@ Oct 2012-present
      novel approach at combining constraint solvers with dynamic,
      object-oriented languages semantically and syntactically in a
      clean and powerful way. On the side I am also investigating
-     dynamic language VM technologies.
+     dynamic language VM technologies, with a focus on tracing JIT
+     compilers.
 
 
 Oct 2014-Nov 2014
@@ -92,7 +124,7 @@ Oct 2014-Nov 2014
 Feb 2010-Oct 2012
 :    **Working Student**, *Finn GmbH*, Berlin, Germany \
 
-     At Finn GmbH I was involved in plugin development for Redmine
+     At Finn GmbH I was involved in plugin development for Redmine.
 
 
 Oct 2009-Oct 2012
@@ -118,5 +150,4 @@ Aug 2011-Nov 2011
 
 Publications
 ------------
-
-Starting with my theses up to current research.
+&nbsp;
