@@ -24,8 +24,29 @@
   $for(header-includes)$
     $header-includes$
   $endfor$
+  <script type="text/javascript">
+  loadScript = function(file, callback, async) {
+    var s, script;
+    script = document.createElement('script');
+    script.src = file;
+    script.type = 'text/javascript';
+    script.async = async != null ? async : true;
+    if (callback) {
+      script.onload = callback;
+    }
+    s = document.getElementsByTagName('script')[0];
+    return s.parentNode.insertBefore(script, s);
+  };
+
+  loadScript('/lib/Hyphenator.js', function() {
+    Hyphenator.config({
+      intermediatestate: 'visible'
+    });
+    return Hyphenator.run();
+  });
+  </script>
 </head>
-<body>
+<body class="hyphenate">
   <header itemscope itemtype="http://http://schema.org/Person" class="$if(photo)$with-photo$endif$">
     <div id="title" class="$if(qrcode)$qrcode$endif$">
       $if(qrcode)$
