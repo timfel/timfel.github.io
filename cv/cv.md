@@ -63,9 +63,9 @@ Education
      in 1.0 (A+)
 
      During my master's studies, I focused on programming language
-     concepts to facilitate end-user programming, modularity, and
-     meta-circularity; development tools; virtual machine development;
-     as well as distributed and parallel programming.
+     concepts to facilitate development tools, end-user programming,
+     modularity, and meta-circularity especially in distributed and
+     parallel programming settings.
 
     Master's Thesis
       ~ [Comparison, Replay, and Refinement of Communication Traces for Debugging Distributed Failures](public/uni/12FelgentreffThesis.pdf)
@@ -108,10 +108,7 @@ Oct 2012-present
 
      My Ph.D. research focuses on object-constraint programming, a
      novel approach at combining constraint solvers with dynamic,
-     object-oriented languages semantically and syntactically in a
-     clean and powerful way. On the side I am also investigating
-     dynamic language VM technologies, with a focus on tracing JIT
-     compilers.
+     object-oriented languages in a clean and powerful way.
 
 
 Oct 2014-Dez 2014
@@ -139,13 +136,9 @@ Oct 2009-Oct 2012
 Aug 2011-Nov 2011
 :    **Intern**, *VMware*, Beaverton, OR, USA \
 
-     At VMware I was working on the MagLev Ruby VM build on top of the
-     distributed GemStone/S smalltalk object database
-     system. Specifically improving the reflection support and
-     developer tools, with a special focus on bringing Ruby web
-     application development up to par with Seaside and it's debugging
-     tools.
-
+     At VMware I was working on the MagLev Ruby VM built on top of the
+     distributed GemStone/S Smalltalk object database
+     system.
 
 
 Publications

@@ -35,7 +35,7 @@ namespace :cv do
                 --javascripts-dir javascripts \
                 --image-dir public \
                 --css-dir #{static} \
-                stylesheets/style.scss") || raise Error
+                stylesheets/style.scss") || raise
     end
   end
 
@@ -51,7 +51,7 @@ namespace :cv do
                 --variable=date:'#{date}' \
                 --css style.css \
                 --bibliography cv.bib \
-                --output #{static}/cv.html cv.md") || raise Error
+                --output #{static}/cv.html cv.md") || raise
     end
   end
 
@@ -66,7 +66,7 @@ namespace :cv do
                 --margin-right 15 \
                 --margin-bottom 15 \
                 #{static}/cv.html #{static}/cv.pdf") &&
-      system("exiftool #{File.read(static + '/pdftags.txt')} #{static}/cv.pdf") || raise Error
+      system("exiftool #{File.read(static + '/pdftags.txt')} #{static}/cv.pdf") || raise
   end
 
   task :pdftags do
@@ -76,7 +76,7 @@ namespace :cv do
                 --template templates/pdf.metadata \
                 --template templates/pdf.metadata \
                 --variable=date:'#{date}' \
-                --output #{static}/pdftags.txt cv.md") || raise Error
+                --output #{static}/pdftags.txt cv.md") || raise
     end
   end
 end
