@@ -1,9 +1,9 @@
-language: haskell # to install pandoc-citeproc
+language: ruby
 sudo: false
 addons:
   apt_packages:
-    # - pandoc
-    # - pandoc-citeproc
+    - pandoc
+    - pandoc-citeproc
     - wkhtmltopdf
     - libimage-exiftool-perl
 branches:
@@ -14,7 +14,6 @@ before_install:
   - "sh -e /etc/init.d/xvfb start"
 install:
   - export PATH=$PATH:~/.cabal/bin/
-  - cabal update && cabal install pandoc pandoc-citeproc
   - bundle install
 script:
   - rake
