@@ -12,7 +12,7 @@ before_install:
   - "sh -e /etc/init.d/xvfb start"
 install:
   - export PATH=$PATH:~/.cabal/bin/
-  - cabal update && cabal install pandoc pandoc-citeproc
+  - cabal update && cabal install --disable-documentation --disable-library-profiling --disable-executable-profiling --disable-library-coverage --disable-benchmarks --disable-optimizations pandoc pandoc-citeproc
   - bundle install
 script:
   - rake
