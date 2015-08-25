@@ -26,8 +26,8 @@ h2 { @include adjust-font-size-to($h2-font-size, $h2-line-multiple); }
 h3 { @include adjust-font-size-to($h3-font-size, $h3-line-multiple); }
 
 p, dt { 
-  -ms-word-break: break-all;
-  word-break: break-all;
+  -ms-word-break: normal;
+  word-break: normal;
 
   /* Non standard for webkit */
   word-break: break-word;
