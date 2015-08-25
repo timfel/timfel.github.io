@@ -1,11 +1,14 @@
 language: ruby
 sudo: false
 addons:
-  apt_packages:
-    - pandoc
-    - pandoc-citeproc
-    - wkhtmltopdf
-    - libimage-exiftool-perl
+  apt:
+    sources:
+      - debian-sid
+    packages:
+      - pandoc
+      - pandoc-citeproc
+      - wkhtmltopdf
+      - libimage-exiftool-perl
 branches:
   only:
     - trunk
