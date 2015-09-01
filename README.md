@@ -1,19 +1,4 @@
-Source for [rkh.im](http://rkh.im/).
-
-Features
---------
-
-* Blog engine in less than [100 LOC](http://github.com/rkh/rkh.im/blob/master/config.ru)
-* Bare rack app, no framework used
-* Headers for caching, matching etag response without reaching app endpoint
-* While similar features, faster and smaller than [Toto](http://github.com/cloudhead/toto) and [Scanty](http://github.com/adamwiggins/scanty)
-* Thread-safe
-* Github hook (auto-pull + reload)
-* Git integration (ETag = HEAD's sha1, Last-Modified = HEAD's commit time)
-* Forgiving (i.e. works without git)
-* Supported Markup: ERB, Haml, Markdown, Textile, RDoc, ...
-* Uses RubyPants for prettifying text in any markup
-* Compression (gzip/deflate)
+Source for [timfelgentreff.de](https://timfelgentreff.de).
 
 License
 -------
