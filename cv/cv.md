@@ -68,7 +68,7 @@ Education
      parallel programming settings.
 
     Master's Thesis
-      ~ [Comparison, Replay, and Refinement of Communication Traces for Debugging Distributed Failures](public/uni/12FelgentreffThesis.pdf)
+      ~ [Comparison, Replay, and Refinement of Communication Traces for Debugging Distributed Failures](public/uni/12FelgentreffThesis.pdf) [![Online Demo](http://is.ieis.tue.nl/staff/pvgorp/share/images/share-logo-16full.png)](http://is.ieis.tue.nl/staff/pvgorp/share/?page=ConfigureNewSession&vdi=Ubuntu12LTS_PeekAtTalk.vdi)
 
 2007-2010
 :    **B.Sc.**, *Hasso Plattner Institute, University of Potsdam*, Potsdam, Germany \
