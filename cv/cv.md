@@ -21,7 +21,7 @@ settings:
 footer: |
   - [timfelgentreff](http://twitter.com/timfelgentreff)
   - [timfel](https://github.com/timfel)
-  - [timfelgentreff](https:////www.linkedin.com/in/timfelgentreff)
+  - [timfelgentreff](https://www.linkedin.com/in/timfelgentreff)
   - [Download CV as PDF](/cv.pdf)
 nocite: |
   - @LehmannCOP2015
