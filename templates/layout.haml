@@ -48,8 +48,8 @@
             %a{:href => "//feeds.feedburner.com/#{Blog.feedburner}", :title => "Subscribe to my feed", :rel => "alternate", :type => "application/rss+xml"}
               %img{:src => "/public/images/feed-icon.png", :alt => "Subscribe to my feed"}
         %p
-          %a{:href => "https://flattr.com/submit/auto?user_id=timfelgentreff&url=timfelgentreff.de&title=timfelgentreff.de&language=&category=software"}
-            %img{:src => "https://flattr.com/submit/auto?user_id=timfelgentreff&url=https://timfelgentreff.de", :alt => "Flattr me"}
+          %a{:href => "https://flattr.com/submit/auto?user_id=timfelgentreff&url=https://timfelgentreff.de"}
+            %img{:src => "http://api.flattr.com/button/flattr-badge-large.png", :alt => "Flattr me"}
         %a{:href => "/cv.html", :title => "CV"}
           %img{:src => "//www.gravatar.com/avatar/#{Digest::MD5.hexdigest(Blog.email.strip.downcase)}?s=180"}
         :markdown
