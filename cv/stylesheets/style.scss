@@ -165,6 +165,8 @@ header {
 /* Section */
 
 section {
+  page-break-inside: avoid;
+
   // span all grid
   @include span(last $total-columns of $total-columns);
 
@@ -192,6 +194,7 @@ section {
       height: rhythm($h2-line-multiple/3, $h2-font-size);
       margin-bottom: rhythm($h2-line-multiple/6, $h2-font-size);
       background-color: $section-rectangle-color;
+      -webkit-print-color-adjust: exact;
     }
   }
 

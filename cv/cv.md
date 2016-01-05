@@ -11,7 +11,7 @@ mobile: ''
 phone: ''
 fax: ''
 address:
-  city: Berlin 
+  city: Karl-Marx-Str 58, 14482 Potsdam, 
   country: Germany
 settings:
   protect-email: false
@@ -24,6 +24,9 @@ footer: |
   - [timfelgentreff](https://www.linkedin.com/in/timfelgentreff)
   - [Download CV as PDF](/cv.pdf)
 nocite: |
+  - @FelgentreffEST15
+  - @FelgentreffFPW2015
+  - @HirschfeldJSSST15
   - @LehmannCOP2015
   - @FelgentreffICOOOLPS2015
   - @NiephausICOOOLPS2015
@@ -53,14 +56,15 @@ dynamic language VMs built on top of it, and I am the creator of the
 Babelsberg project, which has spawned a family of lanuages that
 integrate constraint solving with object-oriented programming. I
 prototype much of my research in the self-supporting development
-environments Squeak/Smalltalk and the Lively Kernel.
+environments Squeak/Smalltalk and the Lively Kernel. I run 10km in
+less than 50 minutes.
 
 Education
 ---------
 
 2010-2012
 :    **M.Sc.**, *Hasso Plattner Institute, University of Potsdam*, Potsdam, Germany \
-     in 1.0 (A+)
+     final grade: 1.0 (A+)
 
      During my master's studies, I focused on programming language
      concepts to facilitate development tools, end-user programming,
@@ -72,33 +76,21 @@ Education
 
 2007-2010
 :    **B.Sc.**, *Hasso Plattner Institute, University of Potsdam*, Potsdam, Germany \
-     in 1.4 (A)
+     final grade: 1.4 (A)
 
     Bachelor's Thesis
       ~ [Post-mortem Analysis of Debug Traces](public/uni/10AspectToolsOrchideo.pdf)
 
+2005-2007
+:    **Abitur**, *Pückler Grammar School*, Cottbus, Germany \
+     final grade: 1.0 (A+)
 
-Skills
-------
+2005-2007
+:    **AS-level studies**, *Budehaven Community College*, Bude, England
 
-&nbsp;
-:    
+2005-2007
+:    **GCSE-level studies**, *Heinrich-Heine Grammar School*, Cottbus, Germany
 
-    Languages
-	  ~ German - native proficiency
-	  ~ English - full professional proficiency
-	  ~ French - limited working proficiency
-	  ~ Mandarin - elementary proficiency
-	  ~ &nbsp;
-
-    Coding
-	  ~ [Babelsberg](https://github.com/babelsberg)
-	  ~ [JRuby](https://github.com/jruby)
-	  ~ [Topaz](https://github.com/topazproject)
-	  ~ [MagLev](https://github.com/maglev)
-	  ~ [PyPy](https://bitbucket.org/pypy)
-	  ~ [RSqueakVM](https://github.com/HPI-SWA-Lab/RSqueak)
-	  ~ [Lively Kernel](https://github.com/LivelyKernel)
 
 Experience
 ----------
@@ -112,7 +104,7 @@ Oct 2012-present
 
 
 Oct 2014-Dez 2014
-:    **Visiting Researcher**, *Nanjing University*, Nanjing, China \
+:    **Research Visit**, *Nanjing University*, Nanjing, China \
 
      At Nanjing University I collaborated with researchers on
      emotion analysis in Twitter-like social networks.
@@ -139,6 +131,31 @@ Aug 2011-Nov 2011
      At VMware I was working on the MagLev Ruby VM built on top of the
      distributed GemStone/S Smalltalk object database
      system.
+
+
+Skills
+------
+
+&nbsp;
+:    
+
+    Languages
+	  ~ German - native proficiency
+	  ~ English - full professional proficiency
+	  ~ French - limited working proficiency
+	  ~ Mandarin - rudimentary knowledge
+	  ~ &nbsp;
+
+    Coding
+	  ~ [Babelsberg](https://github.com/babelsberg) - a family of object-constraint languages 
+	  ~ [Squeak](http://squeak.org) - a modern implementation of Smalltalk-80
+	  ~ [JRuby](https://github.com/jruby) - an industry-grade Ruby implementation on the JVM
+	  ~ [Topaz](https://github.com/topazproject) - an experimental Ruby implementation written in RPython 
+	  ~ [MagLev](https://github.com/maglev) - a Ruby implementation on top of the GemStone/S object-database
+	  ~ [PyPy](https://bitbucket.org/pypy) - the fastest Python implementation
+	  ~ [RSqueakVM](https://github.com/HPI-SWA-Lab/RSqueak) - a research Squeak/Smalltalk VM written in RPython
+	  ~ [Lively Kernel](https://github.com/LivelyKernel) - a self-supporting development environment on a Web page
+	  ~ [Stratagus](https://github.com/Wargus) - a real-time 2d strategy game engine
 
 
 Publications
