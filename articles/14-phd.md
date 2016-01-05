@@ -14,9 +14,9 @@ the assertion pass (if it doesn't already). This works great more often than you
 would think, and sometimes it even completely frees you from writing the code to
 establish a correct state in the first place! Just let the system deal with it -
 a Sudoku solver? No problem, I know what a valid solution should look like, I
-can just `always` that. Load balancing for video streaming? I know that the
-system shouldn't be above a certain load, and if it is, it should throttle
-clients.
+can just `always` that. Load balancing for video streaming, automatic repair of
+partially downloaded image data, layouting. We've found a number of interesting
+applications.
 
 <iframe src="https://dl.dropboxusercontent.com/u/26242153/phdthesis/index.html"
        width="100%"
