@@ -24,6 +24,9 @@ footer: |
   - [timfelgentreff](https://www.linkedin.com/in/timfelgentreff)
   - [Download CV as PDF](/cv.pdf)
 nocite: |
+  - @FelgentreffEST15
+  - @FelgentreffFPW2015
+  - @HirschfeldJSSST15
   - @LehmannCOP2015
   - @FelgentreffICOOOLPS2015
   - @NiephausICOOOLPS2015
