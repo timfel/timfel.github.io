@@ -1,11 +1,9 @@
-language: ruby
+language: haskell
 sudo: false
 addons:
   apt_packages:
     - wkhtmltopdf
     - libimage-exiftool-perl
-    - pandoc
-    - pandoc-citeproc
 branches:
   only:
     - trunk
@@ -13,6 +11,8 @@ before_install:
   - "export DISPLAY=:99.0"
   - "sh -e /etc/init.d/xvfb start"
 install:
+  - export PATH=$PATH:~/.cabal/bin/
+  - cabal update && cabal install --disable-documentation --disable-library-profiling --disable-executable-profiling --disable-library-coverage --disable-benchmarks -O0 pandoc pandoc-citeproc
   - bundle install
 script:
   - rake
