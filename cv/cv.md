@@ -61,7 +61,7 @@ Education
 
 2010-2012
 :    **M.Sc.**, *Hasso Plattner Institute, University of Potsdam*, Potsdam, Germany \
-     in 1.0 (A+)
+     final grade: 1.0 (A+)
 
      During my master's studies, I focused on programming language
      concepts to facilitate development tools, end-user programming,
@@ -73,35 +73,21 @@ Education
 
 2007-2010
 :    **B.Sc.**, *Hasso Plattner Institute, University of Potsdam*, Potsdam, Germany \
-     in 1.4 (A)
+     final grade: 1.4 (A)
 
     Bachelor's Thesis
       ~ [Post-mortem Analysis of Debug Traces](public/uni/10AspectToolsOrchideo.pdf)
 
+2005-2007
+:    **Abitur**, *Pückler Grammar School*, Cottbus, Germany \
+     final grade: 1.0 (A+)
 
-Skills
-------
+2005-2007
+:    **AS-level studies**, *Budehaven Community College*, Bude, England
 
-&nbsp;
-:    
+2005-2007
+:    **GCSE-level studies**, *Heinrich-Heine Grammar School*, Cottbus, Germany
 
-    Languages
-	  ~ German - native proficiency
-	  ~ English - full professional proficiency
-	  ~ French - limited working proficiency
-	  ~ Mandarin - rudimentary knowledge
-	  ~ &nbsp;
-
-    Coding
-	  ~ [Babelsberg](https://github.com/babelsberg) - a family of object-constraint languages 
-	  ~ [Squeak](http://squeak.org) - a modern implementation of Smalltalk-80
-	  ~ [JRuby](https://github.com/jruby) - an industry-grade Ruby implementation on the JVM
-	  ~ [Topaz](https://github.com/topazproject) - an experimental Ruby implementation written in RPython 
-	  ~ [MagLev](https://github.com/maglev) - a Ruby implementation on top of the GemStone/S object-database
-	  ~ [PyPy](https://bitbucket.org/pypy) - the fastest Python implementation
-	  ~ [RSqueakVM](https://github.com/HPI-SWA-Lab/RSqueak) - a research Squeak/Smalltalk VM written in RPython
-	  ~ [Lively Kernel](https://github.com/LivelyKernel) - a self-supporting development environment on a Web page
-	  ~ [Stratagus](https://github.com/Wargus) - a real-time 2d strategy game engine
 
 Experience
 ----------
@@ -142,6 +128,31 @@ Aug 2011-Nov 2011
      At VMware I was working on the MagLev Ruby VM built on top of the
      distributed GemStone/S Smalltalk object database
      system.
+
+
+Skills
+------
+
+&nbsp;
+:    
+
+    Languages
+	  ~ German - native proficiency
+	  ~ English - full professional proficiency
+	  ~ French - limited working proficiency
+	  ~ Mandarin - rudimentary knowledge
+	  ~ &nbsp;
+
+    Coding
+	  ~ [Babelsberg](https://github.com/babelsberg) - a family of object-constraint languages 
+	  ~ [Squeak](http://squeak.org) - a modern implementation of Smalltalk-80
+	  ~ [JRuby](https://github.com/jruby) - an industry-grade Ruby implementation on the JVM
+	  ~ [Topaz](https://github.com/topazproject) - an experimental Ruby implementation written in RPython 
+	  ~ [MagLev](https://github.com/maglev) - a Ruby implementation on top of the GemStone/S object-database
+	  ~ [PyPy](https://bitbucket.org/pypy) - the fastest Python implementation
+	  ~ [RSqueakVM](https://github.com/HPI-SWA-Lab/RSqueak) - a research Squeak/Smalltalk VM written in RPython
+	  ~ [Lively Kernel](https://github.com/LivelyKernel) - a self-supporting development environment on a Web page
+	  ~ [Stratagus](https://github.com/Wargus) - a real-time 2d strategy game engine
 
 
 Publications
