@@ -11,7 +11,7 @@ mobile: ''
 phone: ''
 fax: ''
 address:
-  city: Berlin 
+  city: Karl-Marx-Str 58, 14482 Potsdam, 
   country: Germany
 settings:
   protect-email: false
@@ -53,7 +53,8 @@ dynamic language VMs built on top of it, and I am the creator of the
 Babelsberg project, which has spawned a family of lanuages that
 integrate constraint solving with object-oriented programming. I
 prototype much of my research in the self-supporting development
-environments Squeak/Smalltalk and the Lively Kernel.
+environments Squeak/Smalltalk and the Lively Kernel. I run 10km in
+less than 50 minutes.
 
 Education
 ---------
@@ -88,17 +89,19 @@ Skills
 	  ~ German - native proficiency
 	  ~ English - full professional proficiency
 	  ~ French - limited working proficiency
-	  ~ Mandarin - elementary proficiency
+	  ~ Mandarin - rudimentary knowledge
 	  ~ &nbsp;
 
     Coding
-	  ~ [Babelsberg](https://github.com/babelsberg)
-	  ~ [JRuby](https://github.com/jruby)
-	  ~ [Topaz](https://github.com/topazproject)
-	  ~ [MagLev](https://github.com/maglev)
-	  ~ [PyPy](https://bitbucket.org/pypy)
-	  ~ [RSqueakVM](https://github.com/HPI-SWA-Lab/RSqueak)
-	  ~ [Lively Kernel](https://github.com/LivelyKernel)
+	  ~ [Babelsberg](https://github.com/babelsberg) - a family of object-constraint languages 
+	  ~ [Squeak](http://squeak.org) - a modern implementation of Smalltalk-80
+	  ~ [JRuby](https://github.com/jruby) - an industry-grade Ruby implementation on the JVM
+	  ~ [Topaz](https://github.com/topazproject) - an experimental Ruby implementation written in RPython 
+	  ~ [MagLev](https://github.com/maglev) - a Ruby implementation on top of the GemStone/S object-database
+	  ~ [PyPy](https://bitbucket.org/pypy) - the fastest Python implementation
+	  ~ [RSqueakVM](https://github.com/HPI-SWA-Lab/RSqueak) - a research Squeak/Smalltalk VM written in RPython
+	  ~ [Lively Kernel](https://github.com/LivelyKernel) - a self-supporting development environment on a Web page
+	  ~ [Stratagus](https://github.com/Wargus) - a real-time 2d strategy game engine
 
 Experience
 ----------
@@ -112,7 +115,7 @@ Oct 2012-present
 
 
 Oct 2014-Dez 2014
-:    **Visiting Researcher**, *Nanjing University*, Nanjing, China \
+:    **Research Visit**, *Nanjing University*, Nanjing, China \
 
      At Nanjing University I collaborated with researchers on
      emotion analysis in Twitter-like social networks.
