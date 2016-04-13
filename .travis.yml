@@ -1,4 +1,4 @@
-language: haskell
+language: smalltalk
 sudo: required
 dist: trusty
 group: edge
