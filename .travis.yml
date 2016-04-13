@@ -1,6 +1,7 @@
 language: haskell
 sudo: required
 dist: trusty
+group: edge
 branches:
   only:
     - trunk
