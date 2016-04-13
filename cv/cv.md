@@ -51,7 +51,7 @@ Profile
 =======
 
 I am a Ph.D. student at the Hasso Plattner Institute in Potsdam. My
-interests are in language and virtual machine design. I focus on
+interests are in programming languages and virtual machine design. I focus on
 developing language features meant to improve expressibility and VM
 technologies to make sure those language features offer good
 performance. I am involved in the PyPy/RPython project and various
