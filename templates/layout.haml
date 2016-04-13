@@ -30,6 +30,10 @@
       .header
         Coding and stuff
         .subtitle Because, because, because of the wonderful things he does
+        %nav
+          %a{:class => "link", :href => "/cv.html", :title => "CV"}= "CV" 
+          %a{:class => "link", :href => "http://www.hpi.de/swa", :title => "Work"}= "Work"
+          %a{:class => "link", :href => "/research.html", :title => "Research"}= "Research"
       %nav
         - link = proc do |klass, symbol, page|
           - if page == self
