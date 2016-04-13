@@ -9,7 +9,7 @@ before_install:
   - "export DISPLAY=:99.0"
   - "sh -e /etc/init.d/xvfb start"
 install:
-  - sudo apt-get install wkhtmltopdf libimage-exiftool-perl pandoc pandoc-citeproc
+  - sudo apt-get install -yy wkhtmltopdf libimage-exiftool-perl pandoc pandoc-citeproc
   - bundle install
 script:
   - rake
