@@ -42,6 +42,9 @@ nocite: |
   - @"felgentreff+:2015:babelsbergrml"
   - @"felgentreff:2014:semantics"
   - @FelgentreffECOOP14
+  - @FelgentreffCROW2016
+  - @KruckLAMOD2016
+  - @LehmannCROW2016
 ---
   
 Profile
