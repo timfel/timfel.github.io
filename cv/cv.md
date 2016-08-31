@@ -88,17 +88,25 @@ Education
 :    **Abitur**, *Pückler Grammar School*, Cottbus, Germany \
      final grade: 1.0 (A+)
 
-2005-2007
+2004-2005
 :    **AS-level studies**, *Budehaven Community College*, Bude, England
 
-2005-2007
+2000-2004
 :    **GCSE-level studies**, *Heinrich-Heine Grammar School*, Cottbus, Germany
 
 
 Experience
 ----------
 
-Oct 2012-present
+Apr 2016-present
+:    **Research Assistant**, *Hasso Plattner Institute, University of Potsdam*, Potsdam, Germany \
+
+     My research focuses on novel programming paradigms, virtual machines for
+     dynamic programming languages, and end-user programming with a special
+     interest in computer science education for children.
+
+
+Oct 2012-Apr 2016
 :    **Ph.D. Student**, *Hasso Plattner Institute, University of Potsdam*, Potsdam, Germany \
 
      My Ph.D. research focuses on object-constraint programming, a
