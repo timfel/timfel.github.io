@@ -1,4 +1,4 @@
-language: smalltalk
+language: ruby
 sudo: required
 dist: trusty
 group: edge
