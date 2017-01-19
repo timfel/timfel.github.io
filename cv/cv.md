@@ -157,14 +157,16 @@ Skills
 	  ~ Mandarin - rudimentary knowledge
 	  ~ &nbsp;
 
-    Coding
+    Software Projects
 	  ~ [Babelsberg](https://github.com/babelsberg) - a family of object-constraint languages 
+	  ~ [RSqueakVM](https://github.com/HPI-SWA-Lab/RSqueak) - a research Squeak/Smalltalk VM written in RPython
+
+    Core Contributions
 	  ~ [Squeak](http://squeak.org) - a modern implementation of Smalltalk-80
 	  ~ [JRuby](https://github.com/jruby) - an industry-grade Ruby implementation on the JVM
 	  ~ [Topaz](https://github.com/topazproject) - an experimental Ruby implementation written in RPython 
 	  ~ [MagLev](https://github.com/maglev) - a Ruby implementation on top of the GemStone/S object-database
 	  ~ [PyPy](https://bitbucket.org/pypy) - a fast Python implementation with a tracing just-in-time compiler
-	  ~ [RSqueakVM](https://github.com/HPI-SWA-Lab/RSqueak) - a research Squeak/Smalltalk VM written in RPython
 	  ~ [Lively Kernel](https://github.com/LivelyKernel) - a self-supporting development environment on a Web page
 	  ~ [Stratagus](https://github.com/Wargus) - a real-time 2d strategy game engine
 
