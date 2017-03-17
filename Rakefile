@@ -1,4 +1,6 @@
 require 'fileutils'
+require 'tilt'
+require 'bibtex'
 
 
 desc 'Generate static pages'
@@ -40,7 +42,14 @@ namespace :cv do
   end
 
   desc "Make HTML CV"
-  task :html => [:style] do
+  task :bib => [] do
+    cv = File.expand_path("../cv/cv.md", __FILE__)
+    File.open(cv, "w") do |f|
+      f << Tilt.new("#{cv}.erb").render(nil, bibtex: BibTeX.open(cv.sub(".md", ".bib")))
+    end
+  end
+
+  task :html => [:style, :bib] do
     Dir.chdir "cv" do
       system("pandoc --standalone \
                 --section-divs \

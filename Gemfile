@@ -1,4 +1,4 @@
-source :rubygems
+source "https://rubygems.org"
 gem "haml"
 
 gem "maruku"
@@ -14,3 +14,4 @@ gem "rack"
 gem "json"
 gem "rubypants"
 gem "susy"
+gem "bibtex-ruby"

@@ -24,27 +24,7 @@ footer: |
   - [timfelgentreff](https://www.linkedin.com/in/timfelgentreff)
   - [Download CV as PDF](/cv.pdf)
 nocite: |
-  - @FelgentreffEST15
-  - @FelgentreffFPW2015
-  - @HirschfeldJSSST15
-  - @LehmannCOP2015
-  - @FelgentreffICOOOLPS2015
-  - @NiephausICOOOLPS2015
-  - @FelgentreffOOPSLA2015
-  - @FelgentreffDLS2015
-  - @FreudenbergDLS2014
-  - @SteinertDLS2014
-  - @TaeumelCOP2014
-  - @HirschfeldJSSST14
-  - @PerscheidWCRE2014
-  - @FelgentreffWASDETT2013
-  - @"felgentreff+:2014:babelsberg"
-  - @"felgentreff+:2015:babelsbergrml"
-  - @"felgentreff:2014:semantics"
-  - @FelgentreffECOOP14
-  - @FelgentreffCROW2016
-  - @KruckLAMOD2016
-  - @LehmannCROW2016
+<%= bibtex.entries.values.sort_by(&:year).reverse.inject("") { |acc, e| %{#{acc}  - @"#{e.key}"\n} } %>
 ---
   
 Profile

@@ -14,7 +14,7 @@ install:
   - sudo apt-get install -yy wkhtmltopdf libimage-exiftool-perl pandoc pandoc-citeproc
   - bundle install
 script:
-  - rake
+  - bundle exec rake
 after_success:
   - mv static ../
   - git branch -D master || 0
