@@ -49,7 +49,7 @@ namespace :cv do
     end
   end
 
-  task :html => [:style, :bib] do
+  task :html => [:bib, :style] do
     Dir.chdir "cv" do
       system("pandoc --standalone \
                 --section-divs \
