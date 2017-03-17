@@ -18,7 +18,4 @@ can just `always` that. Load balancing for video streaming, automatic repair of
 partially downloaded image data, layouting. We've found a number of interesting
 applications.
 
-<iframe src="https://dl.dropboxusercontent.com/u/26242153/phdthesis/index.html"
-       width="100%"
-       height="1600px"
-       style="border: none; overflow: hidden" />
+![PhD Thesis Progress](/public/images/phdprogress.jpg)
