@@ -60,6 +60,7 @@ namespace :cv do
                 --variable=date:'#{date}' \
                 --css style.css \
                 --bibliography cv.bib \
+                --csl bib.csl \
                 --output #{static}/cv.html cv.md") || raise
     end
   end
