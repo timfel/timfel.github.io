@@ -281,6 +281,10 @@ section {
     }
   }
 
+  &.footnotes {
+    display: none;
+  }
+
   &#publications > p {
     line-height: 0px;
   }
