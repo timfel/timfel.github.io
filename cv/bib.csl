@@ -339,6 +339,10 @@
             <text variable="number"/>
           </group>
         </else-if>
+        <else-if type="report" match="any">
+          <text variable="genre" text-case="capitalize-first"/>
+          <text variable="number" prefix="Tech. rep. "/>
+        </else-if>
         <else>
           <text variable="genre" text-case="capitalize-first"/>
         </else>
@@ -1100,7 +1104,7 @@
 	      <text variable="URL"/>
             </if>
             <else>
-              <text variable="URL"/>
+	      <text variable="URL"/>
             </else>
           </choose>
         </if>
@@ -1227,7 +1231,7 @@
       <key variable="genre"/>
       <key variable="issued"/>
     </sort>
-    <layout suffix=".">
+    <layout suffix=" ">
       <group delimiter=". ">
         <group delimiter=": ">
           <group delimiter=", ">

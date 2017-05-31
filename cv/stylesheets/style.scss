@@ -41,6 +41,7 @@ p, dt {
 a { 
   text-decoration: none;
   color: inherit;
+  white-space: nowrap;
 
   // default behavior
   &[href^="http"] { @extend %external-link-icon; }
@@ -282,6 +283,18 @@ section {
 
   &#publications > p {
     line-height: 0px;
+  }
+
+  &#publications > blockquote {
+    margin-left: 2em;
+    margin-right: 2em;
+    font-size: medium;
+    text-align: justify;
+    font-stretch: semi-condensed;
+
+    @media print {
+      display: none;
+    }
   }
 }
 
