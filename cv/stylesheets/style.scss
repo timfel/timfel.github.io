@@ -257,7 +257,7 @@ section {
       &:before {
         content: "" !important;
       }
-      &.uri {
+      &[href^="public/"] {
         font-size: 0px;
         color: transparent;
 
@@ -277,7 +277,9 @@ section {
     }
 
     @media print {
-      a.uri { display: none }
+      a[href^="public/"] {
+        display: none;
+      }
     }
   }
 
