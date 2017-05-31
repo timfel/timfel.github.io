@@ -251,6 +251,33 @@ section {
 
   .references p {
     margin-bottom: 1em;
+
+    a {
+      &:before {
+        content: "" !important;
+      }
+      &.uri {
+        font-size: 0px;
+        color: transparent;
+
+        @extend %paper-icon;
+
+        &:before {
+          font-size: large;
+          color: black;
+        }
+
+        &:after {
+          font-size: large;
+          color: black;
+          content: "Author PDF";
+        }
+      }
+    }
+
+    @media print {
+      a.uri { display: none }
+    }
   }
 
   &#publications > p {

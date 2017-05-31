@@ -37,3 +37,4 @@ $fa-version:    "4.0.3" !default;
 %linkedin-icon:before { @extend %icon; content: $fa-var-linkedin !important; }
 %pdf-icon:before { @extend %icon; content: $fa-var-download !important; }
 %bitbucket-icon:before { @extend %icon; content: $fa-var-bitbucket !important; }
+%paper-icon:before { @extend %icon; content: $fa-var-file-pdf-o !important; }
