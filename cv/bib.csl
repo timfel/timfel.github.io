@@ -1134,30 +1134,30 @@
 	  <group delimiter=" ">
             <choose>
 	      <if variable="DOI note URL">
-		<text variable="DOI" prefix="doi:" suffix="."/>
-		<text variable="note" suffix="." font-variant="small-caps"/>
+		<text variable="DOI" prefix=". doi:" suffix="."/>
+		<text variable="note" font-variant="small-caps"/>
 		<text variable="URL" />
 	      </if>
 	      <else-if variable="URL note">
-		<text variable="note" suffix="." font-variant="small-caps"/>
+		<text variable="note" prefix=". " font-variant="small-caps"/>
 		<text variable="URL"/>
 	      </else-if>
 	      <else-if variable="DOI note">
-		<text variable="DOI" prefix="doi:" suffix="."/>
+		<text variable="DOI" prefix=". doi:"/>
 		<text variable="URL"/>
 	      </else-if>
               <else-if variable="DOI URL">
-		<text variable="DOI" prefix="doi:" suffix="."/>
+		<text variable="DOI" prefix=". doi:" />
 		<text variable="URL"/>
 	      </else-if>
 	      <else-if variable="DOI">
-		<text variable="DOI" prefix="doi:" suffix="."/>
+		<text variable="DOI" prefix=". doi:" />
 	      </else-if>
 	      <else-if variable="note">
-		<text variable="note" suffix="." font-variant="small-caps" />
+		<text variable="note" prefix=". " font-variant="small-caps" />
 	      </else-if>
 	      <else>
-		<text variable="URL"/>
+		<text variable="URL" prefix=" " />
               </else>
             </choose>
 	  </group>
@@ -1252,8 +1252,8 @@
       <key variable="genre"/>
       <key variable="issued"/>
     </sort>
-    <layout suffix=" ">
-      <group delimiter=". ">
+    <layout suffix=".">
+      <group delimiter="">
         <group delimiter=": ">
           <group delimiter=", ">
             <group delimiter=" ">

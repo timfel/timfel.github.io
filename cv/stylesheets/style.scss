@@ -261,18 +261,29 @@ section {
         font-size: 0px;
         color: transparent;
 
-        @extend %paper-icon;
-
         &:before {
-          font-size: large;
-          color: black;
+          @extend %icon;
+          content: "(" + $fa-var-file-pdf-o !important;
         }
-      }
-    }
 
-    @media print {
-      a[href^="public/"] {
-        display: none;
+        &:after {
+          content: "pdf)" !important;
+        }
+
+        @media screen {
+          &:before {
+            font-size: large;
+            color: black;
+          }
+          &:after {
+            font-size: large;
+            color: black;
+          }
+        }
+
+        @media print {
+          margin-left: -8pt;
+        }
       }
     }
   }
