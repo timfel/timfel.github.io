@@ -1131,10 +1131,10 @@
       </choose>
       <choose>
         <if type="legal_case" match="none">
-	  <group delimiter=" ">
+	  <group delimiter="">
             <choose>
 	      <if variable="DOI note URL">
-		<text variable="DOI" prefix=". doi:" suffix="."/>
+		<text variable="DOI" prefix=". doi:" suffix=". "/>
 		<text variable="note" font-variant="small-caps"/>
 		<text variable="URL" />
 	      </if>
@@ -1143,8 +1143,8 @@
 		<text variable="URL"/>
 	      </else-if>
 	      <else-if variable="DOI note">
-		<text variable="DOI" prefix=". doi:"/>
-		<text variable="URL"/>
+		<text variable="DOI" prefix=". doi:" suffix=". "/>
+		<text variable="note"/>
 	      </else-if>
               <else-if variable="DOI URL">
 		<text variable="DOI" prefix=". doi:" />
@@ -1157,7 +1157,7 @@
 		<text variable="note" prefix=". " font-variant="small-caps" />
 	      </else-if>
 	      <else>
-		<text variable="URL" prefix=" " />
+		<text variable="URL" prefix="" />
               </else>
             </choose>
 	  </group>

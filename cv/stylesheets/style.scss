@@ -263,7 +263,7 @@ section {
 
         &:before {
           @extend %icon;
-          content: "(" + $fa-var-file-pdf-o !important;
+          content: "\2002(" + $fa-var-file-pdf-o !important;
         }
 
         &:after {
@@ -282,7 +282,7 @@ section {
         }
 
         @media print {
-          margin-left: -8pt;
+          display: none;
         }
       }
     }
