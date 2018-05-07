@@ -131,10 +131,3 @@ loadScript '/lib/jquery.min.js', ->
           event.preventDefault()
           window.location.reload()
         preparePage()
-
-# Google analytics
-window._gaq ||= [];
-window._gaq.push ['_setAccount', 'UA-25791824-1']
-# window._gaq.push ['_setDomainName', '.bithug.org']
-window._gaq.push ['_trackPageview']
-loadScript '//www.google-analytics.com/ga.js'
