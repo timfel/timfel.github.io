@@ -113,12 +113,12 @@ loadScript '/lib/jquery.min.js', ->
           wrapper.html "<iframe src=\"#{element.href}\" class=\"ytVideo\" frameborder=\"0\" allowfullscreen=\"1\" />"
 
         # disqus comments
-        comments = if currentPage then currentPage.find('.comments') else $('.comments')
-        window.disqus_identifier = document.location.pathname
-        window.disqus_url = "#{document.location}"
-        window.disqus_developer = 1 # Disqus doesn't seem to load on some of my articles without
-        comments.html '<div id="disqus_thread"></div>'
-        loadScript '//blogbithug.disqus.com/embed.js'
+        # comments = if currentPage then currentPage.find('.comments') else $('.comments')
+        # window.disqus_identifier = document.location.pathname
+        # window.disqus_url = "#{document.location}"
+        # window.disqus_developer = 1 # Disqus doesn't seem to load on some of my articles without
+        # comments.html '<div id="disqus_thread"></div>'
+        # loadScript '//blogbithug.disqus.com/embed.js'
 
         # time ago for publishing date
         $("time.timeago").timeago()
