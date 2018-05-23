@@ -88,11 +88,16 @@ module ::Blog
   end
 
   def call(env)
-    if env['PATH_INFO'] == '/'
-      text = 'Redirect to last article'
-      [303, { 'Location' => "#{Blog.url}#{Blog.articles.last.url}",
+    if env['PATH_INFO'] != "/cv.html"
+      text = 'Redirect'
+      [303, { 'Location' => "#{Blog.url}/cv.html",
         'Content-Type' => "text/html",
         'Content-Length' => text.size.to_s }, [text]]
+#     if env['PATH_INFO'] == '/'
+#       text = 'Redirect to last article'
+#       [303, { 'Location' => "#{Blog.url}#{Blog.articles.last.url}",
+#         'Content-Type' => "text/html",
+#         'Content-Length' => text.size.to_s }, [text]]
     else
       self[env['PATH_INFO']].call env['blog.request']
     end
