@@ -53,9 +53,9 @@ namespace :cv do
     Dir.chdir "cv" do
       system("pandoc --standalone \
                 --section-divs \
-                --smart \
                 --template templates/cv.html \
-                --from markdown+yaml_metadata_block+header_attributes+definition_lists \
+                --from markdown+yaml_metadata_block+header_attributes+definition_lists+smart \
+                --metadata pagetitle=\"CV\" \
                 --to html5 \
                 --variable=date:'#{date}' \
                 --css style.css \
