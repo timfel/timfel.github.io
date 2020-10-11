@@ -54,7 +54,7 @@ namespace :cv do
       system("pandoc --standalone \
                 --section-divs \
                 --template templates/cv.html \
-                --from markdown+yaml_metadata_block+header_attributes+definition_lists+smart \
+                --from markdown+yaml_metadata_block+header_attributes+definition_lists \
                 --metadata pagetitle=\"CV\" \
                 --to html5 \
                 --variable=date:'#{date}' \
