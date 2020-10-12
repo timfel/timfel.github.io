@@ -1,0 +1,28 @@
+language: ruby
+rvm:
+  - 2.6.5
+sudo: required
+dist: bionic
+group: edge
+branches:
+  only:
+    - trunk
+services:
+  - xvfb
+install:
+  - sudo apt-get install -yy wkhtmltopdf libimage-exiftool-perl pandoc pandoc-citeproc
+  - bundle update --bundler
+script:
+  - bundle exec rake
+after_success:
+  - mv static ../
+  - git branch -D master || 0
+  - git checkout --orphan master
+  - rm -rf *
+  - mv ../static/* .
+  - git config --global user.email "travis-ci@travis.org"
+  - git config --global user.name "Travis CI"
+  - git add --all .
+  - git commit -am "Travis CI autocommit from travis build ${TRAVIS_BUILD_NUMBER}"
+  - git remote set-url origin "https://${GH_TOKEN}@github.com/${TRAVIS_REPO_SLUG}.git"
+  - git push -fq origin master:master

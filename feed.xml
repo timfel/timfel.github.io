@@ -1,0 +1,627 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+  <title>https://www.timfelgentreff.de</title>
+  <id>https://www.timfelgentreff.de</id>
+  <updated/>
+  <author>
+    <name>Tim Felgentreff</name>
+  </author>
+  <entry>
+    <title>Git talk @ JaX 2010</title>
+    <link rel="alternate" href="https://www.timfelgentreff.de/2010/06/jax.html"/>
+    <id>/2010/06/jax.html</id>
+    <published>2010-06-07T00:00:00+00:00</published>
+    <updated>2010-06-07T00:00:00+00:00</updated>
+    <author>
+      <name>Tim Felgentreff</name>
+    </author>
+    <content type="html">
+&lt;p&gt;I had the opportunity to speak at the &lt;a href="http://it-republik.de/konferenzen/jax2010/"&gt;JaX 2010&lt;/a&gt; in Mainz, Germany, together with Ralph Guderlei from &lt;a href="http://www.exxcellent.de/"&gt;exxcellent solutions&lt;/a&gt;. The JaX is one of the largest Java conferences and primarily aimed at enterprise architectures and SOA. Our talk concerned distributed version control systems, how they compare to CVS-style systems and how to integrate them into existing development environments with a special focus on Git. The &lt;a href="/public/images/dvcs.ppt"&gt;slides&lt;/a&gt; are available in German.&lt;/p&gt;
+</content>
+  </entry>
+  <entry>
+    <title>First week of RubySOC</title>
+    <link rel="alternate" href="https://www.timfelgentreff.de/2010/06/first-week-of-rubysoc.html"/>
+    <id>/2010/06/first-week-of-rubysoc.html</id>
+    <published>2010-06-18T00:00:00+00:00</published>
+    <updated>2010-06-18T00:00:00+00:00</updated>
+    <author>
+      <name>Tim Felgentreff</name>
+    </author>
+    <content type="html">
+&lt;p&gt;First week of Ruby Summer of Code is over an I have started coding on extending JRuby with C extension support.&lt;/p&gt;
+
+&lt;p&gt;After I had already looked at wmeissner’s jruby/cext the week before and got it to run with his help, I used the first week of rsoc to import the project into the main JRuby repository (forked on timfel/jruby). I looked at mkmf support initially and quickly got annoyed with the way I had to run the jruby-cext examples:&lt;/p&gt;
+
+&lt;p&gt;&lt;a href="//gist.github.com/599036"&gt;old_cext_run.sh&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;So I started working on runtime resolution of library paths to loose the JVM argument and be able to ship the cext jnilib in the jruby-complete.jar. Right now, the cext jnilib is searched in the jruby.home and, if that is within a Jar, extracted to a temporary directory. I applied the same logic to c extension resolution, so running with cexts looks now like any other jruby run:&lt;/p&gt;
+
+&lt;p&gt;&lt;a href="//gist.github.com/599036"&gt;new_cext_run.sh&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;The second thing I worked on was Kernel.require support. In JRuby, the LoadService class is responsible for resolution of require paths at runtime and various other classes like ExternalScript and JarredScript are used to do the actual loading. I added a CExtension class which enabled me to require C extensions directly. Before, ‘require’ in MyTest.rb looked like this:&lt;/p&gt;
+
+&lt;p&gt;&lt;a href="//gist.github.com/599036"&gt;old_require.rb&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;Now, this has shrunk to:&lt;/p&gt;
+
+&lt;p&gt;&lt;a href="//gist.github.com/599036"&gt;new_require.rb&lt;/a&gt;&lt;/p&gt;
+</content>
+  </entry>
+  <entry>
+    <title>JRuby commit flag</title>
+    <link rel="alternate" href="https://www.timfelgentreff.de/2010/07/capi-the-thin-gem-and-not-much-to-show.html"/>
+    <id>/2010/07/capi-the-thin-gem-and-not-much-to-show.html</id>
+    <published>2010-07-09T00:00:00+00:00</published>
+    <updated>2010-07-09T00:00:00+00:00</updated>
+    <author>
+      <name>Tim Felgentreff</name>
+    </author>
+    <content type="html">
+&lt;p&gt;Mid-term is almost upon and there are quite a few notable changes, but not much to show.&lt;/p&gt;
+
+&lt;p&gt;If have spent most of my time getting various gems to compile. Upon a request from konstantinhaase/rkh I looked into getting the Thin webserver to run. After some tinkering it compiled and ran. Benchmarks run, too, but print no numbers (they don’t with REE, either, at least for me). I tried running this very blog with Thin on JRuby, it won’t process requests right now, though. This is probably a problem with my rb_str* method implementations. I am still looking into this.&lt;/p&gt;
+
+&lt;p&gt;Apart from that I have gotten the official C-Api specs to run. The changes needed are at timfel/rubyspec. Also, I have been given commit access to the main repository at jruby.org. The cext branch is now the playground for Wayne Meissner and me. While Wayne is focussing on speed and synchronization, I am more focused on getting gems to run, no matter how. I don’t expect any speed wonders from this C-Api anytime soon.&lt;/p&gt;
+</content>
+  </entry>
+  <entry>
+    <title>Thin on JRuby</title>
+    <link rel="alternate" href="https://www.timfelgentreff.de/2010/07/thin-on-jruby.html"/>
+    <id>/2010/07/thin-on-jruby.html</id>
+    <published>2010-07-13T00:00:00+00:00</published>
+    <updated>2010-07-13T00:00:00+00:00</updated>
+    <author>
+      <name>Tim Felgentreff</name>
+    </author>
+    <content type="html">
+&lt;p&gt;After much work from Wayne Meissner and myself I have managed to get the Thin webserver running on JRuby. It actually loaded for a couple of weeks or so already, but only recently stopped crashing when receiving a request. Today I have managed to get it to serve pages as well, so I guess it’s time for some speed checking :)&lt;/p&gt;
+
+&lt;p&gt;The tests are just quickly done using ab and were run on REE 2010.02, JRuby Head on the cext branch and Rubinius 1.0.0-20100514. I did 1000 requests at different concurrency levels and checked the average req/s.&lt;/p&gt;
+
+&lt;h2 id="the_numbers"&gt;The numbers&lt;/h2&gt;
+&lt;table cellspacing='10' width='75%'&gt;
+&lt;thead&gt;
+&lt;td&gt;concurrency&lt;/td&gt;
+&lt;td&gt;REE&lt;/td&gt;
+&lt;td&gt;JRuby&lt;/td&gt;
+&lt;td&gt;Rubinius&lt;/td&gt;
+&lt;/thead&gt;
+&lt;tr&gt;&lt;td&gt;1&lt;/td&gt;&lt;td&gt;3102&lt;/td&gt;&lt;td&gt;298&lt;/td&gt;&lt;td&gt;214&lt;/td&gt;&lt;/tr&gt;
+&lt;tr&gt;&lt;td&gt;11&lt;/td&gt;&lt;td&gt;3563&lt;/td&gt;&lt;td&gt;521&lt;/td&gt;&lt;td&gt;544&lt;/td&gt;&lt;/tr&gt;
+&lt;tr&gt;&lt;td&gt;21&lt;/td&gt;&lt;td&gt;4836&lt;/td&gt;&lt;td&gt;584&lt;/td&gt;&lt;td&gt;754&lt;/td&gt;&lt;/tr&gt;
+&lt;tr&gt;&lt;td&gt;31&lt;/td&gt;&lt;td&gt;3402&lt;/td&gt;&lt;td&gt;668&lt;/td&gt;&lt;td&gt;728&lt;/td&gt;&lt;/tr&gt;
+&lt;tr&gt;&lt;td&gt;41&lt;/td&gt;&lt;td&gt;5056&lt;/td&gt;&lt;td&gt;686&lt;/td&gt;&lt;td&gt;486&lt;/td&gt;&lt;/tr&gt;
+&lt;tr&gt;&lt;td&gt;51&lt;/td&gt;&lt;td&gt;4025&lt;/td&gt;&lt;td&gt;672&lt;/td&gt;&lt;td&gt;797&lt;/td&gt;&lt;/tr&gt;
+&lt;tr&gt;&lt;td&gt;61&lt;/td&gt;&lt;td&gt;5427&lt;/td&gt;&lt;td&gt;1046&lt;/td&gt;&lt;td&gt;704&lt;/td&gt;&lt;/tr&gt;
+&lt;tr&gt;&lt;td&gt;71&lt;/td&gt;&lt;td&gt;3874&lt;/td&gt;&lt;td&gt;1080&lt;/td&gt;&lt;td&gt;736&lt;/td&gt;&lt;/tr&gt;
+&lt;tr&gt;&lt;td&gt;81&lt;/td&gt;&lt;td&gt;5249&lt;/td&gt;&lt;td&gt;947&lt;/td&gt;&lt;td&gt;685&lt;/td&gt;&lt;/tr&gt;
+&lt;tr&gt;&lt;td&gt;91&lt;/td&gt;&lt;td&gt;3919&lt;/td&gt;&lt;td&gt;678&lt;/td&gt;&lt;td&gt;579&lt;/td&gt;&lt;/tr&gt;
+&lt;/table&gt;
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+
+&lt;p&gt;As we can see, JRuby starts something like 15x slower than REE and only recovers to about 4 times slower with a concurrency of 71. It is generally faster than Rubinius, though. This is not a fair comparison, though, as JRuby has a Java implementation of EventMachine.&lt;/p&gt;
+
+&lt;p&gt;Apart from that, overall coverage of the C API specs is getting better, too. Currently out of the 348 examples, 26 fail and 110 throw errors. Failures are mostly incomplete implementations of Ruby functions, errors are almost exclusively missing functions.&lt;/p&gt;
+</content>
+  </entry>
+  <entry>
+    <title>Benchmarking RDiscount</title>
+    <link rel="alternate" href="https://www.timfelgentreff.de/2010/08/benchmarking-rdiscount.html"/>
+    <id>/2010/08/benchmarking-rdiscount.html</id>
+    <published>2010-08-14T00:00:00+00:00</published>
+    <updated>2010-08-14T00:00:00+00:00</updated>
+    <author>
+      <name>Tim Felgentreff</name>
+    </author>
+    <content type="html">
+&lt;p&gt;The last benchmarks I posted, running Thin, were rather unfair against Rubinius (as Evan has pointed out). Time has passed in which I have been busy getting more specs to pass (only 8 failures and 2 errors are left) and I have found another gem with a benchmarking script for me to run ;) The RDiscount gem which implements Markdown in C.&lt;/p&gt;
+
+&lt;p&gt;I just ran &lt;code&gt;rake build benchmark&lt;/code&gt; on Ree (2010.02), Rubinius (1.0.1 20100603) and the JRuby cext branch and got these numbers:&lt;/p&gt;
+&lt;table&gt;
+  &lt;tr&gt;&lt;thead&gt;JRuby&lt;/thead&gt;&lt;/tr&gt;
+  &lt;tr&gt;
+    &lt;td&gt;&lt;strong&gt;BlueCloth:&lt;/strong&gt;&lt;/td&gt;
+    &lt;td&gt;07.433000s total time&lt;/td&gt;
+    &lt;td&gt;00.074330s average&lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+    &lt;td&gt;&lt;strong&gt;RDiscount:&lt;/strong&gt;&lt;/td&gt;
+    &lt;td&gt;00.124000s total time&lt;/td&gt;
+    &lt;td&gt;00.001240s average&lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+    &lt;td&gt;&lt;strong&gt;Maruku:&lt;/strong&gt;&lt;/td&gt;
+    &lt;td&gt;11.619000s total time&lt;/td&gt;
+    &lt;td&gt;00.116190s average&lt;/td&gt;
+  &lt;/tr&gt;
+&lt;/table&gt;
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+&lt;table&gt;
+  &lt;tr&gt;&lt;thead&gt;Ree&lt;/thead&gt;&lt;/tr&gt;
+  &lt;tr&gt;
+    &lt;td&gt;&lt;strong&gt;BlueCloth:&lt;/strong&gt;&lt;/td&gt;
+    &lt;td&gt;08.029169s total time&lt;/td&gt;
+    &lt;td&gt;00.080292s average&lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+    &lt;td&gt;&lt;strong&gt;RDiscount:&lt;/strong&gt;&lt;/td&gt;
+    &lt;td&gt;00.046740s total time&lt;/td&gt;
+    &lt;td&gt;00.000467s average&lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+    &lt;td&gt;&lt;strong&gt;Maruku:&lt;/strong&gt;&lt;/td&gt;
+    &lt;td&gt;06.500247s total time&lt;/td&gt;
+    &lt;td&gt;00.065002s average&lt;/td&gt;
+  &lt;/tr&gt;
+&lt;/table&gt;
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+&lt;table&gt;
+  &lt;tr&gt;&lt;thead&gt;Rubinius&lt;/thead&gt;&lt;/tr&gt;
+  &lt;tr&gt;
+    &lt;td&gt;&lt;strong&gt;BlueCloth:&lt;/strong&gt;&lt;/td&gt;
+    &lt;td&gt;00.062746s total time&lt;/td&gt;
+    &lt;td&gt;00.000627s average&lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+    &lt;td&gt;&lt;strong&gt;RDiscount:&lt;/strong&gt;&lt;/td&gt;
+    &lt;td&gt;00.056345s total time&lt;/td&gt;
+    &lt;td&gt;00.000563s average&lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+    &lt;td&gt;&lt;strong&gt;Maruku:&lt;/strong&gt;&lt;/td&gt;
+    &lt;td&gt;21.178625s total time&lt;/td&gt;
+    &lt;td&gt;00.211786s average&lt;/td&gt;
+  &lt;/tr&gt;
+&lt;/table&gt;
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+
+&lt;p&gt;It’s clear how Ree is fastest with the C extension, but Rbx is not much behind. And even though JRuby’s cext implementation seems to be around 3 times slower for RDiscount than the other implementations, it’s still almost 60times faster than BlueCloth and around 90times faster than Maruku (compared to 1/171/139 on Ree and 1/1/375 on Rbx for RDiscount/BlueCloth/Maruku).&lt;/p&gt;
+
+&lt;p&gt;Also note how Ree is the only one where Maruku is actually fast and also how &lt;strong&gt;bloody fast&lt;/strong&gt; BlueCloth runs on &lt;strong&gt;Rubinius&lt;/strong&gt;!&lt;/p&gt;
+
+&lt;p&gt;So while the cext support for JRuby is comparatively slow, there are clearly cases where it might yield a performance gain.&lt;/p&gt;
+</content>
+  </entry>
+  <entry>
+    <title>A Redcar debugger interface</title>
+    <link rel="alternate" href="https://www.timfelgentreff.de/2010/09/redcar-debug.html"/>
+    <id>/2010/09/redcar-debug.html</id>
+    <published>2010-09-26T00:00:00+00:00</published>
+    <updated>2010-09-26T00:00:00+00:00</updated>
+    <author>
+      <name>Tim Felgentreff</name>
+    </author>
+    <content type="html">
+&lt;h2 id="bringing_some_debugging_to_redcar"&gt;Bringing some debugging to Redcar&lt;/h2&gt;
+
+&lt;h3 id="the_redcar"&gt;The Redcar&lt;/h3&gt;
+
+&lt;p&gt;I have been using the excellent &lt;a href="http://www.redcareditor.com"&gt;Redcar editor&lt;/a&gt; for about a year now, and I must say I am very happy with this project and the pace it’s moving forward at. Hardly a day goes by where there is not some new, hot feature that makes coding easier in this project.&lt;/p&gt;
+
+&lt;p&gt;But the best part: this editor is written almost entirely in JRuby, which makes it a breeze to get into the code and start hacking on it.&lt;/p&gt;
+
+&lt;h3 id="redcardebug"&gt;Redcar-Debug&lt;/h3&gt;
+
+&lt;p&gt;When working on C extension support for JRuby, I often find myself having to attach a Java debugger and a GDB to the same process. For Java debugging, I used Eclipse, which comes with very handy features like inspection and hot code reloading, but the thing I like most about the Eclipse debug perspective is how it organizes the information about the process.&lt;/p&gt;
+
+&lt;p&gt;With GDB’s commandline interface, I often found myself typing &lt;code&gt;bt&lt;/code&gt;, &lt;code&gt;info locals&lt;/code&gt;, &lt;code&gt;info args&lt;/code&gt; at each breakpoint, and returning back to Redcar for context.&lt;/p&gt;
+
+&lt;p&gt;Luckily, there are very good frontends for GDB, too, the most sophisticated I could find was the debugger interface for &lt;a href="http://www.emacswiki.org/emacs/GrandUnifiedDebugger"&gt;&lt;em&gt;Emacs&lt;/em&gt;&lt;/a&gt;, which offers me a layout similar to the Eclipse debug perspective. The Emacs debugger interface even came with JDB support. Hurray!&lt;/p&gt;
+
+&lt;h4 id="why_redcardebug"&gt;Why Redcar-debug?&lt;/h4&gt;
+
+&lt;p&gt;I turns out, while I do like Emacs for &lt;em&gt;TeX&lt;/em&gt; editing, I prefer programming in Redcar. Switching between Redcar, Eclipse was bad enough, throwing Emacs into that was too much.&lt;/p&gt;
+
+&lt;p&gt;This is why I started &lt;a href="http://github.com/timfel/redcar-debug"&gt;redcar-debug&lt;/a&gt;, the &lt;em&gt;Grand Debugging Interface&lt;/em&gt; for Redcar which I have been using for a couple of months now for my JRuby debugging needs.&lt;/p&gt;
+
+&lt;p&gt;It currently includes modules for GDB, JDB, RDebug and Hijack support, and it shouldn’t be too hard to add other commandline-driven debuggers to it. And because you can describe a GUI for something best with pictures I have some moving pictures for you, too:&lt;/p&gt;
+
+&lt;p&gt;&lt;video controls='controls' src='/public/videos/redcar-debug-demo.mp4' width='600px'&gt;Sorry. Your browser does not support the video tag. Get a &lt;a href='http://getfirefox.com'&gt;decent&lt;/a&gt; &lt;a href='http://www.google.com/chrome'&gt;browser&lt;/a&gt;&lt;/video&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;em&gt;Update&lt;/em&gt; The video wasn’t working for some people, so here’s a plain &lt;a href="/public/videos/redcar-debug-demo.mp4"&gt;link&lt;/a&gt;&lt;/p&gt;
+</content>
+  </entry>
+  <entry>
+    <title>Syntax Checking For Redcar</title>
+    <link rel="alternate" href="https://www.timfelgentreff.de/2010/10/redcar-syntax-checks.html"/>
+    <id>/2010/10/redcar-syntax-checks.html</id>
+    <published>2010-10-23T00:00:00+00:00</published>
+    <updated>2010-10-23T00:00:00+00:00</updated>
+    <author>
+      <name>Tim Felgentreff</name>
+    </author>
+    <content type="html">
+&lt;p&gt;I spent the last couple of days thinking about how to implement syntax checking for Redcar. &lt;a href="http://rkh.im"&gt;Konstantin Haase&lt;/a&gt; and I discussed using the &lt;a href="http://github.com/simplabs/melbourne"&gt;Melbourne&lt;/a&gt; gem, which is basically Rubinius’ parser extracted into a gem. Melbourne is a C extension which has been passing all specs for some time now on JRuby master with cext support, so that seemed like a viable way to go.&lt;/p&gt;
+
+&lt;p&gt;Before I got started on my plan, however, I remembered that JRuby, like MRI, supports the &lt;code&gt;-c&lt;/code&gt; switch to just do Syntax checking. So I dug into that a little and came up with a short script to run the JRuby parser on a piece of code from within a JRuby process:&lt;/p&gt;
+
+&lt;p&gt;&lt;a href="//gist.github.com/639637"&gt;ruby_syntax_checker.rb&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;From this I have now created two Redcar plugins: &lt;a href="http://github.com/timfel/redcar_syntax_check"&gt;redcar_syntax_check&lt;/a&gt; which offers some general features pertaining to syntax checking: an abstract checker class, a syntax error class which knows how to annotate an edit view in Redcar and a hook to run available syntax checkers after saving a file.&lt;br /&gt;To do this I had to add a few methods to Redcar’s &lt;em&gt;edit_view&lt;/em&gt; plugin, so currently this runs only on master.&lt;/p&gt;
+
+&lt;p&gt;Using this plugin it is now fairly easy to offer syntax checking for any language: All you have to do is inherit from &lt;code&gt;Redcar::SyntaxCheck::Checker&lt;/code&gt; and implement your custom syntax checking logic in the &lt;code&gt;check&lt;/code&gt; method. If you discover syntax errors in the given file, build instances of &lt;code&gt;Redcar::SyntaxCheck::Error&lt;/code&gt; from them - &lt;code&gt;Error&lt;/code&gt;‘s need only know which document they belong to, the line number and a message. Calling &lt;code&gt;annotate&lt;/code&gt; on them will then draw the annotation and a wiggly line at the error position.&lt;/p&gt;
+
+&lt;p&gt;Finally, tell Redcar which grammar’s you support using the &lt;code&gt;supported_grammars&lt;/code&gt; class method and a list of grammar names in your &lt;code&gt;Checker&lt;/code&gt; subclass’ class body and you’re done!&lt;/p&gt;
+
+&lt;p&gt;See &lt;a href="http://github.com/timfel/redcar_syntax_check"&gt;redcar_syntax_check_ruby&lt;/a&gt; for an example of how to do it.&lt;/p&gt;
+
+&lt;p&gt;When all went well, you can just open a document, write some code and, upon saving, it will automatically check the syntax and show you your errors:&lt;/p&gt;
+
+&lt;p&gt;&lt;img src="/public/images/ruby-syntax-error.png" alt="Syntax error in a Ruby file" /&gt;&lt;/p&gt;
+
+&lt;p&gt; &lt;/p&gt;
+</content>
+  </entry>
+  <entry>
+    <title>Ruby Summer of Code Wrap-Up</title>
+    <link rel="alternate" href="https://www.timfelgentreff.de/2010/11/rsoc.html"/>
+    <id>/2010/11/rsoc.html</id>
+    <published>2010-11-10T00:00:00+00:00</published>
+    <updated>2010-11-10T00:00:00+00:00</updated>
+    <author>
+      <name>Tim Felgentreff</name>
+    </author>
+    <content type="html">
+&lt;p&gt;In the first quarter of this year I applied for a Ruby Summer of Code project, proposing to work on support for Ruby C extensions on JRuby. JRuby has for some time been faster than 1.8 an in in most cases as fast as 1.9 for running Ruby code. But C extensions have been unusable on JRuby, although &lt;a href="http://www.twitter.com/wmeissner"&gt;Wayne Meissner&lt;/a&gt; has written a proof-of-concept for loading C code into the JRuby runtime.&lt;/p&gt;
+
+&lt;h2 id="why_c_extensions"&gt;Why C Extensions?&lt;/h2&gt;
+
+&lt;p&gt;MRI 1.8 has been widely critizised (often outside the Ruby community), for being slow. However, the interpreter is written in a way that allows to tap into its structures very easily and Ruby has for some time offered a way to link extensions in C using mkmf.rb, which is part of the standard library.&lt;br /&gt;Processing intensive tasks or interfaces to tried’n’tested C libraries could thus be written without the overhead imposed by an unnecessary abstraction.&lt;/p&gt;
+
+&lt;p&gt;When alternative Implementations like Rubinius and JRuby came along, people tried to position a new Ruby FFI as the successor to C extensions, because an FFI API could be supported much easier on different VMs.&lt;br /&gt;I personally feel that FFI will never fully replace C extensions, because it tries to abstract from a low-level concept without being able to hide many of the low-level details. Quite often it is just much easier to simply write and compile a C extension, than to write C code and try to adapt its structures in an FFI wrapper library. Ruby is simply not very comfortable, if you have to think about things like pointer sizes in your wrapper code.&lt;/p&gt;
+
+&lt;p&gt;Widespread adoption of FFI is still not happening, and maybe further away now that Rubinius’ support for native C extensions is pretty much complete for most use cases.&lt;br /&gt;Thus, the situation for people wanting to:&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;Deploy Ruby on Windows easily&lt;/li&gt;
+
+&lt;li&gt;Use Java libraries&lt;/li&gt;
+
+&lt;li&gt;Deploy in a war-file&lt;/li&gt;
+
+&lt;li&gt;…&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;is, that they have to stay away from C extensions no matter what.&lt;/p&gt;
+
+&lt;p&gt;For some extensions, like Nokogiri, EM or OpenSSL, this has lead to pure-Java ports, while other libraries have been &lt;em&gt;fast enough&lt;/em&gt; as pure Ruby code on JRuby. However, multiple versions of extensions are a pain to maintain, especially when they rely on other libraries, like RMagick does on ImageMagick or Nokogiri on libxml. In such cases, people have tried re-writing those libraries in Java, which not only makes maintenance even harder, but compatibility becomes an issue, too. Nokogiri-jruby had for some time a lot of problems which came from the Java XML implementation simply not being up to par with libxml.&lt;/p&gt;
+
+&lt;h2 id="so_how_does_this_work_on_jruby"&gt;So, How Does This Work On JRuby?&lt;/h2&gt;
+
+&lt;p&gt;My Summer of Code pretty much consisted of integrating Wayne’s groundwork with JRuby and its LoadService, which I will briefly explain here, and then trying to get the C-API Rubyspecs passing and trying to work every Gem that somebody seemed to care about.&lt;/p&gt;
+
+&lt;h3 id="requiring_files_on_jruby"&gt;Requiring Files On JRuby&lt;/h3&gt;
+
+&lt;p&gt;Rubys require logic is fairly complex, as proven by a ~450 LOC size of &lt;em&gt;basic&lt;/em&gt; require specs. JRuby’s is even more complex, as require must also work for .class and .jar files, and not only consider the filesystem, but also the JVM classpath and thus jar file contents.&lt;/p&gt;
+
+&lt;p&gt;I learned how to hack the JRuby loading by debugging and stepping through the LoadService class in JRuby using Eclipse. A good entry point to break in there is the &lt;code&gt;smartLoad&lt;/code&gt; method, which receives a the require String as it is passed down from Ruby. Then, JRuby goes uses a number of &lt;code&gt;Searcher&lt;/code&gt; classes to try to find a load candidate. There is a script searcher, a classloader searcher, and now an extension searcher, too. Each one of those tries different paths and different file extensions to find a match, and there are quite a few things done “under the hood”.&lt;br /&gt;For example, regardless of the platform, you can always require ‘something.so’ to load an extension. The &lt;code&gt;ExtensionSearcher&lt;/code&gt; on JRuby will then try to find a jar file or a file with the platform specific shared object file-extension.&lt;/p&gt;
+
+&lt;p&gt;When a match is found, it is loaded by a method appropriate for its type: Ruby scripts are loaded by evaluating into the current runtime, C extensions are loaded into the process memory and its &lt;code&gt;Init_*&lt;/code&gt; methods are called. To still be able to deploy JRuby applications in a single Jar, extensions are extracted to the default &lt;code&gt;java.io.tmpdir&lt;/code&gt; (which you can pass as JVM parameter) and loaded from there. This is because Java’s &lt;code&gt;System.loadLibrary&lt;/code&gt; relies on the underlying operating system to actually load the shared object into the process, and that will only work if the library is in the actual filesystem.&lt;/p&gt;
+
+&lt;p&gt;There are a few restrictions when using extensions on JRuby. For example, multiple Runtimes will not work, as we can only dynamically link a library to the JVM once. Since we cannot know wether a given extension is thread-safe or if it has global state, we can’t simply re-use the already loaded library and expose it to another Runtime. Currently, we will throw an error if one attempts to load a C extension twice - which means Rakefiles won’t work if they load a C extension and then try spawning a sub-process. JRuby’s &lt;code&gt;system()&lt;/code&gt;, magic will detect the launch of another Ruby command and just create a new Runtime in the same JVM. If you want to support JRuby in this case, you can do the following: if RUBY_PLATFORM =~ /java/ require ‘jruby’ JRuby.runtime.instance_config.run_ruby_in_process = false&lt;br /&gt; end&lt;/p&gt;
+
+&lt;h3 id="running_c_code_in_jruby__pieces_of_advice"&gt;Running C Code In JRuby - Pieces Of Advice&lt;/h3&gt;
+
+&lt;p&gt;In order for extensions to work, we had to implement as much of the Ruby C API as is possible to support on JRuby. In most cases, where the C methods are simply implementations of STL functionality in C (things like &lt;code&gt;rb_ary_push&lt;/code&gt;, &lt;code&gt;rb_str_cat&lt;/code&gt;, &lt;code&gt;rb_str_new&lt;/code&gt;, …) we can just upcall to Java and have JRuby run the Ruby code for this. You can imagine that this is quite slow, but it is safe, and easily supported. Eventually, we can speed those calls up by caching call targets and methods, too.&lt;/p&gt;
+
+&lt;p&gt;More difficult are most macros. Things like &lt;code&gt;RSTRING_PTR&lt;/code&gt; or &lt;code&gt;RARRAY&lt;/code&gt; expose internal structs of MRI, which we cannot support directly. On JRuby, once you use such a macro, the objects you are accessing are added to a synchronization list and upon &lt;strong&gt;each&lt;/strong&gt; switch Java -&amp;gt; C -&amp;gt; Java the contents of the object are copied downwards and upwards; until the object is eventually garbage collected. We are copying &lt;em&gt;all&lt;/em&gt; active objects, because we cannot know if a reference in form of a variable to the content pointers remains in use.&lt;/p&gt;
+
+&lt;p&gt;Something we currently do not support at all, or only in a very limited way, are macros and methods which rely on or deal with MRI’s AST (e.g. the &lt;code&gt;NODE(x)&lt;/code&gt; macro), its threading model (&lt;code&gt;thread_critical = true&lt;/code&gt; won’t work), file descriptors (changing an fd’s access might not work reliably) and stack layout (functions like &lt;code&gt;rb_each&lt;/code&gt; and &lt;code&gt;rb_iterate&lt;/code&gt; don’t work for arbitrary data structures).&lt;/p&gt;
+
+&lt;p&gt;So people, if you’re building C extensions, and want them to work on JRuby, avoid methods that could make assumptions about any of the areas above. If you want your extensions to work faster on JRuby, avoid structs and struct-macros: use accessor methods instead. If you need read-only access the contents of a string as a char array, make sure those Ruby objects are GC’d soon enough, for example by using &lt;code&gt;rb_str_cstr(x)&lt;/code&gt;.&lt;br /&gt;Finally, if you want some code to be specific for JRuby, &lt;code&gt;#ifdef JRUBY&lt;/code&gt; will help you decide what you are compiling for (this works with &lt;code&gt;RUBINIUS&lt;/code&gt;, too).&lt;/p&gt;
+
+&lt;p&gt;Generally, C extensions on JRuby will never be fast. Never as fast as on MRI, and never as fast as plain Ruby code on JRuby. As extensions go:&lt;/p&gt;
+
+&lt;p&gt;C Extension &amp;lt; FFI &amp;lt; Java callout &amp;lt; Java Extension&lt;/p&gt;
+
+&lt;p&gt;I have seen actual speedups only in extensions that do a lot of work in a single call. &lt;a href="http://github.com/rtomayko/rdiscount"&gt;Ryan Tomayko&lt;/a&gt;‘s RDiscount gem is a good example. There’s only a single call down, the hard work is done in C, and the String will probably be garbage collected pretty soon in Ruby land (see also my &lt;a href="https://www.timfelgentreff.de/2010/08/benchmarking-rdiscount"&gt;micro-benchmark&lt;/a&gt;; just don’t interpret too much into it).&lt;/p&gt;
+</content>
+  </entry>
+  <entry>
+    <title>Linux PM on Macbook Pro</title>
+    <link rel="alternate" href="https://www.timfelgentreff.de/2010/11/powersaving-on-macbook.html"/>
+    <id>/2010/11/powersaving-on-macbook.html</id>
+    <published>2010-11-28T00:00:00+00:00</published>
+    <updated>2010-11-28T00:00:00+00:00</updated>
+    <author>
+      <name>Tim Felgentreff</name>
+    </author>
+    <content type="html">
+&lt;p&gt;I have recently switched back to Linux as my main OS on my Macbook Pro (7,1 series). After half a year of using Mac OS X, I found I couldn’t force it to yield to my workflow and preferences in too many ways. I still think it is a great system, and a great user experience, it’s just that I have grown accustomed to so many little kinks (like sloppy-focus) that I find I cannot use Mac OS X as effectively as my customized Linux desktop.&lt;/p&gt;
+
+&lt;p&gt;After customizing my environment (which can be done easily using GUI tools on modern desktop linux distributions), I realized I had to tweak a little to get battery life up to par with what it was under Mac OS X.&lt;/p&gt;
+
+&lt;p&gt;Much of these steps are drawn from the &lt;a href="https://help.ubuntu.com/community/MacBookPro7-1/Maverick"&gt;Ubuntu Wiki&lt;/a&gt;.&lt;/p&gt;
+
+&lt;p&gt;First, there’s a PPA with Macbook specific daemons, drivers, tools, so I added that and installed a few things from there:&lt;/p&gt;
+
+&lt;p&gt;&lt;code&gt;  $ sudo add-apt-repository ppa:mactel-support &amp;amp;&amp;amp; sudo apt-get update&lt;/code&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;code&gt;  $ sudo apt-get install pommed macfanctld nvidia-bl-dkms xcalib bcm5974-dkms&lt;/code&gt; &lt;code&gt;    xserver-xorg-input-synaptics btusb-dkms&lt;/code&gt;&lt;/p&gt;
+
+&lt;p&gt;This will install:&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;keyboard backlight support&lt;/li&gt;
+
+&lt;li&gt;fan control&lt;/li&gt;
+
+&lt;li&gt;screen backlight support&lt;/li&gt;
+
+&lt;li&gt;screen color calibration&lt;/li&gt;
+
+&lt;li&gt;better touchpad support&lt;/li&gt;
+
+&lt;li&gt;bluetooth drivers&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;After that, a few module tweaks are in order:&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;Activate coretemp on boot&lt;br /&gt;&lt;code&gt;  $ sudo su -c &amp;#39;echo coretemp &amp;gt;&amp;gt; /etc/modules&amp;#39;&lt;/code&gt;&lt;/p&gt;
+&lt;/li&gt;
+
+&lt;li&gt;
+&lt;p&gt;Activate proper sound driver variant, with powersaving&lt;br /&gt;&lt;code&gt;  $ sudo -s&lt;/code&gt;&lt;br /&gt;&lt;code&gt;  # echo &amp;quot;options snd-hda-intel model=mbp55 power_save=1&amp;quot; &amp;gt;&amp;gt; /etc/modprobe.d/alsa-base.conf&lt;/code&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;Then, to get reboot working and have usb devices automatically suspend, use this to add a few kernel paramters to &lt;code&gt;/etc/default/grub&lt;/code&gt;. Where it reads &lt;code&gt;GRUB_CMDLINE_LINUX_DEFAULT&lt;/code&gt;, add:&lt;/p&gt;
+
+&lt;p&gt;&lt;code&gt;usbcore.autosuspend=1 reboot=pci hpet=force&lt;/code&gt;&lt;br /&gt;To write those changes to the active grub configuration, run:&lt;/p&gt;
+
+&lt;p&gt;&lt;code&gt;  $ sudo update-grub&lt;/code&gt;&lt;/p&gt;
+
+&lt;p&gt;I found that this did not cause all usb devices be set to auto-suspend, even though they could. So I added a one-liner to /etc/rc.local which I took from &lt;code&gt;powertop&lt;/code&gt;:&lt;/p&gt;
+
+&lt;p&gt;&lt;code&gt;for i in /sys/bus/usb/devices/*/power/control; do echo &amp;quot;auto&amp;quot; &amp;gt; &amp;quot;$i&amp;quot;; done&lt;/code&gt;&lt;br /&gt;Don’t forget to make /etc/rc.local executable with &lt;code&gt;chmod +x /etc/rc.local&lt;/code&gt;.&lt;/p&gt;
+
+&lt;p&gt;Finally, after installing the proprietary NVidia drivers, you can add the following options to the &lt;code&gt;Device&lt;/code&gt; section in &lt;code&gt;/etc/X11/xorg.conf&lt;/code&gt;:&lt;/p&gt;
+
+&lt;p&gt;&lt;code&gt;Option &amp;quot;Coolbits&amp;quot; &amp;quot;1&amp;quot;&lt;/code&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;code&gt;Option &amp;quot;OnDemandVBlankInterrupts&amp;quot; &amp;quot;True&amp;quot;&lt;/code&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;code&gt;Option &amp;quot;RegistryDwords&amp;quot; &amp;quot;PowerMizerEnable=0x1; PerfLevelSrc=0x2233; PowerMizerDefault=0x3&amp;quot;&lt;/code&gt;&lt;/p&gt;
+
+&lt;p&gt;This will activate the frequency override capabilities, enable VBlank interrupts to only fire on demand and set the performance on battery to the fixed-minimum, so that Compiz doesn’t trigger the NVidia performance scaling.&lt;/p&gt;
+
+&lt;p&gt;After a reboot with these tweaks, I’m getting between 7.5 and 9.5 Watts usage, which is a little higher than on Mac OS X, but still good enough for around 6h of battery under conservative use (on Wifi, twittering, emailing and surfing).&lt;/p&gt;
+</content>
+  </entry>
+  <entry>
+    <title>Debugging on steroids - what Ruby should learn from Smalltalk</title>
+    <link rel="alternate" href="https://www.timfelgentreff.de/2011/09/maglev-debug.html"/>
+    <id>/2011/09/maglev-debug.html</id>
+    <published>2011-09-08T00:00:00+00:00</published>
+    <updated>2011-09-08T00:00:00+00:00</updated>
+    <author>
+      <name>Tim Felgentreff</name>
+    </author>
+    <content type="html">
+&lt;h2 id="a_prototype_of_seasidelike_debugging_in_ruby"&gt;A prototype of Seaside-like debugging in Ruby&lt;/h2&gt;
+
+&lt;h3 id="the_premise"&gt;The premise&lt;/h3&gt;
+
+&lt;p&gt;I have used Smalltalk and the &lt;a href="http://seaside.st"&gt;Seaside&lt;/a&gt; web-framework for some time before &lt;a href="http://rkh.im"&gt;Konstantin&lt;/a&gt; introduced me to Ruby. I’ve come to use Ruby for most of my scripting needs, but what I’ve always preferred about Smalltalk is the tool integration: because you’re working with a live system, you have access to all these objects you write code for, to play with and see how they behave whenever you want to.&lt;/p&gt;
+
+&lt;p&gt;So in Seaside, when you break your application, you get a stacktrace page not unlike the pages in Rails, Sinatra, or Rack. However, in addition to the links for framework and full traces, you have a link to &lt;em&gt;debug&lt;/em&gt; the thing directly. Simply at the point where it has thrown the error. And then resume it. As if nothing ever happened.&lt;/p&gt;
+
+&lt;p&gt;In Rails, when you break your application, you try to figure out what’s wrong from the trace and by looking at the code. Then you change the code and hope the Rails reloader works (and that you cannot always rely on, see Konstantin’s &lt;a href="http://rkh.im/code-reloading"&gt;post&lt;/a&gt; on the matter). In Sinatra or Rack apps, you’ll usually have to restart your app. This means waiting for the server to come up and the request to be handled again. Even if it’s just a second or two … it does add up.&lt;/p&gt;
+
+&lt;p&gt;Also, it’s bloody annoying.&lt;/p&gt;
+
+&lt;h3 id="here_comes_everybody"&gt;Here comes Everybody…&lt;/h3&gt;
+
+&lt;p&gt;‘s favorite Ruby implementation &lt;a href="http://ruby.gemstone.com"&gt;MagLev&lt;/a&gt;! MagLev is a Ruby implementation build on the excellent, mature, and battle-tested Gemstone/S Smalltalk product. Ruby classes and methods on MagLev are almost indistinguishable from Smalltalk methods and classes, and most of the core classes are simply shared between the implementations.&lt;/p&gt;
+
+&lt;p&gt;Since I’ve recently started an internship with Gemstone (now owned by VMware) in Beaverton, OR, I have the opportunity to try and provide a bridge for some of that Smalltalk goodness to reach the Ruby world!&lt;/p&gt;
+
+&lt;p&gt;First thing I added enough reflection to the Ruby core classes (mostly Thread and Method) to allow writing a debugger in pure Ruby.&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;This means being able to inspect, change, step through, and restart frames.&lt;/li&gt;
+
+&lt;li&gt;This means stopping, copying, saving, and restarting Threads, all in pure Ruby.&lt;/li&gt;
+
+&lt;li&gt;This also means having an API to change methods and classes, in-process, and have them write back to the file-system to keep it consistent with the process’ contents.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3 id="later_that_same_day"&gt;Later, that same day&lt;/h3&gt;
+
+&lt;p&gt;Being well equipped with &lt;strong&gt;Awesome Reflective Powers&lt;/strong&gt;™ now, I wrote an error handling Rack middleware for inclusion in any Rails, Rack and Sinatra app, and whipped up a very simple, web-based debugger that can connect to a running process and, well, debug it.&lt;/p&gt;
+
+&lt;p&gt;I presented the demo in the video below at the &lt;a href="http://pdxruby.org"&gt;pdx.rb&lt;/a&gt; meeting in September. So what’s going on here? First, I’m using an old Sinatra app which I’ve added a bug to. This bug triggers the Rack middleware to save a continuation of the thread and present a (very, very simple) error page explaining what you can do from there. That page has a link to resume the thread that handled the connection. If you click it, without actually debugging, the thread just continues and shows the Sinatra error page as it would without the middleware.&lt;/p&gt;
+
+&lt;p&gt;We, however, having installed MagLev’s &lt;a href="http://www.github.com/MagLev/webtools"&gt;Webtools&lt;/a&gt;, can connect to the other process, find the right thread and look at the stack. We can quickly find the last frame that executes some of our code: the class method &lt;strong&gt;Bithug::User.find&lt;/strong&gt;.&lt;/p&gt;
+
+&lt;p&gt;Because we’re dealing with an actual, living and breathing thread object saved to the stone repository, we can send messages to it to look at the arguments and locals of a method. We can see that &lt;em&gt;self&lt;/em&gt; is the Bithug::User class, and that the &lt;em&gt;Db&lt;/em&gt; constant that was involved in the error is a &lt;em&gt;KeyValueDictionary&lt;/em&gt;. We can also find out that the value the method selects from the Db is non-existent. After noticing our mistake (&lt;em&gt;self.class.name&lt;/em&gt; should really be &lt;em&gt;self.name&lt;/em&gt;, because we’re already on the class side) we can edit the code and save it, thereby&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;changing the code in process,&lt;/li&gt;
+
+&lt;li&gt;writing it back to the file system,&lt;/li&gt;
+
+&lt;li&gt;and instructing the thread to reload and re-execute that frame&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;The thread is still suspended and in a persistent state. But if we go back to our application now and tell it to resume the request, it will prepare the thread for execution and run it - and we can see our app load. The error is fixed!&lt;/p&gt;
+
+&lt;p&gt;&lt;a href="//www.youtube.com/embed/LvipqMIHkO8?hl=en"&gt;Demo on YouTube&lt;/a&gt;&lt;/p&gt;
+
+&lt;h3 id="why_this_is_cool"&gt;Why this is cool&lt;/h3&gt;
+
+&lt;p&gt;Just using plain old Ruby, we can debug an application, we can inspect and change it &lt;em&gt;while it is running&lt;/em&gt;. We don’t have to restart the process, we don’t even have to restart the request, it’s all in the thread, persisted to the repository.&lt;/p&gt;
+
+&lt;p&gt;The actual application doesn’t need to expose all these things, either. The thread was saved to the stone repository anyway, we can fire up a VM on a completely different machine, pull the thread from the stone and debug there! So even production, no error will ever need to go undebugged, because &lt;em&gt;you can keep every error around for later inspection&lt;/em&gt;! No more trying to reproduce what’s on your production system - triggering the error just once is enough to step through it again and again and again and again.&lt;/p&gt;
+
+&lt;p&gt;This is one of the many advantages of having a malleable Smalltalk stack and real object persistence built into your VM!&lt;/p&gt;
+
+&lt;p&gt;Other use-cases come to mind. Remember, all this is accessible using pure Ruby.&lt;/p&gt;
+
+&lt;p&gt;You might want to handle other extraordinary cases in your application by simply persisting a continuation of the interesting state, so you can look at it later.&lt;/p&gt;
+
+&lt;p&gt;Or whenever you look at a method wondering what’s going on, you can just pull up a thread &lt;em&gt;from your life app&lt;/em&gt; and see what kinds of arguments you might get, and what the state of your application might look like in this method.&lt;/p&gt;
+
+&lt;h2 id="soon_at_a_ruby_implementation_near_you"&gt;Soon, at a Ruby implementation near you&lt;/h2&gt;
+
+&lt;p&gt;I am currently working on providing and documenting enough API for people to do all these things with their Ruby apps. I hope some of this will show Rubyists that having an extraordinarily dynamic language doesn’t mean you can’t have great tools as well…&lt;/p&gt;
+</content>
+  </entry>
+  <entry>
+    <title>CloudFoundry for Smalltalk applications</title>
+    <link rel="alternate" href="https://www.timfelgentreff.de/2012/02/cloud-foundry-squeak.html"/>
+    <id>/2012/02/cloud-foundry-squeak.html</id>
+    <published>2012-02-22T00:00:00+00:00</published>
+    <updated>2012-02-22T00:00:00+00:00</updated>
+    <author>
+      <name>Tim Felgentreff</name>
+    </author>
+    <content type="html">
+&lt;h2 id="finally"&gt;Finally!&lt;/h2&gt;
+
+&lt;p&gt;After &lt;a href="http://programminggems.wordpress.com/"&gt;James Foster&lt;/a&gt; &lt;a href="http://programminggems.wordpress.comhttps://www.timfelgentreff.de/2012/02/17/adding-smalltalk-to-cloud-foundry/"&gt;posted&lt;/a&gt; about getting &lt;a href="http://www.aidaweb.si/download"&gt;Aida&lt;/a&gt; running on &lt;a href="http://cloudfoundry.com/"&gt;CloudFoundry&lt;/a&gt;, I just &lt;em&gt;had&lt;/em&gt; to give it a go.&lt;/p&gt;
+
+&lt;p&gt;The first step was installing CloudFoundry. I created a &lt;code&gt;vcap&lt;/code&gt; user on the server to run the cloud services. Using the &lt;code&gt;dev_setup&lt;/code&gt; script from &lt;a href="https://github.com/cloudfoundry/vcap/"&gt;https://github.com/cloudfoundry/vcap/&lt;/a&gt; got me up and running in just under an hour. The installer will download a few packages (it needs sudo for this) and then install all the runtimes (i.e. language VMs) and frameworks as the local user. Afterwards, the websites hosted here were broken, because there’s another thing that the installer changes, and that is your &lt;code&gt;nginx.conf&lt;/code&gt;. By default, it’ll redirect everything to the CloudFoundry router process, which is not what I wanted. I just changed it to only redirect anything under &lt;code&gt;*.vcap.bithug.org&lt;/code&gt; to the router, so all other websites could work as previously.&lt;/p&gt;
+
+&lt;p&gt;The last thing the installer told you was, how to run the cloud: ~/cloudfoundry/vcap/dev_setup/bin/vcap_dev start I found that, since we have a global RVM setup on this server, this interfered with the local rvm install the cloud foundry script set up, so I changed the .bashrc of this user to not load RVM and only use this minimal &lt;code&gt;PATH&lt;/code&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;a href="//gist.github.com/1886224"&gt;bashrc&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;After starting, I tested the setup with this simple Sinatra app:&lt;/p&gt;
+
+&lt;p&gt;&lt;a href="//gist.github.com/1886224"&gt;env.rb&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;To do this, I needed to create a user on the server, using the vmc script. vmc adduser Afterwards, it might be a good idea to change &lt;code&gt;~/cloudfoundry/.deployments/dev_box/config/cloud_controller.yml&lt;/code&gt;, insert your own email address into the list of admin users and disallow registering users through vmc. This way, only you’ll be able to add new users.&lt;/p&gt;
+
+&lt;p&gt;With this out of the way, we can just put the Sinatra app in an empty directory and run vmc push It will ask a series of questions, I accepted the defaults after choosing &lt;em&gt;env&lt;/em&gt; as the name for my app. I verified that it worked by going to &lt;a href="http://env.vcap.bithug.org"&gt;http://env.vcap.bithug.org&lt;/a&gt;.&lt;/p&gt;
+
+&lt;h4 id="smalltalk_the_server_side"&gt;Smalltalk, the Server Side&lt;/h4&gt;
+
+&lt;p&gt;Now, the good stuff :) For getting Smalltalk to run, I pretty much followed James’ &lt;a href="http://programminggems.wordpress.comhttps://www.timfelgentreff.de/2012/02/17/adding-smalltalk-to-cloud-foundry/"&gt;instructions&lt;/a&gt;. But I wasn’t interested in Aida. For my master’s thesis, I will need a few small apps running under different URLs. For one of those apps, I’ll be using Smalltalk apps written in a tiny web library called &lt;a href="http://ss3.gemstone.com/ss/RatPack.html"&gt;RatPack&lt;/a&gt; (yes, it’s a Sinatra look-alike in Smalltalk - even the error page is copied). So I needed a way to run arbitrary Smalltalk apps.&lt;/p&gt;
+
+&lt;p&gt;To do this, I changed James’ instructions to define a &lt;code&gt;Squeak&lt;/code&gt;, rather than a &lt;code&gt;Aida&lt;/code&gt; framework. While I was at it, I also changed a few other things:&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;I use the latest CogVM builds from &lt;a href="http://www.mirandabanda.org/"&gt;Eliot Miranda&lt;/a&gt;‘s website.&lt;/li&gt;
+
+&lt;li&gt;I install a patch during staging that will mirror the Transcript to a logfile, so you can have ‘some’ debugging&lt;/li&gt;
+
+&lt;li&gt;I installed the smalltalk services stuff in the &lt;code&gt;vcap&lt;/code&gt; user’s home directory&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;You can grab the complete patch &lt;a href="https://github.com/timfel/vcap/commit/dcd2469d0738af05315495a413db736f8aa97b76"&gt;here&lt;/a&gt;.&lt;/p&gt;
+
+&lt;p&gt;Because CloudFoundry assigns a random port to its apps, I used James’ solution of passing the &lt;code&gt;$VCAP_APP_PORT&lt;/code&gt; as a commandline argument for the Squeak application to use. However, because I don’t know what the app is going to look like, the developer will have to make sure that his/her app honors that argument.&lt;/p&gt;
+
+&lt;h4 id="smalltalk_the_smalltalk_side"&gt;Smalltalk, the Smalltalk Side&lt;/h4&gt;
+
+&lt;p&gt;Now I created a (very simple) RatPack application:&lt;/p&gt;
+
+&lt;p&gt;&lt;a href="//gist.github.com/1886415"&gt;app.st&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;Usually, with RatPack, you will use the Morphic control panel to start applications, assign them a port and so on. On CloudFoundry, the cloud controller might start an image on any port it chooses, or run multiple instances in parallel. To make sure our application is always running on the right port, I added these methods to the &lt;em&gt;class side&lt;/em&gt; of the &lt;code&gt;TestApp&lt;/code&gt; class:&lt;/p&gt;
+
+&lt;p&gt;&lt;a href="//gist.github.com/1886415"&gt;classside.st&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;This will make sure the application is properly shutdown and restarted whenever an image is stopped and re-run.&lt;/p&gt;
+
+&lt;p&gt;Now, to push this to the cloud, we need a &lt;code&gt;squeak.st&lt;/code&gt; script that creates our initial image. To make this step fast and easy, I created a small &lt;a href="http://ss3.gemstone.com/ss/CloudFoundry.html"&gt;project&lt;/a&gt; to create &lt;code&gt;pushable&lt;/code&gt; directories and scripts from your applications. Install it and run:&lt;/p&gt;
+
+&lt;p&gt;&lt;a href="//gist.github.com/1886415"&gt;script.st&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;It asks whether you want to install any &lt;em&gt;MetacelloConfigurations&lt;/em&gt; and/or &lt;em&gt;MCZs&lt;/em&gt;. I chose &lt;code&gt;ConfigurationOfRatPack&lt;/code&gt; in version 1.0 with the default group, as well as my TestApp MCZ. The script creates a folder named &lt;code&gt;vmc&lt;/code&gt; in your default Smalltalk directory with two MCZs copied from your &lt;code&gt;package-cache&lt;/code&gt;, as well as a &lt;code&gt;squeak.st&lt;/code&gt; script to run during the staging process:&lt;/p&gt;
+
+&lt;p&gt;&lt;a href="//gist.github.com/1886415"&gt;squeak.st&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;As you can see, this script will install the configuration and the mcz, as well as the RFB server, so you can connect to your image via VNC for debugging.&lt;/p&gt;
+
+&lt;p&gt;To actually push this application, again follow James’ &lt;a href="http://programminggems.wordpress.comhttps://www.timfelgentreff.de/2012/02/14/preparing-smalltalk-for-cloud-foundry/"&gt;instructions&lt;/a&gt; to patch the vmc gem on your development machine (second to last paragraph, adjust it so it reads &lt;code&gt;squeak&lt;/code&gt; instead of &lt;code&gt;aida&lt;/code&gt; in all places).&lt;/p&gt;
+
+&lt;p&gt;With that done, it’s as easy as going into the &lt;code&gt;vmc&lt;/code&gt; directory and running &lt;code&gt;vmc push&lt;/code&gt;. It should recognize that you’re working with a Squeak application and ask for deployment details.&lt;/p&gt;
+
+&lt;p&gt;In my case, because Squeak actually has to load quite a few things during staging, the client then timed out and reported a failure. You can check the transcript logfile or with VNC to make sure everything works as expected. Once you got it working, use&lt;/p&gt;
+
+&lt;p&gt;&lt;a href="//gist.github.com/1886415"&gt;deploy.st&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;to generate a deployment without VNC access to lock down your image.&lt;/p&gt;
+
+&lt;p&gt;Go say thanks to &lt;a href="http://programminggems.wordpress.com/"&gt;James&lt;/a&gt; and &lt;a href="http://maglevity.wordpress.com/about/"&gt;Peter&lt;/a&gt; for doing the hard work and finding all that out!&lt;/p&gt;
+</content>
+  </entry>
+  <entry>
+    <title>Master Thesis Progress</title>
+    <link rel="alternate" href="https://www.timfelgentreff.de/2012/05/thesis.html"/>
+    <id>/2012/05/thesis.html</id>
+    <published>2012-05-31T00:00:00+00:00</published>
+    <updated>2012-05-31T00:00:00+00:00</updated>
+    <author>
+      <name>Tim Felgentreff</name>
+    </author>
+    <content type="html">
+&lt;h2 id="tracing_and_debugging_for_distributed_programs"&gt;Tracing and Debugging for Distributed Programs&lt;/h2&gt;
+
+&lt;p&gt;&lt;img src="/public/images/masterprogress.jpg" alt="Masters Thesis Progress" /&gt;&lt;/p&gt;
+</content>
+  </entry>
+  <entry>
+    <title>Qoppa - a language to learn about Fexpr's</title>
+    <link rel="alternate" href="https://www.timfelgentreff.de/2012/08/qoppa.html"/>
+    <id>/2012/08/qoppa.html</id>
+    <published>2012-08-27T00:00:00+00:00</published>
+    <updated>2012-08-27T00:00:00+00:00</updated>
+    <author>
+      <name>Tim Felgentreff</name>
+    </author>
+    <content type="html">
+&lt;h2 id="qoppa__a_language_to_learn_about_fexprs"&gt;Qoppa - a language to learn about Fexpr’s&lt;/h2&gt;
+
+&lt;p&gt;Recently, I gave a talk at &lt;a href="http://www.meetup.com/thefunclub/"&gt;Fun Club Berlin&lt;/a&gt; about Fexpr’s. I had only recently heard about those and worked myself through a &lt;a href="http://mainisusuallyafunction.blogspot.dehttps://www.timfelgentreff.de/2012/04/scheme-without-special-forms.html"&gt;blogpost&lt;/a&gt; describing a minimal language, &lt;em&gt;Qoppa&lt;/em&gt;, that uses only Fexpr’s and has no other sepcial forms. The author then built a library on top of Qoppa that implemented enough of Scheme to implement Qoppa on top of that again.&lt;/p&gt;
+
+&lt;p&gt;To do is to understand, so I implemented a Qoppa AST interpreter with Scheme syntax on top of &lt;a href="http://doc.pypy.org/en/latest/coding-guide.html"&gt;PyPy&lt;/a&gt;, using the parser and much of the object model (as much as there is) from &lt;a href="https://bitbucket.org/pypy/lang-scheme"&gt;their Scheme implementation&lt;/a&gt;. You can find the &lt;a href="https://github.com/timfel/qoppy"&gt;code on GitHub&lt;/a&gt;, if you’re interested. I’m going to talk about my experiences with PyPy in a later post, so suffice it to say that the generated binary is reasonably fast, even though I haven’t really thought about optimizing anything.&lt;/p&gt;
+
+&lt;p&gt;So, if you’re interested in the &lt;em&gt;What&lt;/em&gt; and &lt;em&gt;Why&lt;/em&gt; of Fexprs, go read Keegan McAllister’s &lt;a href="http://mainisusuallyafunction.blogspot.dehttps://www.timfelgentreff.de/2012/04/scheme-without-special-forms.html"&gt;blogpost&lt;/a&gt; and look also at his Scheme implementation on &lt;a href="https://github.com/kmcallister/qoppa"&gt;GitHub&lt;/a&gt;. I described some of his explanations in my talk, and the screenshots of the “slides” I had are also &lt;a href="https://github.com/timfel/qoppy/raw/fexpr-presentation/presentation_to_pdf.pdf"&gt;available&lt;/a&gt;.&lt;/p&gt;
+</content>
+  </entry>
+  <entry>
+    <title>RSqueak/VM - A research VM for Squeak/Smalltalk</title>
+    <link rel="alternate" href="https://www.timfelgentreff.de/2015/04/rsqueak.html"/>
+    <id>/2015/04/rsqueak.html</id>
+    <published>2015-04-10T00:00:00+00:00</published>
+    <updated>2015-04-10T00:00:00+00:00</updated>
+    <author>
+      <name>Tim Felgentreff</name>
+    </author>
+    <content type="html">
+&lt;h2 id="rsqueakvm__a_research_vm_for_squeaksmalltalk"&gt;RSqueak/VM - A research VM for Squeak/Smalltalk&lt;/h2&gt;
+
+&lt;p&gt;For the past few years, &lt;a href="https://github.com/HPI-SWA-Lab/RSqueak"&gt;we&lt;/a&gt; have been quietly working on RSqueak/VM, an RPython-based VM for &lt;a href="http://www.squeak.org"&gt;Squeak/Smalltalk&lt;/a&gt;. The VM is still under development, mostly in short bursts and pushes, but is beginning to be useable and shows promising results.&lt;/p&gt;
+
+&lt;p&gt;RSqueak/VM grew out of the &lt;a href="http://dx.doi.org/10.1007/978-3-540-89275-5_7"&gt;SpyVM&lt;/a&gt; work done by &lt;a href="https://twitter.com/cfbolz"&gt;Carl Friedrich Bolz&lt;/a&gt;, &lt;a href="https://twitter.com/akuhn"&gt;Adrian Kuhn&lt;/a&gt;, &lt;a href="https://twitter.com/adrianlienhard"&gt;Adrian Lienhard&lt;/a&gt;, Nicholas D. Matsakis, &lt;a href="https://twitter.com/onierstrasz"&gt;Oscar Nierstrasz&lt;/a&gt;, &lt;a href="https://twitter.com/renggli"&gt;Lukas Renggli&lt;/a&gt;, Armin Rigo, and Toon Verwaest, but has since been extended by Lars Wassermann, &lt;a href="https://twitter.com/anton_gulenko"&gt;Anton Gulenko&lt;/a&gt;, &lt;a href="https://twitter.com/krono"&gt;Tobias Pape&lt;/a&gt;, and myself.&lt;/p&gt;
+
+&lt;p&gt;We have done many interesting experiments with RSqueak/VM, including using &lt;a href="http://morepypy.blogspot.dehttps://www.timfelgentreff.de/2014/08/a-field-test-of-software-transactional.html"&gt;STM&lt;/a&gt;, &lt;a href="http://morepypy.blogspot.dehttps://www.timfelgentreff.de/2011/10/more-compact-lists-with-list-strategies.html"&gt;strategies&lt;/a&gt;, and most recently we have attempted to get performance up to run as many primitives as possible in pure Smalltalk, including such primitives used for large integer arithmetic, string operations, TrueType font rendering, bézier curves, display compositing, and more. We are not quite there yet for an alpha release, but a &lt;a href="http://smalltalkhub.com/#!/~StefanMarr/SMark"&gt;set of benchmarks&lt;/a&gt; we ran today show that we are getting close :)&lt;/p&gt;
+
+&lt;p&gt;&lt;img src="/public/images/rsqueak-smark.png" alt="SMark" /&gt;&lt;/p&gt;
+</content>
+  </entry>
+  <entry>
+    <title>PhD Thesis Progress</title>
+    <link rel="alternate" href="https://www.timfelgentreff.de/2015/09/phd.html"/>
+    <id>/2015/09/phd.html</id>
+    <published>2015-09-25T00:00:00+00:00</published>
+    <updated>2015-09-25T00:00:00+00:00</updated>
+    <author>
+      <name>Tim Felgentreff</name>
+    </author>
+    <content type="html">
+&lt;h2 id="babelsberg"&gt;Babelsberg&lt;/h2&gt;
+
+&lt;p&gt;I am writing my dissertation on &lt;a href="https://github.com/babelsberg/"&gt;Babelsberg&lt;/a&gt;, a family of language experiments and that implement a design for adding constraint solving and automatically maintained assertions to ordinary object-oriented languages. You know how you sometimes write &lt;code&gt;assert
+some.code.that.calls(stuff)&lt;/code&gt;. And if your assertion fails, you crash? In Babelsberg, you can write &lt;code&gt;always some.code.that.calls(stuff)&lt;/code&gt;, and rather than crashing directly, the system will attempt to “heal” the program state to make the assertion pass (if it doesn’t already). This works great more often than you would think, and sometimes it even completely frees you from writing the code to establish a correct state in the first place! Just let the system deal with it - a Sudoku solver? No problem, I know what a valid solution should look like, I can just &lt;code&gt;always&lt;/code&gt; that. Load balancing for video streaming, automatic repair of partially downloaded image data, layouting. We’ve found a number of interesting applications.&lt;/p&gt;
+
+&lt;p&gt;&lt;img src="/public/images/phdprogress.jpg" alt="PhD Thesis Progress" /&gt;&lt;/p&gt;
+</content>
+  </entry>
+</feed>
