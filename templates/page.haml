@@ -7,7 +7,7 @@
     %time.timeago{:pubdate => true, :datetime => date.xmlschema}= date.strftime "%Y/%m/%d, %H:%M %Z"
 
 %section.content
-  = yield
+  != yield
 
 %br
 %section.license

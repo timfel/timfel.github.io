@@ -14,7 +14,7 @@
     %script{:src => "/blog.js?#{tag}", :type => "text/javascript"}
     %link{:href => '//fonts.googleapis.com/css?family=Fanwood+Text', :rel => 'stylesheet', :type => 'text/css'}
     %link{:href => '//fonts.googleapis.com/css?family=Source+Sans+Pro', :rel => 'stylesheet', :type => 'text/css'}
-    %link{:href => "/blog.css?#{tag}", :rel => "stylesheet", :type => "text/css"}
+    %link{:href => "/public/blog.css?#{tag}", :rel => "stylesheet", :type => "text/css"}
     %link{:rel => "canonical", :href => "#{Blog.url}"}
     %link{:rel => "icon", :type => "image/jpeg", :href => "//upload.wikimedia.org/wikipedia/commons/a/a8/Cesium.svg"}
     %link{:rel => "alternate", :type => "application/rss+xml", :title => Blog.url.gsub("http://", ""), :href => "http://feeds.feedburner.com/#{Blog.feedburner}"}
@@ -40,10 +40,10 @@
             - if page.title
               - short_title = "#{page.title[0..30]}#{'&hellip;' if page.title.length > 31}"
             %a{:class => "link #{klass}", :href => page.url, :title => short_title || "No title"}= symbol
-        - link['first', '&lt;&lt;', articles.first]; link['prev',  '&lt;',     prev_page     ]
-        - link['next',  '&gt;',     next_page     ]; link['last',  '&gt;&gt;', articles.last ]
+        - link['first', '<<', articles.first]; link['prev',  '<',     prev_page     ]
+        - link['next',  '>',     next_page     ]; link['last',  '>>', articles.last ]
       %article{'data-source' => url.to_s}
-        = yield
+        != yield
       %aside
         - if Blog.feedburner
           %p
@@ -59,10 +59,9 @@
 
           I am now working on programming language and VM related things at Oracle Labs.
 
-          You can follow me on [Twitter](http://twitter.com/timfelgentreff).
           Most of the code I'm talking about is on
           [GitHub](http://github.com/timfel).
-          I also have a [CV](/cv.html), although I am lazy about updating it.
+          I also have a [CV](/cv.html).
         %h3 Posts
         - articles.reverse_each do |article|
           %article

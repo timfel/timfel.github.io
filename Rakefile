@@ -17,6 +17,9 @@ task :default do
       f << page.compile
     end
   end
+  File.open(File.join('static', 'blog.html'), 'w') do |f|
+    f << "<meta HTTP-EQUIV='REFRESH' content='0; url=&quot;#{Blog::Page::Instances.select{ |p| p.kind_of? Blog::Article }.last.url}&quot;'>"
+  end
   Rake::Task["cv:pdf"].invoke
 end
 
@@ -41,6 +44,7 @@ namespace :cv do
     Dir.chdir "cv" do
       system("pandoc --standalone \
                 --section-divs \
+                --citeproc \
                 --template templates/cv.html \
                 --from markdown+yaml_metadata_block+header_attributes+definition_lists \
                 --metadata pagetitle=\"CV\" \
