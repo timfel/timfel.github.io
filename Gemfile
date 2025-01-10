@@ -1,11 +1,11 @@
 source "https://rubygems.org"
 gem "haml"
 
+gem "pandoc-ruby"
+gem "base64"
 gem "maruku"
-group :development do
-  gem "coffee-script"
-  gem "rake"
-end
+gem "coffee-script"
+gem "rake"
 gem "compass"
 gem "builder"
 gem "backports"

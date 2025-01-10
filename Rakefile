@@ -70,6 +70,7 @@ namespace :cv do
     system("wkhtmltopdf \
                 --print-media-type \
                 --orientation Portrait \
+                --enable-local-file-access \
                 --page-size A4 \
                 --margin-top 15 \
                 --margin-left 15 \

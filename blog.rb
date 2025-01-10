@@ -1,4 +1,4 @@
-%w[backports tilt rack forwardable thread yaml json rubypants base64 digest/md5 time].each { |lib| require lib }
+%w[backports/latest tilt rack forwardable thread yaml json rubypants base64 digest/md5 time].each { |lib| require lib }
 
 module ::Blog
   extend self, Forwardable
@@ -19,7 +19,7 @@ module ::Blog
 
     def initialize(file, url = nil, status = 200, use_layout = true, options = {})
       @file, @status, @use_layout, @date, self.url = file, status, use_layout, Time.now, url
-      @source = File.exists?(file) ? Tilt.new(file, options, &method(:load_file)).render(self) : file
+      @source = File.exist?(file) ? Tilt.new(file, options, &method(:load_file)).render(self) : file
       @source.replace RubyPants.new(@source).to_html if use_layout
       @header = {"Vary"=>"HTTP_X_REQUESTED_WITH", "X-UA-Compatible"=>"chrome=1", "Content-Language"=>"en-us",
                     "Content-Type"=>"text/html; charset=utf-8"}
@@ -27,7 +27,7 @@ module ::Blog
     end
 
     def url=(value)
-      Blog.map.try(:delete_if) { |k,v| v == self }
+      Blog.map&.delete_if { |k,v| v == self }
       Blog[value] = self if value
       @url = value
     end
@@ -35,7 +35,7 @@ module ::Blog
     def layout;           @layout  ||= Tilt.new('templates/layout.haml').render(self) { content } end
     def content;          @content ||= Tilt.new('templates/page.haml').render(self) { @source }   end
     def response(content) [status, header.merge('Content-Length' => content.bytesize.to_s), [content]] end
-    def load_meta(src)    YAML.load(src).each { |k,v| send("#{k}=", v) if respond_to? "#{k}=" }   end
+    def load_meta(src)    YAML.load(src, permitted_classes: [Date]).each { |k,v| send("#{k}=", v) if respond_to? "#{k}=" }   end
     def index;            articles.index(self)                                                    end
     def next_page;        (index && index < articles.size - 1)  ? articles[index+1] : self        end
     def prev_page;        (index && index > 0)                  ? articles[index-1] : self        end
