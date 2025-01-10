@@ -29,18 +29,6 @@ namespace :cv do
   static = File.expand_path("../static", __FILE__)
   date = `date +'%B %d, %Y'`
 
-  task :style do
-    Dir.chdir "cv" do
-      system("compass compile \
-                --require susy \
-                --sass-dir stylesheets \
-                --javascripts-dir javascripts \
-                --image-dir public \
-                --css-dir #{static} \
-                stylesheets/style.scss") || raise
-    end
-  end
-
   desc "Make HTML CV"
   task :bib => [] do
     cv = File.expand_path("../cv/cv.md", __FILE__)
@@ -49,7 +37,7 @@ namespace :cv do
     end
   end
 
-  task :html => [:bib, :style] do
+  task :html => [:bib] do
     Dir.chdir "cv" do
       system("pandoc --standalone \
                 --section-divs \
@@ -58,7 +46,7 @@ namespace :cv do
                 --metadata pagetitle=\"CV\" \
                 --to html5 \
                 --variable=date:'#{date}' \
-                --css style.css \
+                --css public/style.css \
                 --bibliography cv.bib \
                 --csl bib.csl \
                 --output #{static}/cv.html cv.md") || raise

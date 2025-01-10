@@ -1,0 +1,357 @@
+/* line 4, templates/blog.sass */
+article, header, footer, section, nav, aside {
+  display: block;
+}
+
+@media screen {
+  /* line 17, templates/blog.sass */
+  body {
+    font-family: "Fanwood Text", Georgia, Cambria, "Times New Roman", Times, serif;
+    font-size: 18px;
+    margin: 0;
+    color: #222;
+  }
+}
+@media screen and (min-width: 980px) {
+  /* line 17, templates/blog.sass */
+  body {
+    padding: 20px 50px;
+    min-width: 300px;
+  }
+}
+
+@media screen {
+  /* line 27, templates/blog.sass */
+  h1, h2 {
+    color: #222;
+  }
+
+  /* line 30, templates/blog.sass */
+  a {
+    color: #369;
+    text-decoration: none;
+  }
+  /* line 33, templates/blog.sass */
+  a:hover, a:focus {
+    text-decoration: underline;
+  }
+  /* line 35, templates/blog.sass */
+  a:active {
+    color: #369;
+  }
+  /* line 37, templates/blog.sass */
+  a:visited {
+    color: #737;
+  }
+  /* line 39, templates/blog.sass */
+  a img {
+    border: none;
+  }
+
+  /* line 42, templates/blog.sass */
+  .header {
+    border: 1px solid #CCC;
+    outline: #ccc 1px solid;
+    outline-offset: 2px;
+    padding: 15px 20px 0.25em;
+    text-align: center;
+    font-size: 200%;
+    letter-spacing: 0.2em;
+    color: #222;
+    width: 95%;
+  }
+}
+@media screen and (min-width: 980px) {
+  /* line 42, templates/blog.sass */
+  .header {
+    margin: 0px 2% 10px;
+  }
+}
+@media screen and (max-width: 980px) {
+  /* line 42, templates/blog.sass */
+  .header {
+    width: auto;
+  }
+}
+@media screen {
+  /* line 56, templates/blog.sass */
+  .header .subtitle {
+    font-size: 18px;
+  }
+}
+@media screen and (max-width: 980px) {
+  /* line 56, templates/blog.sass */
+  .header .subtitle {
+    display: none;
+  }
+}
+
+@media screen {
+  /* line 61, templates/blog.sass */
+  header {
+    max-width: 99vw;
+    text-align: left;
+    font-size: 14px;
+  }
+
+  /* line 66, templates/blog.sass */
+  nav, aside {
+    position: relative;
+  }
+
+  /* line 69, templates/blog.sass */
+  aside {
+    font-family: "Source Sans Pro", Helvetica, Arial, Freesans, Clean, sans-serif;
+    top: 0;
+    font-size: 13px;
+    text-align: center;
+  }
+}
+@media screen and (min-width: 980px) {
+  /* line 69, templates/blog.sass */
+  aside {
+    float: right;
+    clear: right;
+    max-width: 26%;
+    opacity: 0.1;
+  }
+  /* line 79, templates/blog.sass */
+  aside:hover {
+    opacity: 1 !important;
+  }
+  /* line 81, templates/blog.sass */
+  aside.hover_effect {
+    opacity: 1 !important;
+  }
+}
+@media screen and (max-width: 980px) {
+  /* line 69, templates/blog.sass */
+  aside {
+    padding: 4px;
+    padding-right: 18px;
+    padding-left: 9px;
+    float: none;
+    width: auto;
+  }
+}
+
+@media screen {
+  /* line 90, templates/blog.sass */
+  nav {
+    text-align: center;
+    text-shadow: #000, 1px, 1px, 2px;
+    font-family: Arial, sans-serif;
+    color: #777;
+    opacity: 0.5;
+  }
+}
+@media screen and (max-width: 980px) {
+  /* line 90, templates/blog.sass */
+  nav {
+    font-size: 32px;
+  }
+}
+@media screen and (min-width: 980px) {
+  /* line 90, templates/blog.sass */
+  nav {
+    font-size: 18px;
+  }
+}
+@media screen {
+  /* line 100, templates/blog.sass */
+  nav margin {
+    left: auto;
+    right: auto;
+  }
+  /* line 103, templates/blog.sass */
+  nav .link {
+    padding: 0 5px;
+    opacity: 1;
+  }
+  /* line 106, templates/blog.sass */
+  nav a {
+    color: #000;
+    font-weight: bold;
+  }
+  /* line 109, templates/blog.sass */
+  nav a:hover {
+    opacity: 0.8;
+    text-decoration: none;
+  }
+
+  /* line 113, templates/blog.sass */
+  article[data-source] {
+    overflow: hidden;
+    line-height: 1.4;
+  }
+}
+@media screen and (min-width: 980px) {
+  /* line 113, templates/blog.sass */
+  article[data-source] {
+    width: 68%;
+    min-height: 300px;
+    min-width: 600px;
+    padding-left: 2%;
+    padding-right: 4%;
+    float: left;
+  }
+}
+@media screen and (max-width: 980px) {
+  /* line 113, templates/blog.sass */
+  article[data-source] {
+    float: none;
+    padding: 4px;
+    padding-right: 18px;
+    padding-left: 9px;
+  }
+}
+@media screen {
+  /* line 129, templates/blog.sass */
+  article[data-source] h1 {
+    font-size: 36px;
+    margin-bottom: 0px;
+  }
+  /* line 132, templates/blog.sass */
+  article[data-source] h2 {
+    font-size: 24px;
+    text-align: left;
+    line-height: 0.9;
+  }
+  /* line 137, templates/blog.sass */
+  article[data-source] h3, article[data-source] h4, article[data-source] h5, article[data-source] h6 {
+    font-size: 16px;
+  }
+  /* line 140, templates/blog.sass */
+  article[data-source] h1, article[data-source] h2, article[data-source] h3, article[data-source] h4, article[data-source] h5, article[data-source] h6 {
+    max-width: 90vw;
+  }
+  /* line 144, templates/blog.sass */
+  article[data-source] section.comments {
+    clear: both;
+    margin-top: 20px;
+    padding-top: 20px;
+  }
+}
+@media screen and (max-width: 980px) {
+  /* line 143, templates/blog.sass */
+  article[data-source] section {
+    width: auto;
+    max-width: 99vw;
+  }
+}
+@media screen {
+  /* line 151, templates/blog.sass */
+  article[data-source] section.content {
+    display: block;
+    text-align: justify;
+  }
+  /* line 155, templates/blog.sass */
+  article[data-source] section.content code {
+    font-size: 12px;
+  }
+  /* line 158, templates/blog.sass */
+  article[data-source] section.content ul {
+    max-width: 75vw;
+  }
+  /* line 161, templates/blog.sass */
+  article[data-source] section.content p {
+    margin-bottom: 0;
+  }
+}
+@media screen and (max-width: 980px) {
+  /* line 161, templates/blog.sass */
+  article[data-source] section.content p {
+    max-width: 90vw;
+  }
+}
+@media screen and (min-width: 980px) {
+  /* line 161, templates/blog.sass */
+  article[data-source] section.content p {
+    max-width: 97%;
+  }
+}
+@media screen {
+  /* line 168, templates/blog.sass */
+  article[data-source] section.content p + p {
+    text-indent: 1.5em;
+    margin-top: 0;
+  }
+  /* line 171, templates/blog.sass */
+  article[data-source] section.content p + p .gist {
+    margin-top: 1em;
+    text-indent: 0;
+  }
+  /* line 175, templates/blog.sass */
+  article[data-source] section.content img, article[data-source] section.content video {
+    max-width: 95%;
+    -moz-box-shadow: rgba(0, 0, 0, 0.4), 2px, 1px, 2px;
+    -webkit-box-shadow: rgba(0, 0, 0, 0.4), 2px, 1px, 2px;
+    box-shadow: rgba(0, 0, 0, 0.4), 2px, 1px, 2px;
+    float: left;
+    display: block;
+    margin-top: 0;
+    margin-left: 0;
+    margin-right: 1em;
+    margin-bottom: 2px;
+    border: solid 1px #222;
+  }
+  /* line 187, templates/blog.sass */
+  article[data-source] section.content h1, article[data-source] section.content h2 {
+    clear: left;
+  }
+  /* line 191, templates/blog.sass */
+  article[data-source] section.content article .date {
+    display: inline-block;
+    font-size: 16px;
+    min-width: 80px;
+  }
+
+  /* line 196, templates/blog.sass */
+  .ytVideo {
+    max-width: 80vw;
+  }
+}
+@media screen and (min-width: 980px) {
+  /* line 196, templates/blog.sass */
+  .ytVideo {
+    width: 640px;
+    height: 480px;
+  }
+}
+@media screen and (max-width: 980px) {
+  /* line 196, templates/blog.sass */
+  .ytVideo {
+    width: 480px;
+    height: 375px;
+  }
+}
+@media screen and (max-width: 640px) {
+  /* line 196, templates/blog.sass */
+  .ytVideo {
+    width: 320px;
+    height: 240px;
+  }
+}
+
+@media screen {
+  /* line 208, templates/blog.sass */
+  .gist, .gist-file {
+    font-size: 12px;
+    max-width: 90vw;
+  }
+  /* line 211, templates/blog.sass */
+  .gist .gist-meta, .gist-file .gist-meta {
+    font-size: 9px !important;
+  }
+}
+/* line 214, templates/blog.sass */
+.license {
+  clear: both;
+  margin-top: 2em;
+  font-family: "Source Sans Pro", Helvetica, Arial, Freesans, Clean, sans-serif;
+  font-size: 8pt;
+}
+/* line 219, templates/blog.sass */
+.license a:after {
+  font-size: 8pt !important;
+}
