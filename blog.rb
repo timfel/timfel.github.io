@@ -82,9 +82,7 @@ module ::Blog
     @map = Hash.new { not_found }
     @articles = Dir.glob("articles/*").sort.map { |f| Article.new(f) }
     load './pages.rb'
-    @etag, modified = `git log HEAD~1..HEAD --pretty=format:%h^%ci`.strip.split('^')
-    @last_modified = modified ? Time.parse(modified).httpdate : Time.now.httpdate
-    @etag ||= @last_modified
+    @etag ||= Time.now.httpdate
   end
 
   def call(env)
