@@ -17,6 +17,44 @@
 }
 
 @inproceedings{Niephaus:2019:GTS:3357390.3361024,
+author = {Henning, Johannes and Felgentreff, Tim and Niephaus, Fabio and Hirschfeld, Robert},
+title = {Toward Presizing and Pretransitioning Strategies for GraalPython},
+year = {2020},
+isbn = {9781450375078},
+publisher = {Association for Computing Machinery},
+address = {New York, NY, USA},
+url = {https://doi.org/10.1145/3397537.3397564},
+doi = {10.1145/3397537.3397564},
+abstract = {Presizing and pretransitioning are run-time optimizations that reduce reallocations of lists. These two optimizations have previously been implemented (together with pretenuring) using Mementos in the V8 Javascript engine. The design of Mementos, however, relies on the support of the garbage collector (GC) of the V8 runtime system.  In contrast to V8, dynamic language runtimes written for the GraalVM do not have access to the GC. Thus, the prior work cannot be applied directly. Instead, an alternative implementation approach without reliance on the GC is needed and poses different challenges.  In this paper we explore and analyze an approach for implementing these two optimizations in the context of GraalVM, using the Python implementation for GraalVM as an example. We substantiate these thoughts with rough performance numbers taken from our prototype on which we tested different presizing strategies.},
+booktitle = {Conference Companion of the 4th International Conference on Art, Science, and Engineering of Programming},
+pages = {41–45},
+numpages = {5},
+keywords = {storage strategies, run-time optimizations, GraalVM, Python},
+location = {Porto, Portugal},
+series = {<programming> '20}
+}
+
+@inproceedings{10.1145/3397537.3399577,
+author = {Riese, Alexander and Niephaus, Fabio and Felgentreff, Tim and Hirschfeld, Robert},
+title = {User-Defined Interface Mappings for the GraalVM},
+year = {2020},
+isbn = {9781450375078},
+publisher = {Association for Computing Machinery},
+address = {New York, NY, USA},
+url = {https://doi.org/10.1145/3397537.3399577},
+doi = {10.1145/3397537.3399577},
+abstract = {To improve programming productivity, the right tools are crucial. This starts with the choice of the programming language, which often predetermines the libraries and frameworks one can use. Polyglot runtime environments, such as GraalVM, provide mechanisms for exchanging objects and sending messages across language boundaries, which allow developers to combine different languages, libraries, and frameworks with each other. However, polyglot application developers are obligated to properly use the right interfaces for accessing their data and objects from different languages.  To reduce the mental complexity for developers and let them focus on the business logic, we introduce user-defined interface mappings - an approach for adapting cross-language messages at run-time to match an expected interface. Thereby, the translation strategies are defined in an exchangeable and easy-to-edit configuration file. Thus, different stakeholders ranging from library and framework developers up to application developers can use and extend these mappings for their needs.},
+booktitle = {Conference Companion of the 4th International Conference on Art, Science, and Engineering of Programming},
+pages = {19–22},
+numpages = {4},
+keywords = {polyglot programming, patterns, portability, language interoperability},
+location = {Porto, Portugal},
+series = {<programming> '20}
+}
+
+
+
+@inproceedings{niephaus2019graalsqueak,
  author = {Niephaus, Fabio and Felgentreff, Tim and Hirschfeld, Robert},
  title = {GraalSqueak: Toward a Smalltalk-based Tooling Platform for Polyglot Programming},
  booktitle = {Proceedings of the 16th ACM SIGPLAN International Conference on Managed Programming Languages and Runtimes},
@@ -53,7 +91,7 @@
  keywords = {Squeak/Smalltalk, VMs, built-in behavior, spheres of influence},
 }
 
-@inproceedings{Niephaus:2019:EIS:3328433.3328440,
+@inproceedings{niephaus2019efficient,
  author = {Niephaus, Fabio and Felgentreff, Tim and Pape, Tobias and Hirschfeld, Robert},
  title = {Efficient Implementation of Smalltalk Activation Records in Language Implementation Frameworks},
  booktitle = {Proceedings of the Conference Companion of the 3rd International Conference on Art, Science, and Engineering of Programming},
@@ -71,7 +109,20 @@
  address = {New York, NY, USA},
  keywords = {GraalSqueak, RPython, RSqueak/VM, smalltalk, squeak, truffle},
 }
-
+@inproceedings{niephaus2019towards,
+  title={Towards polyglot adapters for the GraalVM},
+  author={Niephaus, Fabio and Felgentreff, Tim and Hirschfeld, Robert},
+  booktitle={Proceedings of the Conference Companion of the 3rd International Conference on Art, Science, and Engineering of Programming},
+  pages={1--3},
+  year={2019}
+}
+@book{felgentreff120squimera,
+  title={Squimera: a live, Smalltalk-based IDE for dynamic programming languages},
+  author={Niephaus, Fabio and Felgentreff, Tim and Hirschfeld, Robert},
+  year={2018},
+  volume={Tech. rep. 120},
+  publisher={Universit{\"a}tsverlag Potsdam}
+}
 @article{DBLP:journals/programming/NiephausFPHT18,
   author    = {Fabio Niephaus and
                Tim Felgentreff and

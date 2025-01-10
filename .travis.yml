@@ -1,18 +1,17 @@
 language: ruby
 rvm:
-  - 2.3.3
+  - 2.6.5
 sudo: required
-dist: trusty
+dist: bionic
 group: edge
 branches:
   only:
     - trunk
-before_install:
-  - "export DISPLAY=:99.0"
-  - "sh -e /etc/init.d/xvfb start"
+services:
+  - xvfb
 install:
   - sudo apt-get install -yy wkhtmltopdf libimage-exiftool-perl pandoc pandoc-citeproc
-  - bundle install
+  - bundle update --bundler
 script:
   - bundle exec rake
 after_success:
