@@ -36,6 +36,7 @@ jobs:
           ruby-version: '3.3' # Not needed with a `.ruby-version` or `.tool-versions`
           bundler-cache: true # runs 'bundle install' and caches installed gems automatically
       - run: |
+          sudo apt-get update
           sudo apt-get install -yy wkhtmltopdf libimage-exiftool-perl pandoc
           bundle exec rake
       - name: Upload artifact
